@@ -29,7 +29,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Order`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Order` (
-  `idOrder` INT NOT NULL,
+  `idOrder` INT NOT NULL AUTO_INCREMENT,
   `OrderDate` INT NOT NULL,
   `PriceTotal` INT NOT NULL,
   `Users_idUser` INT NOT NULL,
@@ -49,7 +49,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Materials`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Materials` (
-  `MaterialsID` INT NOT NULL,
+  `MaterialsID` INT NOT NULL AUTO_INCREMENT,
   `MaterialsName` VARCHAR(45) NOT NULL,
   `QuantityInOrder` INT NOT NULL,
   `MaterialsInStock` INT NOT NULL,
