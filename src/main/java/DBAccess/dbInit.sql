@@ -3,8 +3,9 @@ CREATE DATABASE  IF NOT EXISTS `useradmin`;
 
 USE `useradmin`;
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
+DROP TABLE IF EXISTS `Users`;
+
+CREATE TABLE `Users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(90) NOT NULL,
   `password` varchar(45) NOT NULL,
@@ -13,8 +14,8 @@ CREATE TABLE `users` (
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
-LOCK TABLES `users` WRITE;
-INSERT INTO `users` VALUES 
+LOCK TABLES `Users` WRITE;
+INSERT INTO `Users` VALUES 
 (1,'jens@somewhere.com','jensen','customer'),
 (2,'ken@somewhere.com','kensen','customer'),
 (3,'robin@somewhere.com','batman','employee');
