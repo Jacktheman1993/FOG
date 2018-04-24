@@ -88,8 +88,12 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 LOCK TABLES `Users` WRITE;
+
 INSERT INTO `Users` VALUES 
 (1,'jens@somewhere.com','jensen','customer'),
 (2,'ken@somewhere.com','kensen','customer'),
 (3,'robin@somewhere.com','batman','employee');
+LOCK TABLES `Order` WRITE;
+INSERT INTO `Order` VALUES
+(1, 24-04-2018, 8500, 1,'hjortevej 9','88888888');
 UNLOCK TABLES;
