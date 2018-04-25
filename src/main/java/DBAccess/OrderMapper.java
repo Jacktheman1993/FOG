@@ -24,7 +24,7 @@ public class OrderMapper
 //public static int createOrder( int id, int height, int length, int width ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO `Order` ( idOrder, OrderDate, PriceTotal, Address, Phone) VALUES (?,?,?,?,?)";
+            String SQL = "INSERT INTO `Orders` ( idOrder, OrderDate, PriceTotal, Address, Phone) VALUES (?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
             ps.setInt( 1, idOrder);
             ps.setInt( 2, OrderDate );
@@ -44,7 +44,7 @@ public class OrderMapper
         public static Order getOrder( int idOrder ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "select * from `Order` where idOrder = ?";
+            String SQL = "select * from `Orders` where idOrder = ?";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setInt( 1, idOrder );
             ResultSet rs = ps.executeQuery();
