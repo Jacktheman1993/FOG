@@ -1,5 +1,6 @@
 package FunctionLayer;
 
+import DBAccess.OrderMapper;
 import DBAccess.UserMapper;
 
 /**
@@ -17,5 +18,8 @@ public class LogicFacade {
         UserMapper.createUser( user );
         return user;
     }
-
+public static Order getOrder(int idOrder) throws Exception
+    {
+        return OrderMapper.getOrder(idOrder);
+    }
 }

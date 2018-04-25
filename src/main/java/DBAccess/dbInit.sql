@@ -95,5 +95,5 @@ INSERT INTO `Users` VALUES
 (3,'robin@somewhere.com','batman','employee');
 LOCK TABLES `Order` WRITE;
 INSERT INTO `Order` VALUES
-(1, 24-04-2018, 8500, 1,'hjortevej 9','88888888');
+(1, 24042018, 8500, 1,'hjortevej 9','88888888');
 UNLOCK TABLES;

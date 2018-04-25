@@ -20,9 +20,9 @@ public class Test
 
         
       Order o = OrderMapper.getOrder(1);
-        System.out.println("order " + o);
- //       User u = new User("test@test.dk", "pass", "customer");
+      System.out.println("order " + o);
+//       User u = new User("test@test.dk", "pass", "customer");
 //        int createdOrderID = OrderMapper.createOrder(u, 1, 5, 10, "Lars", "Phone");
- //     System.out.println(createdOrderID);
+//     System.out.println(createdOrderID);
     }
 }
