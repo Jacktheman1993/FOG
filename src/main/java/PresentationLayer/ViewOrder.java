@@ -25,10 +25,10 @@ public class ViewOrder extends Command
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException
     {   
-        OrderMapper.getOrder(1);
+        Order ord = OrderMapper.getOrder(1);
        
         
-//        request.setAttribute("order", order);
+        request.setAttribute("order", ord);
         
         return "order";
     }

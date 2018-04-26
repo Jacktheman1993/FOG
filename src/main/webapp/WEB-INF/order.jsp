@@ -10,5 +10,9 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <%
+            Order ord = (Order)request.getAttribute("order" );
+            %>
+            <h2> <%=ord.getIdOrder()%> </h2>
     </body>
 </html>
