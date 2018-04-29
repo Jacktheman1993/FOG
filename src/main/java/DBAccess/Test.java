@@ -8,6 +8,7 @@ package DBAccess;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Order;
 import FunctionLayer.User;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,11 +19,14 @@ public class Test
     public static void main(String[] args) throws Exception
     {
 
-        
+        ArrayList<Order> o = OrderMapper.getOrders();
+        System.out.println(o);
+/*        
       Order o = OrderMapper.getOrder(1);
       System.out.println("order " + o);
 //       User u = new User("test@test.dk", "pass", "customer");
 //        int createdOrderID = OrderMapper.createOrder(u, 1, 5, 10, "Lars", "Phone");
 //     System.out.println(createdOrderID);
+*/
     }
 }

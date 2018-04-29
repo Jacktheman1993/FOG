@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -66,4 +67,41 @@ public class OrderMapper
             throw new LoginSampleException(ex.getMessage());
         }
     }
+        
+        
+        public static ArrayList<Order> getOrders() throws LoginSampleException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "select * from `Orders`";
+            PreparedStatement ps = con.prepareStatement( SQL );
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Order> list = new ArrayList<>();
+            while ( rs.next() ) {
+                
+            list.add(new Order(rs.getInt("idOrder"), rs.getInt("OrderDate"), rs.getInt("PriceTotal"), rs.getString("Address"), rs.getString("Phone")));
+
+                
+ //               Order getorder = new Order(idOrder, OrderDate, PriceTotal, Address, Phone);
+//                getorder.setOrderDate(rs.getInt("OrderDate"));
+//                getorder.setPriceTotal(rs.getInt("PriceTotal"));
+//                getorder.setAddress(rs.getString("Address"));
+//                getorder.setPhone(rs.getString("Phone"));
+
+//                String orderID = rs.getString( "orderID" );
+//                getorder.setOrderID(orderID);
+//                return rs;
+            }
+            if(list.size() > 0){
+                return list;
+            }
+            else {
+                throw new LoginSampleException( "Something went wrong: list size is less than 0" );
+            }
+        } catch ( ClassNotFoundException | SQLException ex ) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
+        
+        
+        
 }
