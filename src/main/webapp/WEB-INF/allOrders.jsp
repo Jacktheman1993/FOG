@@ -19,7 +19,8 @@
 
                 <h1>Orders</h1>
                 <% for(int i = 0; i < listen.size(); i++){
-                    out.println("New Order: " + listen.get(i));
+                    out.println("New Order: " + listen.get(i)+"<br>");
+                    
                 }
                 %>
     </body>
