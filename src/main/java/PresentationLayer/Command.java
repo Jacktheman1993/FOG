@@ -15,6 +15,7 @@ abstract class Command {
         commands.put( "register", new Register() );
         commands.put( "order", new ViewOrder() );
         commands.put( "allOrders", new AllOrders() );
+        commands.put( "carportdrawing", new carportdrawing());
     
 
     }
