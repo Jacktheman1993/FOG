@@ -12,78 +12,64 @@ package FunctionLayer;
 public class Order
 {
     private int idOrder;
-    private int OrderDate;
+    private String OrderDate;
     private int PriceTotal;
     private String Address;
-    private String Phone;
-    
-    public Order(int idOrder, int OrderDate, int PriceTotal, String Address, String Phone) {
+    private int Phone;
+
+    public Order(int idOrder, String OrderDate, int PriceTotal, String Address, int Phone) {
         this.idOrder = idOrder;
         this.OrderDate = OrderDate;
         this.PriceTotal = PriceTotal;
         this.Address = Address;
         this.Phone = Phone;
     }
-    public Order(int idOrder){
-        this.idOrder = idOrder;
-        
-        
-    }
 
-    public int getIdOrder()
-    {
+    public int getIdOrder() {
         return idOrder;
     }
 
-    public void setIdOrder(int idOrder)
-    {
+    public void setIdOrder(int idOrder) {
         this.idOrder = idOrder;
     }
 
-    public int getOrderDate()
-    {
+    public String getOrderDate() {
         return OrderDate;
     }
 
-    public void setOrderDate(int OrderDate)
-    {
+    public void setOrderDate(String OrderDate) {
         this.OrderDate = OrderDate;
     }
 
-    public int getPriceTotal()
-    {
+    public int getPriceTotal() {
         return PriceTotal;
     }
 
-    public void setPriceTotal(int PriceTotal)
-    {
+    public void setPriceTotal(int PriceTotal) {
         this.PriceTotal = PriceTotal;
     }
 
-    public String getAddress()
-    {
+    public String getAddress() {
         return Address;
     }
 
-    public void setAddress(String Address)
-    {
+    public void setAddress(String Address) {
         this.Address = Address;
     }
 
-    public String getPhone()
-    {
+    public int getPhone() {
         return Phone;
     }
 
-    public void setPhone(String Phone)
-    {
+    public void setPhone(int Phone) {
         this.Phone = Phone;
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Order{" + "idOrder=" + idOrder + ", OrderDate=" + OrderDate + ", PriceTotal=" + PriceTotal + ", Address=" + Address + ", Phone=" + Phone + '}';
     }
+    
+    
             
 }
