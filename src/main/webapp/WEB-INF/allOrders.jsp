@@ -11,10 +11,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Emp Alle Ordre</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
         <% ArrayList<Order>listen = (ArrayList<Order>) request.getAttribute("allOrders");%>
 
                 <h1>Orders</h1>
