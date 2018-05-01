@@ -5,25 +5,33 @@
  */
 package FunctionLayer;
 
+import java.sql.Date;
+//import java.util.Calendar;
 /**
  *
  * @author Martin
  */
 public class Order
 {
+//    private java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
     private int idOrder;
-    private String OrderDate;
+    private Date OrderDate;
     private int PriceTotal;
     private String Address;
     private int Phone;
 
-    public Order(int idOrder, String OrderDate, int PriceTotal, String Address, int Phone) {
+    public Order(int idOrder, Date OrderDate, int PriceTotal, String Address, int Phone) {
         this.idOrder = idOrder;
         this.OrderDate = OrderDate;
         this.PriceTotal = PriceTotal;
         this.Address = Address;
         this.Phone = Phone;
     }
+
+    public Order(int idOrder) {
+        this.idOrder = idOrder;
+    }
+    
 
     public int getIdOrder() {
         return idOrder;
@@ -33,11 +41,11 @@ public class Order
         this.idOrder = idOrder;
     }
 
-    public String getOrderDate() {
+    public Date getOrderDate() {
         return OrderDate;
     }
 
-    public void setOrderDate(String OrderDate) {
+    public void setOrderDate(Date OrderDate) {
         this.OrderDate = OrderDate;
     }
 

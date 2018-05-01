@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  *
@@ -21,17 +22,18 @@ import java.util.ArrayList;
  */
 public class OrderMapper
 {
-    public static int createOrder( User user, int idOrder, int OrderDate, int PriceTotal, String Address, String Phone ) throws LoginSampleException {
+    public static int createOrder( User user, int idOrder, String OrderDate, int PriceTotal, String Address, int Phone ) throws LoginSampleException {
 //public static int createOrder( int id, int height, int length, int width ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
+            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
             String SQL = "INSERT INTO `Orders` ( idOrder, OrderDate, PriceTotal, Address, Phone) VALUES (?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
             ps.setInt( 1, idOrder);
-            ps.setInt( 2, OrderDate );
+            ps.setString( 2, OrderDate );
             ps.setInt( 3, PriceTotal );
             ps.setString( 4, Address);
-            ps.setString( 5, Phone);
+            ps.setInt( 5, Phone);
 //            ps.setInt( 4, id);
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
@@ -45,6 +47,7 @@ public class OrderMapper
         public static Order getOrder( int idOrder ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
+            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
             String SQL = "select * from `Orders` where idOrder = ?";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setInt( 1, idOrder );
@@ -52,10 +55,11 @@ public class OrderMapper
             if ( rs.next() ) {
                 
                 Order getorder = new Order(idOrder);
-                getorder.setOrderDate(rs.getInt("OrderDate"));
+                getorder.setOrderDate(rs.getDate("OrderDate"));
+//                getorder.setOrderDate(date);
                 getorder.setPriceTotal(rs.getInt("PriceTotal"));
                 getorder.setAddress(rs.getString("Address"));
-                getorder.setPhone(rs.getString("Phone"));
+                getorder.setPhone(rs.getInt("Phone"));
                 return getorder;
 //                String orderID = rs.getString( "orderID" );
 //                getorder.setOrderID(orderID);
@@ -78,7 +82,7 @@ public class OrderMapper
             ArrayList<Order> list = new ArrayList<>();
             while ( rs.next() ) {
                 
-            list.add(new Order(rs.getInt("idOrder"), rs.getInt("OrderDate"), rs.getInt("PriceTotal"), rs.getString("Address"), rs.getString("Phone")));
+            list.add(new Order(rs.getInt("idOrder"), rs.getDate("OrderDate"), rs.getInt("PriceTotal"), rs.getString("Address"), rs.getInt("Phone")));
 
                 
  //               Order getorder = new Order(idOrder, OrderDate, PriceTotal, Address, Phone);
