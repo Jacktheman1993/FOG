@@ -16,5 +16,6 @@
         You are now logged in as a customer of our wonderful site.
         <a href="FrontController?command=order"><button>Gå til ordre</button></a>
         <a href="FrontController?command=carportdrawing"><button>Gå til tegning af carport</button></a>
+        <a href="FrontController?command=orderinput"><button>Gå til bestilling</button></a>
     </body>
 </html>

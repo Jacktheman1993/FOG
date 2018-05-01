@@ -16,6 +16,7 @@ abstract class Command {
         commands.put( "order", new ViewOrder() );
         commands.put( "allOrders", new AllOrders() );
         commands.put( "carportdrawing", new carportdrawing());
+        commands.put( "orderinput", new OrderInput());
     
 
     }
