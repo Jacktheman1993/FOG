@@ -18,9 +18,9 @@ public class Order
     private Date OrderDate;
     private int PriceTotal;
     private String Address;
-    private int Phone;
+    private String Phone;
 
-    public Order(int idOrder, Date OrderDate, int PriceTotal, String Address, int Phone) {
+    public Order(int idOrder, Date OrderDate, int PriceTotal, String Address, String Phone) {
         this.idOrder = idOrder;
         this.OrderDate = OrderDate;
         this.PriceTotal = PriceTotal;
@@ -65,11 +65,11 @@ public class Order
         this.Address = Address;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return Phone;
     }
 
-    public void setPhone(int Phone) {
+    public void setPhone(String Phone) {
         this.Phone = Phone;
     }
 

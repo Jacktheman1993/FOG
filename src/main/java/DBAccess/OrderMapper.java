@@ -9,6 +9,7 @@ import FunctionLayer.LoginSampleException;
 import FunctionLayer.Order;
 import FunctionLayer.User;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,7 +23,10 @@ import java.util.Calendar;
  */
 public class OrderMapper
 {
-    public static int createOrder( User user, int idOrder, String OrderDate, int PriceTotal, String Address, int Phone ) throws LoginSampleException {
+    
+    java.sql.Date date1 = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+    
+    public static int createOrder( /*User user,*/ int idOrder, Date OrderDate, int PriceTotal, String Address, String Phone ) throws LoginSampleException {
 //public static int createOrder( int id, int height, int length, int width ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -30,16 +34,18 @@ public class OrderMapper
             String SQL = "INSERT INTO `Orders` ( idOrder, OrderDate, PriceTotal, Address, Phone) VALUES (?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
             ps.setInt( 1, idOrder);
-            ps.setString( 2, OrderDate );
+ //           ps.setDate( 2, OrderDate );
+            ps.setDate( 2, date );
             ps.setInt( 3, PriceTotal );
             ps.setString( 4, Address);
-            ps.setInt( 5, Phone);
+            ps.setString( 5, Phone);
 //            ps.setInt( 4, id);
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
 //            int id = ids.getInt( 1 );
             return ids.getInt( 1 );
+
         } catch ( SQLException | ClassNotFoundException ex ) {
             throw new LoginSampleException( ex.getMessage() );
         }
@@ -47,7 +53,7 @@ public class OrderMapper
         public static Order getOrder( int idOrder ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+//            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
             String SQL = "select * from `Orders` where idOrder = ?";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setInt( 1, idOrder );
@@ -59,7 +65,7 @@ public class OrderMapper
 //                getorder.setOrderDate(date);
                 getorder.setPriceTotal(rs.getInt("PriceTotal"));
                 getorder.setAddress(rs.getString("Address"));
-                getorder.setPhone(rs.getInt("Phone"));
+                getorder.setPhone(rs.getString("Phone"));
                 return getorder;
 //                String orderID = rs.getString( "orderID" );
 //                getorder.setOrderID(orderID);
@@ -82,7 +88,7 @@ public class OrderMapper
             ArrayList<Order> list = new ArrayList<>();
             while ( rs.next() ) {
                 
-            list.add(new Order(rs.getInt("idOrder"), rs.getDate("OrderDate"), rs.getInt("PriceTotal"), rs.getString("Address"), rs.getInt("Phone")));
+            list.add(new Order(rs.getInt("idOrder"), rs.getDate("OrderDate"), rs.getInt("PriceTotal"), rs.getString("Address"), rs.getString("Phone")));
 
                 
  //               Order getorder = new Order(idOrder, OrderDate, PriceTotal, Address, Phone);
