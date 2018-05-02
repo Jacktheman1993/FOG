@@ -1,5 +1,5 @@
         <%@include file="//includes/header.jsp" %>  
-        <h1>Welcome to Sem 2</h1>
+        <h1>Fog Carporte</h1>
         
         <table>
             <tr><td>Login</td>

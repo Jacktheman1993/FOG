@@ -16,13 +16,13 @@
                 <h2>Indtast størrelsen på carport</h2>
             <form name="shop" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="createorder">
-                        <h3>Højde i meter</h3><br>
+                        <h3>Højde i meter</h3>
                         <input type="number" name="height" value="5">
                         <br>
-                        <h3>Længde i meter</h3><br>
+                        <h3>Længde i meter</h3>
                         <input type="number" name="length" value="5">
                         <br>
-                        <h3>Bredde i meter</h3><br>
+                        <h3>Bredde i meter</h3>
                         <input type="number" name="width" value="5">
                         <br>
                         <br>
