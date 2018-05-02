@@ -11,6 +11,8 @@ import FunctionLayer.Order;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import sun.security.pkcs11.wrapper.Functions;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -24,7 +26,7 @@ public class AllOrders extends Command {
         ArrayList<Order> ord = OrderMapper.getOrders();
         
         request.setAttribute("allOrders", ord);
-       
+        
         return "allOrders";
 
     }

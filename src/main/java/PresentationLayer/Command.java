@@ -4,6 +4,7 @@ import FunctionLayer.LoginSampleException;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 abstract class Command {
 
@@ -29,7 +30,8 @@ abstract class Command {
         return commands.getOrDefault(commandName, new UnknownCommand() );
     }
 
-    abstract String execute( HttpServletRequest request, HttpServletResponse response ) 
+
+    abstract String execute( HttpServletRequest request, HttpServletResponse response) 
             throws LoginSampleException;
 
 }
