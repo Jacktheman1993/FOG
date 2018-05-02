@@ -105,7 +105,7 @@ public class OrderMapper
                 return list;
             }
             else {
-                throw new LoginSampleException( "Something went wrong: list size is less than 0" );
+                throw new LoginSampleException( "Something went wrong: list size is less than 1" );
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
             throw new LoginSampleException(ex.getMessage());

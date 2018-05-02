@@ -1,18 +1,15 @@
+<%@include file="//includes/header.jsp" %>  
 <%@page import="FunctionLayer.Order"%>
 <%@page import="FunctionLayer.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-        <%
-            Order ord = (Order)request.getAttribute("order" );
-            %>
+        <h1>mine Ordre</h1>
+        <% Order ord = (Order)request.getAttribute("order" );%>
+            <h2>Nye Ordre</h2>
             <h2> <%=ord.getIdOrder()%> </h2>
-    </body>
-</html>
+            <h2> <%=ord.getOrderDate()%> </h2>
+            <h2> <%=ord.getPriceTotal() %> </h2>
+            
+            <h2>Gamle Ordre</h2>
+            <h2></h2>
+            
+<%@include file="//includes/footer.jsp" %>  

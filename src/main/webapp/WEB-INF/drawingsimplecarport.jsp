@@ -1,17 +1,4 @@
-<%-- 
-    Document   : drawingsimplecarport
-    Created on : 30-04-2018, 11:02:05
-    Author     : Martin
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-<body>
+<%@include file="//includes/header.jsp" %>  
 
 <SVG width="900" height=900>
 <rect x="30" y="0" height="600" width="780"
@@ -82,8 +69,4 @@
 
 </SVG>
 
-</body>
-</html>
-
-    </body>
-</html>
+<%@include file="//includes/footer.jsp" %>  

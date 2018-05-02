@@ -1,21 +1,8 @@
-<%-- 
-    Document   : customerpage
-    Created on : Aug 22, 2017, 2:33:37 PM
-    Author     : kasper
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@include file="//includes/header.jsp" %> 
         <title>Customer home page</title>
-    </head>
-    <body>
         <h1>Hello <%=request.getParameter( "email" )%> </h1>
         You are now logged in as a customer of our wonderful site.
-        <a href="FrontController?command=order"><button>GÃ¥ til ordre</button></a>
-        <a href="FrontController?command=carportdrawing"><button>GÃ¥ til tegning af carport</button></a>
-        <a href="FrontController?command=orderinput"><button>GÃ¥ til bestilling</button></a>
-    </body>
-</html>
+        <a href="FrontController?command=order"><button>Gå til mine ordre</button></a>
+        <a href="FrontController?command=carportdrawing"><button>Gå til tegning af carport</button></a>
+        <a href="FrontController?command=orderinput"><button>Gå til bestilling</button></a>
+<%@include file="//includes/footer.jsp" %> 
