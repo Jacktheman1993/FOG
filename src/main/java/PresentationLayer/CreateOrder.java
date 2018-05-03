@@ -25,6 +25,8 @@ public class CreateOrder extends Command
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         int getwidth = Integer.parseInt(request.getParameter( "width" ));
         int getlength = Integer.parseInt(request.getParameter("length"));
+        int getheight = Integer.parseInt(request.getParameter("height"));
+        
         Calc itemList = new Calc();
         int[] result = itemList.result(getlength, getwidth);
         
@@ -32,7 +34,7 @@ public class CreateOrder extends Command
         User user = (User)request.getSession().getAttribute("user");
 
    
-        OrderMapper.createOrder(user, getwidth, getlength);
+        OrderMapper.createOrder(getwidth, getlength, getheight);
 
         return "order";
 }
