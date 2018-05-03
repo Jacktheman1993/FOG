@@ -56,7 +56,7 @@ public static int createOrder(int width, int length, int height) throws LoginSam
             {
 
                 Order getorder = new Order(idOrder);
-                getorder.setOrderID(idOrder);
+                getorder.setIDorder(idOrder);
                 getorder.setWidth(rs.getInt("width"));
 //                getorder.setOrderDate(date);
                 getorder.setLength(rs.getInt("length"));
