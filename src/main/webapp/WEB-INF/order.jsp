@@ -6,8 +6,6 @@
         <% Order ord = (Order)request.getAttribute("order" );%>
             <h2>Nye Ordre</h2>
             <h2>Ordre id: <%=ord.getIdOrder()%> </h2>
-            <h2>Dato: <%=ord.getOrderDate()%> </h2>
-            <h2>Total pris: <%=ord.getPriceTotal() %> </h2>
             <br>
             <h2>Gamle Ordre</h2>
             <h2></h2>

@@ -1,17 +1,5 @@
 <%@include file="//includes/header.jsp" %>
-        <h1>Hello World!</h1>
-        
-        <form name="login" action="FrontController" method="POST">
-            <input type="hidden" name="command" value="login">
-            <p>Indtast leverings addresse</p>
-            <input type="text" name="address" value=" Nørgaardsvej 30">
-            <p>Indtast telefon nummer</p>
-            <input type="text" name="nummer" value="36 15 45 04" />
-            <br>
-            <br>
-            <input type="submit" value="Submit">
-                 </form>   
-              
+        <h1>Ordre Input</h1> 
             <form action="Control" method="POST">
                 <h2>Indtast størrelsen på carport</h2>
             <form name="shop" action="FrontController" method="POST">
