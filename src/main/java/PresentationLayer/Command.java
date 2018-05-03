@@ -14,13 +14,11 @@ abstract class Command {
         commands = new HashMap<>();
         commands.put( "login", new Login() );
         commands.put( "register", new Register() );
-        commands.put( "order", new ViewOrder() );
         commands.put( "allOrders", new AllOrders() );
-        commands.put( "carportdrawing", new carportdrawing());
-        commands.put( "orderinput", new OrderInput());
-        commands.put( "insertdata", new InsertData());
+        commands.put( "carportdrawing", new Carportdrawing());
         commands.put( "getdata", new GetData());
-    
+        commands.put( "orderinput", new Orderinput());
+        commands.put( "neworder", new NewOrder());
 
     }
 

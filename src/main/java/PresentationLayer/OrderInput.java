@@ -5,19 +5,25 @@
  */
 package PresentationLayer;
 
+import DBAccess.OrderMapper;
 import FunctionLayer.LoginSampleException;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Alek
+ * @author simon
  */
-public class OrderInput extends Command {
-    
+public class Orderinput extends Command {
+
+    public Orderinput() {
+    }
+
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException
-    {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+        
         return "orderinput";
     }
+    
 }
