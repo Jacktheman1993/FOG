@@ -18,6 +18,8 @@ abstract class Command {
         commands.put( "allOrders", new AllOrders() );
         commands.put( "carportdrawing", new carportdrawing());
         commands.put( "orderinput", new OrderInput());
+        commands.put( "insertdata", new InsertData());
+        commands.put( "getdata", new GetData());
     
 
     }

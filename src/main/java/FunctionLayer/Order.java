@@ -19,6 +19,8 @@ public class Order
     private int PriceTotal;
     private String Address;
     private String Phone;
+    private int length;
+    private int width;
 
     public Order(int idOrder, Date OrderDate, int PriceTotal, String Address, String Phone) {
         this.idOrder = idOrder;
@@ -30,6 +32,31 @@ public class Order
 
     public Order(int idOrder) {
         this.idOrder = idOrder;
+    }
+    public Order(int width, int length) {
+        this.width = width;
+        this.length = length;
+        
+    }
+
+    public int getLength()
+    {
+        return length;
+    }
+
+    public void setLength(int length)
+    {
+        this.length = length;
+    }
+
+    public int getWidth()
+    {
+        return width;
+    }
+
+    public void setWidth(int width)
+    {
+        this.width = width;
     }
     
 
@@ -74,9 +101,11 @@ public class Order
     }
 
     @Override
-    public String toString() {
-        return "Order{" + "idOrder=" + idOrder + ", OrderDate=" + OrderDate + ", PriceTotal=" + PriceTotal + ", Address=" + Address + ", Phone=" + Phone + '}';
+    public String toString()
+    {
+        return "Order{" + "idOrder=" + idOrder + ", OrderDate=" + OrderDate + ", PriceTotal=" + PriceTotal + ", Address=" + Address + ", Phone=" + Phone + ", length=" + length + ", width=" + width + '}';
     }
+
     
     
             

@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 package PresentationLayer;
-
+import FunctionLayer.Calc;
 import DBAccess.OrderMapper;
 import DBAccess.UserMapper;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.User;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,24 +19,22 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Martin
  */
-public class CreateOrder
+public class CreateOrder extends Command
 {
-/*@Override
+@Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-        int getlength = Integer.parseInt(request.getParameter("length"));
         int getwidth = Integer.parseInt(request.getParameter( "width" ));
-        int getheight = Integer.parseInt(request.getParameter( "height" ));
-
-        
-        
-        
+        int getlength = Integer.parseInt(request.getParameter("length"));
         Calc itemList = new Calc();
-        int[] result = itemList.result(getheight, getlength, getwidth);
+        int[] result = itemList.result(getlength, getwidth);
         
         request.setAttribute("itemlist", result);
-        
         User user = (User)request.getSession().getAttribute("user");
-        OrderMapper.createOrder(user, getwidth, getwidth, getlength, Address, Phone);
-        return "order"; */
+
+   
+        OrderMapper.createOrder(user, getwidth, getlength);
+
+        return "order";
+}
 }
 
