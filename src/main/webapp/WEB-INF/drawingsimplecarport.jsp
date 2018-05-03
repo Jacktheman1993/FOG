@@ -24,7 +24,7 @@
 <line stroke-dasharray="5, 5"              x1="85" y1="530" x2="525" y2="70" style="stroke:#006600;"/>
 
   <text x="280" y="20" transform="rotate(90 0,20)">
-    Height
+    Width
   </text>
   <text x="400" y="650">
     Length

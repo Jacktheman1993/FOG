@@ -24,8 +24,11 @@ java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime(
         System.out.println(i);
 
                 
-    Order o = OrderMapper.getOrder(3);
-    System.out.println("order " + o);
+    //Order o = OrderMapper.getOrder(3);
+    //System.out.println("order " + o);
+    User u = new User("test@test.dk", "pass", "customer");
+    int ord = OrderMapper.createOrder(123123123, 10, 15);
+    System.out.println("New Order" + ord);
 
     }
 }
