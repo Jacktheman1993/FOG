@@ -14,15 +14,28 @@ import java.sql.Date;
 public class Order
 {
 //    private java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-
+    private int orderID;
     private int width;
     private int length;
     private int height;
 
-    public Order(int width, int length, int height) {
+    public Order(int orderID, int width, int length, int height) {
+        this.orderID = orderID;
         this.width = width;
         this.length = length;
         this.height = height;
+    }
+
+    public Order(int orderID) {
+        this.orderID = orderID;
+    }
+
+    public int getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(int orderID) {
+        this.orderID = orderID;
     }
 
     public int getWidth() {
@@ -51,8 +64,9 @@ public class Order
 
     @Override
     public String toString() {
-        return "Order{" + "width=" + width + ", length=" + length + ", height=" + height + '}';
+        return "Order{" + "orderID=" + orderID + ", width=" + width + ", length=" + length + ", height=" + height + '}';
     }
+
 
 }
     
