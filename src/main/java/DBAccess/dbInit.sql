@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `useradmin`.`Materials` (
   `QuantityInOrder` INT(11) NOT NULL,
   `MaterialsInStock` INT(11) NOT NULL,
   `MaterialsInOrders` INT(11) NOT NULL,
+  `Pris` INT(11) NOT NULL,
   PRIMARY KEY (`MaterialsID`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
@@ -57,10 +58,14 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `useradmin`.`Orders` (
   `idOrder` INT(11) NOT NULL auto_increment,
-  `OrderDate` date NOT NULL,
-  `PriceTotal` INT(11) NOT NULL,
-  `Address` VARCHAR(45) NOT NULL,
-  `Phone` VARCHAR(45) NOT NULL,
+  #`OrderDate` date NOT NULL,
+  #`PriceTotal` INT(11) NOT NULL,
+  #`Address` VARCHAR(45) NOT NULL,
+  #`Phone` VARCHAR(45) NOT NULL,
+  #`height` int(11) NOT NULL,
+  `width` int(11) NOT NULL,
+  `length` int(11) NOT NULL,
+  `height` int(11) NOT NULL default 250,
   #`Users_id` INT(11) NOT NULL,
   PRIMARY KEY (`idOrder`));
   #INDEX `fk_Orders_Users1_idx` (`Users_id` ASC),
@@ -72,14 +77,14 @@ CREATE TABLE IF NOT EXISTS `useradmin`.`Orders` (
 #ENGINE = InnoDB
 #DEFAULT CHARACTER SET = latin1;
 
-CREATE TABLE IF NOT EXISTS `useradmin`.`Carports` (
-  `idCarport` INT(11) NOT NULL auto_increment,
-  `type` varchar(45) NOT NULL DEFAULT 'Minus skur',
-  `tag` INT(2) NOT NULL,
-  `height` int(11) NOT NULL,
-  `length` int(11) NOT NULL,
-  `width` int(11) NOT NULL,
-  primary key (`idCarport`));
+#CREATE TABLE IF NOT EXISTS `useradmin`.`Carports` (
+ # `idCarport` INT(11) NOT NULL auto_increment,
+  #`type` varchar(45) NOT NULL DEFAULT 'Minus skur',
+  #`tag` INT(2) NOT NULL,
+  #`height` int(11) NOT NULL,
+  #`length` int(11) NOT NULL,
+  #`width` int(11) NOT NULL,
+  #primary key (`idCarport`));
   
   
 -- -----------------------------------------------------
@@ -118,13 +123,16 @@ INSERT INTO `Users` VALUES
 
 LOCK TABLES `Orders` WRITE;
 INSERT INTO `Orders` VALUES
-(1, (DATE '20120109'), 8500,'hjortevej 9','88888888'),
-(2, (DATE '20120109'), 1500,'hjortevej 29','88888888'),
-(3, (DATE '20120109'), 9001,'hjortevej 69','88888888');
+#(1, (DATE '20120109'), 2.5, 5, 3),
+#(2, (DATE '20120109'), 2.5, 5, 5),
+#(3, (DATE '20120109'), 2.5, 8, 4);
 
-LOCK TABLES `Carports` WRITE;
-INSERT INTO `Carports` VALUES
-(1, 'Minus skur', 1, 5, 5, 5),
-(2, 'Plus skur', 1, 2.5, 5, 3);
+(1,500,800, 250),
+(2,400,600, 250);
+
+#LOCK TABLES `Carports` WRITE;
+#INSERT INTO `Carports` VALUES
+#(1, 'Minus skur', 1, 5, 5, 5),
+#(2, 'Plus skur', 1, 2.5, 5, 3);
 
 UNLOCK TABLES;
