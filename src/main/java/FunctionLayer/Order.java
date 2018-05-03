@@ -14,98 +14,45 @@ import java.sql.Date;
 public class Order
 {
 //    private java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-    private int idOrder;
-    private Date OrderDate;
-    private int PriceTotal;
-    private String Address;
-    private String Phone;
+
     private int width;
     private int length;
+    private int height;
 
-    public Order(int idOrder, Date OrderDate, int PriceTotal, String Address, String Phone) {
-        this.idOrder = idOrder;
-        this.OrderDate = OrderDate;
-        this.PriceTotal = PriceTotal;
-        this.Address = Address;
-        this.Phone = Phone;
-    }
-    public Order(int width, int length ) {
+    public Order(int width, int length, int height) {
         this.width = width;
         this.length = length;
+        this.height = height;
     }
 
-    public int getWidth()
-    {
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(int width)
-    {
+    public void setWidth(int width) {
         this.width = width;
     }
 
-    public int getLength()
-    {
+    public int getLength() {
         return length;
     }
 
-    public void setLength(int length)
-    {
+    public void setLength(int length) {
         this.length = length;
     }
-    public Order(int idOrder) {
-        this.idOrder = idOrder;
+
+    public int getHeight() {
+        return height;
     }
 
-
-    public int getIdOrder() {
-        return idOrder;
-    }
-
-    public void setIdOrder(int idOrder) {
-        this.idOrder = idOrder;
-    }
-
-    public Date getOrderDate() {
-        return OrderDate;
-    }
-
-    public void setOrderDate(Date OrderDate) {
-        this.OrderDate = OrderDate;
-    }
-
-    public int getPriceTotal() {
-        return PriceTotal;
-    }
-
-    public void setPriceTotal(int PriceTotal) {
-        this.PriceTotal = PriceTotal;
-    }
-
-    public String getAddress() {
-        return Address;
-    }
-
-    public void setAddress(String Address) {
-        this.Address = Address;
-    }
-
-    public String getPhone() {
-        return Phone;
-    }
-
-    public void setPhone(String Phone) {
-        this.Phone = Phone;
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     @Override
-    public String toString()
-    {
-        return "Order{" + "idOrder=" + idOrder + ", OrderDate=" + OrderDate + ", PriceTotal=" + PriceTotal + ", Address=" + Address + ", Phone=" + Phone + ", width=" + width + ", length=" + length + '}';
+    public String toString() {
+        return "Order{" + "width=" + width + ", length=" + length + ", height=" + height + '}';
     }
 
-
-
-
-
 }
+    
