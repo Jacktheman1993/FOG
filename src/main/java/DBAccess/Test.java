@@ -30,7 +30,7 @@ java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime(
 User u = new User("test@test.dk", "pass", "customer");
 //        int createdOrderID = OrderMapper.createOrder(u, 1, 5, 10, "Lars", "Phone");
 //     System.out.println(createdOrderID);
-        int ord = OrderMapper.createOrder(u, 2, 2);
+        int ord = OrderMapper.createOrder(u, 44, 44);
         System.out.println("Order pl0x????" + ord);
 
     }
