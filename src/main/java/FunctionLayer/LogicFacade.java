@@ -23,9 +23,8 @@ public static Order getOrder(int idOrder) throws Exception
     {
         return OrderMapper.getOrder(idOrder);
     }
-public static Order createOrder(User user, int width, int length) throws LoginSampleException, SQLException {
-    Order order = new Order(width, length);
-    OrderMapper.createOrder(user, width, length );
+public static int createOrder(int width, int length, int height) throws LoginSampleException, SQLException {
+    int order = OrderMapper.createOrder(width, length, height);
     return order;
 }
 }
