@@ -25,7 +25,20 @@ public class NewOrder extends Command {
         int getwidth = Integer.parseInt(request.getParameter( "width" ));
         int getlength = Integer.parseInt(request.getParameter("length"));
         int getheight = Integer.parseInt(request.getParameter("height"));
-  
+        
+        if(getwidth > 1000 || getwidth < 400){
+            return "orderinput";
+        }
+                
+        if(getlength > 2000 || getlength < 400){
+            return "orderinput";
+        }
+                
+        if(getheight > 300 || getheight < 200){
+            return "orderinput";
+        }
+        
+        else{
         int[] result = new int[3];
         result[0] = getwidth;
         result[1] = getlength;
@@ -36,6 +49,6 @@ public class NewOrder extends Command {
         OrderMapper.createOrder(getwidth, getlength, getheight);
         
         return "neworder";
-    }
-    
+        }
+    }  
 }

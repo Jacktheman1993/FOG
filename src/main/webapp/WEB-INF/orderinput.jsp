@@ -3,14 +3,14 @@
                 <h2>Indtast størrelsen på carport</h2>
             <form name="orderinput" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="neworder">
-                        <h3>Width in cm</h3>
-                        <input type="number" name="width" value="5">
+                        <h3>Width in cm (min 400, max 1000)</h3>
+                        <input type="number" name="width" value="500" maxlength="1000" minlength="400">
                         <br>
-                        <h3>Length in cm</h3>
-                        <input type="number" name="length" value="5">
+                        <h3>Length in cm (min 400, max 2000)</h3>
+                        <input type="number" name="length" value="500" maxlength="2000" minlength="400">
                         <br>
-                        <h3>Height in cm</h3>
-                        <input type="number" name="height" value="5">
+                        <h3>Height in cm (min 200, max 300)</h3>
+                        <input type="number" name="height" value="200" maxlength="300" minlength="200">
                         <br>
                         <br>
                         <a href="FrontController?command=neworder"><button>Bestil ordre</button></a>
