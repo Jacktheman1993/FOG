@@ -15,6 +15,7 @@ public class Order
 {
 //    private java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
     private int idOrder;
+<<<<<<< HEAD
     private Date OrderDate;
     private int PriceTotal;
     private String Address;
@@ -23,16 +24,31 @@ public class Order
     private int width;
 
     public Order(int idOrder, Date OrderDate, int PriceTotal, String Address, String Phone) {
+=======
+    private int length;
+    private int heigth;
+    private int width;
+//    private Date OrderDate;
+//    private int PriceTotal;
+//    private String Address;
+//    private String Phone;
+    
+// Date OrderDate, int PriceTotal, String Address, String Phone
+    public Order(int idOrder, int length, int width) {
+>>>>>>> 5f40b037bcb83ff503f9571be41db838600b5ed2
         this.idOrder = idOrder;
-        this.OrderDate = OrderDate;
-        this.PriceTotal = PriceTotal;
-        this.Address = Address;
-        this.Phone = Phone;
+        this.length = length;
+        this.width = width;
+//        this.OrderDate = OrderDate;
+//        this.PriceTotal = PriceTotal;
+//        this.Address = Address;
+//        this.Phone = Phone;
     }
 
     public Order(int idOrder) {
         this.idOrder = idOrder;
     }
+<<<<<<< HEAD
     public Order(int width, int length) {
         this.width = width;
         this.length = length;
@@ -74,38 +90,80 @@ public class Order
 
     public void setOrderDate(Date OrderDate) {
         this.OrderDate = OrderDate;
+=======
+    public int getLength()
+    {
+        return length;
+>>>>>>> 5f40b037bcb83ff503f9571be41db838600b5ed2
     }
 
-    public int getPriceTotal() {
-        return PriceTotal;
+    public void setLength(int length)
+    {
+        this.length = length;
     }
 
-    public void setPriceTotal(int PriceTotal) {
-        this.PriceTotal = PriceTotal;
+    public int getWidth()
+    {
+        return width;
     }
 
-    public String getAddress() {
-        return Address;
+    public void setWidth(int width)
+    {
+        this.width = width;
+    }
+    public int getIdOrder() {
+        return idOrder;
     }
 
-    public void setAddress(String Address) {
-        this.Address = Address;
+    public void setIdOrder(int idOrder) {
+        this.idOrder = idOrder;
     }
 
-    public String getPhone() {
-        return Phone;
-    }
-
-    public void setPhone(String Phone) {
-        this.Phone = Phone;
-    }
+//    public Date getOrderDate() {
+//        return OrderDate;
+//    }
+//
+//    public void setOrderDate(Date OrderDate) {
+//        this.OrderDate = OrderDate;
+//    }
+//
+//    public int getPriceTotal() {
+//        return PriceTotal;
+//    }
+//
+//    public void setPriceTotal(int PriceTotal) {
+//        this.PriceTotal = PriceTotal;
+//    }
+//
+//    public String getAddress() {
+//        return Address;
+//    }
+//
+//    public void setAddress(String Address) {
+//        this.Address = Address;
+//    }
+//
+//    public String getPhone() {
+//        return Phone;
+//    }
+//
+//    public void setPhone(String Phone) {
+//        this.Phone = Phone;
+//    }
 
     @Override
     public String toString()
     {
+<<<<<<< HEAD
         return "Order{" + "idOrder=" + idOrder + ", OrderDate=" + OrderDate + ", PriceTotal=" + PriceTotal + ", Address=" + Address + ", Phone=" + Phone + ", length=" + length + ", width=" + width + '}';
     }
 
+=======
+        return "Order{" + "idOrder=" + idOrder + ", length=" + length + ", width=" + width + '}';
+    }
+
+    
+>>>>>>> 5f40b037bcb83ff503f9571be41db838600b5ed2
     
     
             
