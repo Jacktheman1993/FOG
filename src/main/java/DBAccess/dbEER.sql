@@ -1,13 +1,3 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- * Author:  Alek
- * Created: May 8, 2018
- */
-
 -- MySQL Workbench Forward Engineering
 -- -----------------------------------------------------
 -- Schema useradmin
@@ -102,6 +92,8 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `useradmin`.`Line_item` (
   `Orders_idOrder` INT(11) NOT NULL,
   `Materials_MaterialsID` INT(11) NOT NULL,
+  `Antal` INT(11) NOT NULL,
+  `Pris` INT(11) NOT NULL,
   PRIMARY KEY (`Orders_idOrder`, `Materials_MaterialsID`),
   INDEX `fk_Orders_has_Materials_Materials1_idx` (`Materials_MaterialsID` ASC),
   INDEX `fk_Orders_has_Materials_Orders_idx` (`Orders_idOrder` ASC),
@@ -144,5 +136,3 @@ INSERT INTO `Carport` VALUES
 (2,false,true,false);
 
 UNLOCK TABLES;
-
-
