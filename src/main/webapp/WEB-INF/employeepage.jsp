@@ -6,4 +6,5 @@
         <a href="FrontController?command=allOrders"><button>Vis alle ordrer</button></a>
         <a href="FrontController?command=insertdata"><button>G? til insert data</button></a>
         <a href="FrontController?command=getdata"><button>G? til hent data</button></a>
+        <a href="FrontController?command=stock"><button>Gå til lager status</button></a>
 <%@include file="//includes/footer.jsp" %>  

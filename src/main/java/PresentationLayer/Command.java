@@ -19,6 +19,7 @@ abstract class Command {
         commands.put( "getdata", new GetData());
         commands.put( "orderinput", new Orderinput());
         commands.put( "neworder", new NewOrder());
+        commands.put( "stock", new Stock());
 
     }
 
