@@ -9,22 +9,12 @@ package FunctionLayer;
  *
  * @author simon
  */
-public class Wall {
-    int length;
-    int width;
-    int height;
+public class Roofplate400x400 {
+    int width = 400;
+    int length = 400;
 
-    public Wall(int length, int width) {
-        this.length = length;
+    public Roofplate400x400(int width, int length) {
         this.width = width;
-        
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public void setLength(int length) {
         this.length = length;
     }
 
@@ -34,6 +24,14 @@ public class Wall {
 
     public void setWidth(int width) {
         this.width = width;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
     }
     
     

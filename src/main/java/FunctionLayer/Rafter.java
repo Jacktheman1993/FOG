@@ -9,12 +9,19 @@ package FunctionLayer;
  *
  * @author simon
  */
-public class Roofplates {
-    int width;
-    int length;
+public class Rafter {
+    int length, width;
 
-    public Roofplates(int width, int length) {
+    public Rafter(int length, int width) {
+        this.length = length;
         this.width = width;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
         this.length = length;
     }
 
@@ -26,12 +33,9 @@ public class Roofplates {
         this.width = width;
     }
 
-    public int getLength() {
-        return length;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
+    @Override
+    public String toString() {
+        return "Rafter{" + "length=" + length + ", width=" + width + '}';
     }
     
     

@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
-
+import FunctionLayer.Materials;
 /**
  *
  * @author Martin
@@ -86,7 +86,11 @@ public static int createOrder(int width, int length, int height) throws LoginSam
             ArrayList<Order> list = new ArrayList<>();
             while (rs.next())
             {
-                list.add(new Order(rs.getInt("idOrder"), rs.getInt("width"), rs.getInt("length"), rs.getInt("height")));
+                ArrayList<Materials> lineItems = new ArrayList<>();
+                
+                // Read data from lineItems and insert into lineItems Array list
+                
+                list.add(new Order(rs.getInt("idOrder"), rs.getInt("width"), rs.getInt("length"), rs.getInt("height"), lineItems));
             }
             if (list.size() > 0)
             {

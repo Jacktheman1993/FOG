@@ -9,11 +9,11 @@ package FunctionLayer;
  *
  * @author simon
  */
-public class Seam {
-    int width;
-    int length;
+public class Roofplate200x200 {
+    int width = 100;
+    int length = 200;
 
-    public Seam(int width, int length) {
+    public Roofplate200x200(int width, int length) {
         this.width = width;
         this.length = length;
     }
@@ -33,9 +33,6 @@ public class Seam {
     public void setLength(int length) {
         this.length = length;
     }
-    
-    
-    
     
     
 }
