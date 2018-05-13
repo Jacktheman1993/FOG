@@ -6,6 +6,7 @@
 package FunctionLayer;
 
 import java.sql.Date;
+import java.util.ArrayList;
 //import java.util.Calendar;
 /**
  *
@@ -18,17 +19,20 @@ public class Order
     private int width;
     private int length;
     private int height;
+    private ArrayList lineItems;
 
-    public Order(int IDorder, int width, int length, int height) {
+    public Order(int IDorder, int width, int length, int height, ArrayList lineItems) {
         this.IDorder = IDorder;
         this.width = width;
         this.length = length;
         this.height = height;
+        this.lineItems = lineItems;
     }
 
-    public Order(int orderID) {
+    public Order(int IDorder) {
         this.IDorder = IDorder;
     }
+    
 
     public int getIDorder() {
         return IDorder;
@@ -62,11 +66,20 @@ public class Order
         this.height = height;
     }
 
-    @Override
-    public String toString() {
-        return "Order{" + "IDorder=" + IDorder + ", width=" + width + ", length=" + length + ", height=" + height + '}';
+    public ArrayList getLineItems() {
+        return lineItems;
     }
 
+    public void setLineItems(ArrayList lineItems) {
+        this.lineItems = lineItems;
+    }
 
+    @Override
+    public String toString() {
+        return "Order{" + "IDorder=" + IDorder + ", width=" + width + ", length=" + length + ", height=" + height + ", lineItems=" + lineItems + '}';
+    }
+
+    
+    
 }
     

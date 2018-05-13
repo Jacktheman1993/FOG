@@ -6,6 +6,7 @@
 package DBAccess;
 
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.Materials;
 import FunctionLayer.Order;
 import FunctionLayer.User;
 import java.sql.Connection;
@@ -84,9 +85,10 @@ public static int createOrder(int width, int length, int height) throws LoginSam
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             ArrayList<Order> list = new ArrayList<>();
+            ArrayList<Materials> lineItems = new ArrayList<>();
             while (rs.next())
             {
-                list.add(new Order(rs.getInt("idOrder"), rs.getInt("width"), rs.getInt("length"), rs.getInt("height")));
+                list.add(new Order(rs.getInt("idOrder"), rs.getInt("width"), rs.getInt("length"), rs.getInt("height"), lineItems));
             }
             if (list.size() > 0)
             {
