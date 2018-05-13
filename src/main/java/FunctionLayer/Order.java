@@ -19,9 +19,9 @@ public class Order
     private int width;
     private int length;
     private int height;
-    private ArrayList lineItems;
+    private ArrayList<Materials> lineItems;
 
-    public Order(int IDorder, int width, int length, int height, ArrayList lineItems) {
+    public Order(int IDorder, int width, int length, int height, ArrayList<Materials> lineItems) {
         this.IDorder = IDorder;
         this.width = width;
         this.length = length;
@@ -29,6 +29,7 @@ public class Order
         this.lineItems = lineItems;
     }
 
+    
     public Order(int IDorder) {
         this.IDorder = IDorder;
     }

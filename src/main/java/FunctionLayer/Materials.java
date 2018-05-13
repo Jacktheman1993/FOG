@@ -5,70 +5,43 @@
  */
 package FunctionLayer;
 
-/**
- *
- * @author Alek
- */
+
 public class Materials {
-       
+/* Har rettet det til hvad Jon skrev der skulle være i java klassen, det her er hvordan det skulle se ud i databasen.
+    Hvis det skal rettes igen tager det 2 sek så chill.
+    
     private int MaterialsID;
     private String MaterialsName;
     private int MaterialsInStock;
     private int Pris;
     private int Type;
     private int length;
+*/
 
-    public Materials(int MaterialsID, String MaterialsName, int MaterialsInStock, int Pris, int Type, int length) {
-        this.MaterialsID = MaterialsID;
-        this.MaterialsName = MaterialsName;
-        this.MaterialsInStock = MaterialsInStock;
-        this.Pris = Pris;
-        this.Type = Type;
+private int id;
+private int type;
+private int length;
+
+    public Materials(int id, int type, int length) {
+        this.id = id;
+        this.type = type;
         this.length = length;
     }
 
-    public Materials(int MaterialsID) {
-        this.MaterialsID = MaterialsID;
+    public int getId() {
+        return id;
     }
 
-    public int getMaterialsID() {
-        return MaterialsID;
-    }
-
-    public void setMaterialsID(int MaterialsID) {
-        this.MaterialsID = MaterialsID;
-    }
-
-    public String getMaterialsName() {
-        return MaterialsName;
-    }
-
-    public void setMaterialsName(String MaterialsName) {
-        this.MaterialsName = MaterialsName;
-    }
-
-    public int getMaterialsInStock() {
-        return MaterialsInStock;
-    }
-
-    public void setMaterialsInStock(int MaterialsInStock) {
-        this.MaterialsInStock = MaterialsInStock;
-    }
-
-    public int getPris() {
-        return Pris;
-    }
-
-    public void setPris(int Pris) {
-        this.Pris = Pris;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getType() {
-        return Type;
+        return type;
     }
 
-    public void setType(int Type) {
-        this.Type = Type;
+    public void setType(int type) {
+        this.type = type;
     }
 
     public int getLength() {
@@ -81,8 +54,8 @@ public class Materials {
 
     @Override
     public String toString() {
-        return "Materials{" + "MaterialsID=" + MaterialsID + ", MaterialsName=" + MaterialsName + ", MaterialsInStock=" + MaterialsInStock + ", Pris=" + Pris + ", Type=" + Type + ", length=" + length + '}';
+        return "Materials{" + "id=" + id + ", type=" + type + ", length=" + length + '}';
     }
-    
-    
+
+
 }
