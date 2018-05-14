@@ -13,9 +13,10 @@
     = <%=itemList[1]%> 
     <h3>height</h3>
     = <%=itemList[2]%> 
+    
+    
 </div>
 <div class="orderStyle">
-    <h1>Top</h1>
     <SVG width="760" height="600" viewBox="0 0 <%=itemList[1]%> <%=itemList[0]%> ">
     <defs>
         <marker id="beginArrow"
@@ -64,10 +65,66 @@
               style="stroke-dasharray: 2 2; stroke: blue; fill: none"/>
         <line x1="12%" y1="85.5%" x2="81.5%" y2="12%"
               style="stroke-dasharray: 2 2; stroke: blue; fill: none"/>
-
-
-     
+        
     </svg>
+</SVG>
+<svg width="1000" height="1000" viewbox="0 0 1000 1000"
+  preserveAspectRatio="none">
+<rect x="30" y="0" height="10" width="780"
+        style="stroke:#000000; fill: none "/>
+  <rect x="35" y="10" height="10" width="770"
+        style="stroke:#000000; fill: none "/>
+    <rect x="40" y="20" height="20" width="760"
+        style="stroke:#000000; fill: none "/>
+  <rect x="60" y="40" height="300" width="10"
+        style="stroke:#000000; fill: none "/>
+  <rect x="410" y="40" height="300" width="10"
+        style="stroke:#000000; fill: none "/>
+    <rect x="770" y="40" height="300" width="10"
+        style="stroke:#000000; fill: none "/>
+<circle cx="65" cy="30" r="2"
+    style="stroke:#000000;
+           stroke-width: 3;
+           fill: none"/>
+  <circle cx="415" cy="30" r="2"
+    style="stroke:#000000;
+           stroke-width: 3;
+           fill: none"/>
+    <circle cx="775" cy="30" r="2"
+    style="stroke:#000000;
+           stroke-width: 3;
+           fill: none"/>
+  
+<line x1="850"  y1="400" x2="10"   y2="400" 
+	style="stroke:#000000;
+	marker-start: url(#beginArrow);
+   marker-end: url(#endArrow);"/>
+<defs>
+    <marker id="beginArrow" 
+    	markerWidth="9" markerHeight="9" 
+    	refX="0" refY="4" 
+    	orient="auto">
+        <path d="M0,4 L8,0 L8,8 L0,4" style="fill: #000000s;" />
+    </marker>
+    <marker id="endArrow" 
+    	markerWidth="9" markerHeight="9" 
+    	refX="8" refY="4" 
+    	orient="auto">
+        <path d="M0,0 L8,4 L0,8 L0,0" style="fill: #000000;" />
+    </marker>
+</defs>
+<line x1="10"  y1="350" x2="10"   y2="10" 
+	style="stroke:#000000;
+	marker-start: url(#beginArrow);
+   marker-end: url(#endArrow);"/>
+
+  <text x="150" y="0" transform="rotate(90 0,20)">
+    Height
+  </text>
+  <text x="400" y="370">
+    Length
+  </text>
+  
 </SVG>
 </div>
 <%@include file="//includes/footer.jsp" %>  
