@@ -16,7 +16,7 @@
 </div>
 <div class="orderStyle">
     <h1>Top</h1>
-    <SVG width="760" height="600" viewBox="0 0 <%=length%> <%=width%> ">
+    <SVG width="760" height="600" viewBox="0 0 <%=itemList[1]%> <%=itemList[0]%> ">
     <defs>
         <marker id="beginArrow"
                 markerWidth="9" markerHeight="9"
@@ -35,26 +35,26 @@
           style="stroke:#006600;
         	    marker-start: url(#beginArrow);
                marker-end: url(#endArrow);"/>
-    <text x=40% y=98% text-anchor="middle" fill="black"> Width: <%= width %>
+    <text x=40% y=98% text-anchor="middle" fill="black"> Length: <%=itemList[0]%>
     </text>
     <line x1="95%" y1="10%" x2="95%" y2="80%"
           style="stroke:#006600;
 	            marker-start: url(#beginArrow);
             marker-end: url(#endArrow);"/>
-    <text x=97% y=50% text-anchor="middle" style="writing-mode: tb;"> Length: <%= length %>
+    <text x=97% y=50% text-anchor="middle" style="writing-mode: tb;"> Width: <%=itemList[1]%>
     </text>
     <svg width="90%" height="90%">
         <rect width="100%" height="100%" id="roof"
               style="stroke:black; fill:none"/>
-        <rect x="0" y="10%" height="10" width="<%=width%>" id="upperRem"
+        <rect x="0" y="10%" height="10" width="<%=itemList[0]%>" id="upperRem"
               style="stroke:black; fill:none"/>
-        <rect x="0" y="85%" height="10" width="<%=width%>" id="lowerRem"
+        <rect x="0" y="85%" height="10" width="<%=itemList[0]%>" id="lowerRem"
               style="stroke:black; fill:none"/>
-        <%for (int x = 0; x <= width; x += 55) {%>
+        <%for (int x = 0; x <= itemList[0]; x += 55) {%>
         <rect x="<%= x %>" y="0%" height="100%" width="10" id="rafter"
               style="stroke:black; fill:none"/>
         <%}%>
-        <%for (int x = 10; x <= width; x += 250) { %>
+        <%for (int x = 1; x <= itemList[0]; x += 250) { %>
         <rect x="<%= x %>" y="10%" height="10" width="10" id="upperPillar"
               style="stroke:black; fill:black"/>
         <rect x="<%= x %>" y="85%" height="10" width="10" id="lowerPillar"
