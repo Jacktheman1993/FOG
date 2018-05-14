@@ -19,9 +19,13 @@ public class Order
     private int width;
     private int length;
     private int height;
-    private ArrayList<Materials> lineItems;
+    private ArrayList<LineItems> lineItems;
+    
+    // boolean skur;
+    // int carportType;
+    
 
-    public Order(int IDorder, int width, int length, int height, ArrayList<Materials> lineItems) {
+    public Order(int IDorder, int width, int length, int height, ArrayList<LineItems> lineItems) {
         this.IDorder = IDorder;
         this.width = width;
         this.length = length;
