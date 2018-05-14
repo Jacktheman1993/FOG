@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import FunctionLayer.Materials;
+import java.util.ArrayList;
 
 /**
  *
@@ -39,34 +40,23 @@ public class MaterialMapper {
             throw new LoginSampleException( ex.getMessage() );
         }
     }
-            public static Materials getMaterials(int MaterialsID, String MaterialsName, int MaterialsInStock, int Pris, int Type, int length) throws LoginSampleException
+            public static ArrayList<Materials> getMaterials() throws LoginSampleException
     {
         try
         {
             Connection con = Connector.connection();
             String SQL = "select * from `Materials`";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, MaterialsID);
-            ps.setString(2, MaterialsName);
-            ps.setInt(3, MaterialsInStock);
-            ps.setInt(4, Pris);
-            ps.setInt(5, Type);
-            ps.setInt(6, length);
             ResultSet rs = ps.executeQuery();
-            if (rs.next())
+
+               ArrayList<Materials> mats = new ArrayList<>();
+            while (rs.next())
             {
-
-
-                Materials getMaterials = new Materials(MaterialsID);
-
-                getMaterials.setMaterialsID(MaterialsID);
-                getMaterials.setMaterialsName(rs.getString("MaterialsName"));
-                getMaterials.setMaterialsInStock(rs.getInt("MaterialsInStock"));
-                getMaterials.setPris(rs.getInt("Pris"));
-                getMaterials.setType(rs.getInt("Type"));
-                getMaterials.setLength(rs.getInt("length"));
-
-                return getMaterials;
+                mats.add(new Materials(rs.getInt("MaterialsID"), rs.getString("MaterialsName"), rs.getInt("MaterialsInStock"), rs.getInt("Pris"), rs.getInt("Type"), rs.getInt("length")));
+            }
+            if (mats.size() > 0)
+            {
+                return mats;
 
             } else
             {

@@ -5,8 +5,10 @@
  */
 package PresentationLayer;
 
+import DBAccess.MaterialMapper;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Materials;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,16 +24,18 @@ import javax.servlet.http.HttpServletResponse;
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         
-        int getMaterialsID = Integer.parseInt(request.getParameter( "MaterialsID" ));
+        //int getMaterialsID = Integer.parseInt(request.getParameter( "MaterialsID" ));
         //String getMaterialsName = request.getParameter("MaterialsName");
-        int getMaterialsInStock = Integer.parseInt(request.getParameter("MaterialsInStock"));
+        //int getMaterialsInStock = Integer.parseInt(request.getParameter("MaterialsInStock"));
         
-        int[] stock = new int[2];
-        stock[0] = getMaterialsID;
+        //int[] stock = new int[2];
+        //stock[0] = getMaterialsID;
         //result[1] = getMaterialsName;
-        stock[1] = getMaterialsInStock;
+        //stock[1] = getMaterialsInStock;
         
-        request.setAttribute("stocklist", stock);
+        ArrayList<Materials> mat = MaterialMapper.getMaterials();
+        
+        request.setAttribute("Stock", mat);
         
         return "stock";
     }
