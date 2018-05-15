@@ -68,15 +68,15 @@
         
     </svg>
 </SVG>
-<svg width="1000" height="1000" viewbox="0 0 1000 1000"
+<svg width="1000" height="1000" viewbox="0 0 <%=itemList[1]%> <%=itemList[0]%>"
   preserveAspectRatio="none">
-<rect x="30" y="0" height="10" width="780"
+<rect x="3%" y="0" height="10" width="78%"
         style="stroke:#000000; fill: none "/>
-  <rect x="35" y="10" height="10" width="770"
+  <rect x="3.5%" y="10" height="10" width="77%"
         style="stroke:#000000; fill: none "/>
-    <rect x="40" y="20" height="20" width="760"
+    <rect x="4%" y="20" height="20" width="76%"
         style="stroke:#000000; fill: none "/>
-  <rect x="60" y="40" height="300" width="10"
+  <rect x="6%" y="40" height="300" width="10"
         style="stroke:#000000; fill: none "/>
   <rect x="410" y="40" height="300" width="10"
         style="stroke:#000000; fill: none "/>
@@ -119,10 +119,10 @@
    marker-end: url(#endArrow);"/>
 
   <text x="150" y="0" transform="rotate(90 0,20)">
-    Height
+    Height: <%=itemList[2]%>
   </text>
   <text x="400" y="370">
-    Length
+    Length: : <%=itemList[1]%>
   </text>
   
 </SVG>
