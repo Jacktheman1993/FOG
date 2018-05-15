@@ -5,6 +5,7 @@
  */
 package DBAccess;
 
+import FunctionLayer.LineItems;
 import FunctionLayer.LoginSampleException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -61,6 +62,34 @@ public class MaterialMapper {
             } else
             {
                 throw new LoginSampleException("Something went wrong: MaterialsID is not used yet");
+            }
+        } catch (ClassNotFoundException | SQLException ex)
+        {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
+            public static LineItems getLineItems(int Amount, int Price) throws LoginSampleException
+    {
+        try
+        {
+            Connection con = Connector.connection();
+//            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+            String SQL = "select * from `LineItems`";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next())
+            {
+                LineItems li = new LineItems(Amount, Price);
+
+                li.setAmount(rs.getInt("Amount"));
+                li.setPrice(rs.getInt("Price"));
+                return li;
+//                String orderID = rs.getString( "orderID" );
+//                getorder.setOrderID(orderID);
+//                return rs;
+            } else
+            {
+                throw new LoginSampleException("Something went wrong: OrderID is not used yet");
             }
         } catch (ClassNotFoundException | SQLException ex)
         {

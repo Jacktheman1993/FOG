@@ -11,23 +11,43 @@ package FunctionLayer;
  */
 public class LineItems {
     
-    int orderID, materialID, antal, pris;
+    int orderID, materialID, Amount, Price;
     String tekst;
     int type;
 
     public LineItems(int orderID, int materialID, int antal, int pris, String tekst, int type) {
         this.orderID = orderID;
         this.materialID = materialID;
-        this.antal = antal;
-        this.pris = pris;
+       // this.antal = antal;
+       // this.pris = pris;
         this.tekst = tekst;
         this.type = type;
     }
-
-    public LineItems(int antal, int type) {
-        this.antal = antal;
-        this.type = type;
+    public LineItems(int Amount, int Price) {
+        this.Amount = Amount;
+        this.Price = Price;
     }
+    public int getAmount()
+    {
+        return Amount;
+    }
+
+    public void setAmount(int Amount)
+    {
+        this.Amount = Amount;
+    }
+
+    public int getPrice()
+    {
+        return Price;
+    }
+
+    public void setPrice(int Price)
+    {
+        this.Price = Price;
+    }
+
+    
     
     
 
@@ -47,22 +67,6 @@ public class LineItems {
         this.materialID = materialID;
     }
 
-    public int getAntal() {
-        return antal;
-    }
-
-    public void setAntal(int antal) {
-        this.antal = antal;
-    }
-
-    public int getPris() {
-        return pris;
-    }
-
-    public void setPris(int pris) {
-        this.pris = pris;
-    }
-
     public String getTekst() {
         return tekst;
     }
@@ -80,14 +84,9 @@ public class LineItems {
     }
 
     @Override
-    public String toString() {
-        return "LineItems{" + "orderID=" + orderID + ", materialID=" + materialID + ", antal=" + antal + ", pris=" + pris + ", tekst=" + tekst + ", type=" + type + '}';
+    public String toString()
+    {
+        return "LineItems{" + "orderID=" + orderID + ", materialID=" + materialID + ", Amount=" + Amount + ", Price=" + Price + ", tekst=" + tekst + ", type=" + type + '}';
     }
-    
-    
-    
-    
-    
-    
-    
+
 }
