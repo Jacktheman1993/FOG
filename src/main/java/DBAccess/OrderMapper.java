@@ -28,14 +28,15 @@ public class OrderMapper
 
     java.sql.Date date1 = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 
-public static int createOrder(int width, int length, int height) throws LoginSampleException {
+public static int createOrder(User user, int width, int length, int height) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO `Orders` ( width, length, height ) VALUES (?,?,?)";
+            String SQL = "INSERT INTO `Orders` ( Users_id, width, length, height ) VALUES (?,?,?,?)";
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
-            ps.setInt( 1, width);
-            ps.setInt( 2, length );
-            ps.setInt( 3, height );
+            ps.setInt( 1, user.getId());
+            ps.setInt( 2, width);
+            ps.setInt( 3, length );
+            ps.setInt( 4, height );
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
