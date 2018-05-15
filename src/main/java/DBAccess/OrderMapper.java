@@ -28,6 +28,7 @@ public class OrderMapper
 
     java.sql.Date date1 = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 
+<<<<<<< HEAD
 public static int createOrder(int Width, int Length, int Height) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -36,6 +37,16 @@ public static int createOrder(int Width, int Length, int Height) throws LoginSam
             ps.setInt( 1, Width);
             ps.setInt( 2, Length );
             ps.setInt( 3, Height );
+=======
+public static int createOrder(int width, int length, int height) throws LoginSampleException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "INSERT INTO `Orders` ( width, length, height ) VALUES (?,?,?)";
+            PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
+            ps.setInt( 1, width);
+            ps.setInt( 2, length );
+            ps.setInt( 3, height );
+>>>>>>> parent of 7cb2a13... Order works. DemoStykliste
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();

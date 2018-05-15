@@ -35,23 +35,6 @@ CREATE TABLE IF NOT EXISTS `useradmin`.`Materials` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
-CREATE TABLE IF NOT EXISTS `useradmin`.`LineItemDummy` (
-  `OrderID` INT(15) NOT NULL AUTO_INCREMENT,
-  `MaterialsID` INT(15) NOT NULL AUTO_INCREMENT,
-  `Antal` INT(11) NOT NULL,
-  `Pris` INT(11) NOT NULL,
-  PRIMARY KEY (`MaterialsID`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
-
-LOCK TABLES `LineItemDummy` WRITE;
-INSERT INTO `LineItemDummy` VALUES
-(1, 2, 5, 99),
-(1, 3, 6, 150)
-(1, 4, 1, 200)
-
-UNLOCK TABLES;
-
 
 -- -----------------------------------------------------
 -- Table `useradmin`.`Users`

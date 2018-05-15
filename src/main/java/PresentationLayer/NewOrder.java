@@ -8,7 +8,6 @@ package PresentationLayer;
 
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
-import FunctionLayer.User;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,10 +50,10 @@ public class NewOrder extends Command {
         result[2] = getheight;
         
         request.setAttribute("itemlist", result);
-        User user = (User)request.getSession().getAttribute("user");
+        
             try
             {
-                LogicFacade.createOrder(user, getwidth, getlength, getheight);
+                LogicFacade.createOrder(getwidth, getlength, getheight);
             } catch (SQLException ex)
             {
                 Conf.MYLOGGER.log(Level.SEVERE, null, ex);
