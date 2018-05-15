@@ -19,16 +19,19 @@ public class Test
 {
     public static void main(String[] args) throws Exception
     {
-java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-        ArrayList<Order> i = OrderMapper.getOrders();
-        System.out.println(i);
+//java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+//        ArrayList<Order> i = OrderMapper.getOrders();
+//        System.out.println(i);
 
                 
     //Order o = OrderMapper.getOrder(3);
     //System.out.println("order " + o);
-    User u = new User("test@test.dk", "pass", "customer");
-    int ord = OrderMapper.createOrder(123123123, 10, 15);
-    System.out.println("New Order" + ord);
+//    User u = new User("test@test.dk", "pass", "customer");
+//    int ord = OrderMapper.createOrder(123123123, 10, 15);
+//    System.out.println("New Order" + ord);
 
+int pop = 0;
+pop -= 1;
+        System.out.println(pop);
     }
 }
