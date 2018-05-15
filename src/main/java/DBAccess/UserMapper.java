@@ -23,7 +23,7 @@ public class UserMapper {
     public static void createUser( User user ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO Users (email, password, role) VALUES (?, ?, ?)";
+            String SQL = "INSERT INTO Users (Email, Password, Role) VALUES (?, ?, ?)";
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
             ps.setString( 1, user.getEmail() );
             ps.setString( 2, user.getPassword() );
@@ -38,19 +38,19 @@ public class UserMapper {
         }
     }
 
-    public static User login( String email, String password ) throws LoginSampleException {
+    public static User login( String Email, String Password ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT id, role FROM Users "
-                    + "WHERE email=? AND password=?";
+            String SQL = "SELECT id, Role FROM Users "
+                    + "WHERE Email=? AND Password=?";
             PreparedStatement ps = con.prepareStatement( SQL );
-            ps.setString( 1, email );
-            ps.setString( 2, password );
+            ps.setString( 1, Email );
+            ps.setString( 2, Password );
             ResultSet rs = ps.executeQuery();
             if ( rs.next() ) {
-                String role = rs.getString( "role" );
+                String Role = rs.getString( "Role" );
                 int id = rs.getInt( "id" );
-                User user = new User( email, password, role );
+                User user = new User( Email, Password, Role );
                 user.setId( id );
                 return user;
             } else {
@@ -72,7 +72,7 @@ public class UserMapper {
             ArrayList<User> usList = new ArrayList<>();
                         while (rs.next())
             {
-                usList.add(new User(rs.getString("email"), rs.getString("password"), rs.getString("role")));
+                usList.add(new User(rs.getString("Email"), rs.getString("Password"), rs.getString("Role")));
             }
             if (usList.size() > 0)
             {

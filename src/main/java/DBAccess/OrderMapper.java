@@ -28,14 +28,14 @@ public class OrderMapper
 
     java.sql.Date date1 = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 
-public static int createOrder(int width, int length, int height) throws LoginSampleException {
+public static int createOrder(int Width, int Length, int Height) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO `Orders` ( width, length, height ) VALUES (?,?,?)";
+            String SQL = "INSERT INTO `Orders` ( Width, Length, Height ) VALUES (?,?,?)";
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
-            ps.setInt( 1, width);
-            ps.setInt( 2, length );
-            ps.setInt( 3, height );
+            ps.setInt( 1, Width);
+            ps.setInt( 2, Length );
+            ps.setInt( 3, Height );
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
@@ -59,10 +59,10 @@ public static int createOrder(int width, int length, int height) throws LoginSam
 
                 Order getorder = new Order(idOrder);
                 getorder.setIDorder(idOrder);
-                getorder.setWidth(rs.getInt("width"));
+                getorder.setWidth(rs.getInt("Width"));
 //                getorder.setOrderDate(date);
-                getorder.setLength(rs.getInt("length"));
-                getorder.setHeight(rs.getInt("height"));
+                getorder.setLength(rs.getInt("Length"));
+                getorder.setHeight(rs.getInt("Height"));
                 return getorder;
 //                String orderID = rs.getString( "orderID" );
 //                getorder.setOrderID(orderID);
@@ -89,7 +89,7 @@ public static int createOrder(int width, int length, int height) throws LoginSam
             ArrayList<LineItems> lineItems = new ArrayList<>();
             while (rs.next())
             {
-                list.add(new Order(rs.getInt("idOrder"), rs.getInt("width"), rs.getInt("length"), rs.getInt("height"), lineItems));
+                list.add(new Order(rs.getInt("idOrder"), rs.getInt("Width"), rs.getInt("Length"), rs.getInt("Height"), lineItems));
             }
             if (list.size() > 0)
             {
@@ -97,6 +97,38 @@ public static int createOrder(int width, int length, int height) throws LoginSam
             } else
             {
                 throw new LoginSampleException("Something went wrong: list size is less than 1 (no orders yet)");
+            }
+        } catch (ClassNotFoundException | SQLException ex)
+        {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
+    public static Order getUserOrder(int idOrder) throws LoginSampleException
+    {
+        try
+        {
+            Connection con = Connector.connection();
+//            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+            String SQL = "select * from `Orders` natraul join Users where Users_id = id";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, idOrder);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next())
+            {
+
+                Order getorder = new Order(idOrder);
+                getorder.setIDorder(idOrder);
+                getorder.setWidth(rs.getInt("Width"));
+//                getorder.setOrderDate(date);
+                getorder.setLength(rs.getInt("Length"));
+                getorder.setHeight(rs.getInt("Height"));
+                return getorder;
+//                String orderID = rs.getString( "orderID" );
+//                getorder.setOrderID(orderID);
+//                return rs;
+            } else
+            {
+                throw new LoginSampleException("Something went wrong: OrderID is not used yet");
             }
         } catch (ClassNotFoundException | SQLException ex)
         {

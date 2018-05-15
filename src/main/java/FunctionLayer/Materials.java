@@ -10,84 +10,107 @@ public class Materials {
 
     
     private int MaterialsID;
-    private String MaterialsName;
-    private int MaterialsInStock;
-    private int Pris;
-    private int Type;
-    private int length;
+    private String Name;
+    private int Length;
+    private int Stock;
+    private int Price;
+    private String Description;
+    private int Type_idType;
 
 /*
 private int id;
 private int type;
-private int length;
+private int Length;
 */
 
-    public Materials(int MaterialsID, String MaterialsName, int MaterialsInStock, int Pris, int Type, int length) {
+    public Materials(int MaterialsID, String Name, int Length, int Stock, int Price, String Description, int Type_idType) {
         this.MaterialsID = MaterialsID;
-        this.MaterialsName = MaterialsName;
-        this.MaterialsInStock = MaterialsInStock;
-        this.Pris = Pris;
-        this.Type = Type;
-        this.length = length;
+        this.Name = Name;
+        this.Length = Length;
+        this.Stock = Stock;
+        this.Price = Price;
+        this.Description = Description;
+        this.Type_idType = Type_idType;
     }
 
-    public Materials(int MaterialsID) {
-        this.MaterialsID = MaterialsID;
-    }
-    
-
-    public int getMaterialsID() {
+    public int getMaterialsID()
+    {
         return MaterialsID;
     }
 
-    public void setMaterialsID(int MaterialsID) {
+    public void setMaterialsID(int MaterialsID)
+    {
         this.MaterialsID = MaterialsID;
     }
 
-    public String getMaterialsName() {
-        return MaterialsName;
+    public String getName()
+    {
+        return Name;
     }
 
-    public void setMaterialsName(String MaterialsName) {
-        this.MaterialsName = MaterialsName;
+    public void setName(String Name)
+    {
+        this.Name = Name;
     }
 
-    public int getMaterialsInStock() {
-        return MaterialsInStock;
+    public int getLength()
+    {
+        return Length;
     }
 
-    public void setMaterialsInStock(int MaterialsInStock) {
-        this.MaterialsInStock = MaterialsInStock;
+    public void setLength(int Length)
+    {
+        this.Length = Length;
     }
 
-    public int getPris() {
-        return Pris;
+    public int getStock()
+    {
+        return Stock;
     }
 
-    public void setPris(int Pris) {
-        this.Pris = Pris;
+    public void setStock(int Stock)
+    {
+        this.Stock = Stock;
     }
 
-    public int getType() {
-        return Type;
+    public int getPrice()
+    {
+        return Price;
     }
 
-    public void setType(int Type) {
-        this.Type = Type;
+    public void setPrice(int Price)
+    {
+        this.Price = Price;
     }
 
-    public int getLength() {
-        return length;
+    public String getDesp()
+    {
+        return Description;
     }
 
-    public void setLength(int length) {
-        this.length = length;
+    public void setDesp(String Description)
+    {
+        this.Description = Description;
+    }
+
+    public int getType()
+    {
+        return Type_idType;
+    }
+
+    public void setType(int Type_idType)
+    {
+        this.Type_idType = Type_idType;
     }
 
     @Override
-    public String toString() {
-        return "Materials{" + "MaterialsID=" + MaterialsID + ", MaterialsName=" + MaterialsName + ", MaterialsInStock=" + MaterialsInStock + ", Pris=" + Pris + ", Type=" + Type + ", length=" + length + '}';
+    public String toString()
+    {
+        return "Materials{" + "MaterialsID=" + MaterialsID + ", Name=" + Name + ", Length=" + Length + ", Stock=" + Stock + ", Price=" + Price + ", Description=" + Description + ", Type=" + Type_idType + '}';
     }
+
+
+    
 
     
     
