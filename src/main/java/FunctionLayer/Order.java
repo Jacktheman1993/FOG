@@ -209,8 +209,8 @@ public class Order
         //tagplader er svær at udregne, i tvivl om udregning.
         public void calcTagpladerMontPåSpær600(int width){
             int quantity = 0;
-            quantity = length / 100;
-            quantity += (length % 100 >= 100 ? + 1 : 0);
+            quantity = Length / 100;
+            quantity += (Length % 100 >= 100 ? + 1 : 0);
                     
             //length på 600
             lineItems.add(new LineItems(quantity, 10));
