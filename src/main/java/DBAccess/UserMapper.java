@@ -1,12 +1,15 @@
 package DBAccess;
 
+import FunctionLayer.LineItems;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.Order;
 import FunctionLayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -57,5 +60,32 @@ public class UserMapper {
             throw new LoginSampleException(ex.getMessage());
         }
     }
+    
+        public static ArrayList<User> getUsers() throws LoginSampleException
+    {
+        try
+        {
+            Connection con = Connector.connection();
+            String SQL = "select * from `Users`";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            ArrayList<User> usList = new ArrayList<>();
+                        while (rs.next())
+            {
+                usList.add(new User(rs.getString("email"), rs.getString("password"), rs.getString("role")));
+            }
+            if (usList.size() > 0)
+            {
+                return usList;
+            } else
+            {
+                throw new LoginSampleException("Something went wrong: list size is less than 1 (no orders yet)");
+            }
+        } catch (ClassNotFoundException | SQLException ex)
+        {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
+    
 
 }

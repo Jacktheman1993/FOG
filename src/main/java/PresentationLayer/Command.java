@@ -15,6 +15,7 @@ abstract class Command {
         commands.put( "login", new Login() );
         commands.put( "register", new Register() );
         commands.put( "allOrders", new AllOrders() );
+        commands.put( "allUsers", new AllUsers() );
         commands.put( "carportdrawing", new Carportdrawing());
         commands.put( "getdata", new GetData());
         commands.put( "orderinput", new Orderinput());
