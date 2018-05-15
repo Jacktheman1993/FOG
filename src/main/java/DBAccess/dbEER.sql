@@ -12,7 +12,6 @@ DROP TABLE IF EXISTS `Materials`;
 DROP TABLE IF EXISTS `Carport`;
 DROP TABLE IF EXISTS `Type`;
 
--- -----------------------------------------------------
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -30,9 +29,9 @@ USE `useradmin` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `useradmin`.`Carport` (
   `idCarport` INT(11) NOT NULL AUTO_INCREMENT,
-  `type_skur` TINYINT(4) NOT NULL,
-  `tag_fladt` TINYINT(4) NOT NULL,
-  `tag_m_rejsning` TINYINT(4) NOT NULL,
+  `Type_Shed` TINYINT(4) NOT NULL,
+  `Roof_Flat` TINYINT(4) NOT NULL,
+  `Roof_Top` TINYINT(4) NOT NULL,
   PRIMARY KEY (`idCarport`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 3
@@ -44,7 +43,7 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `useradmin`.`Type` (
   `idType` INT NOT NULL AUTO_INCREMENT,
-  `Navn` VARCHAR(45) NOT NULL,
+  `Name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idType`))
 ENGINE = InnoDB;
 
@@ -53,12 +52,12 @@ ENGINE = InnoDB;
 -- Table `useradmin`.`Materials`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `useradmin`.`Materials` (
-  `MaterialsID` INT(11) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
-  `length` INT(11),
-  `stock` INT(11) NOT NULL,
-  `Pris` INT(11) NOT NULL,
-  `desp` VARCHAR(100) NOT NULL,
+  `MaterialsID` INT(11) NOT NULL,
+  `Name` VARCHAR(45) NOT NULL,
+  `Length` INT NULL,
+  `Stock` INT(11) NOT NULL,
+  `Price` INT(11) NOT NULL,
+  `Description` VARCHAR(100) NOT NULL,
   `Type_idType` INT NOT NULL,
   PRIMARY KEY (`MaterialsID`),
   INDEX `fk_Materials_Type1_idx` (`Type_idType` ASC),
@@ -76,11 +75,11 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `useradmin`.`Users` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  `role` VARCHAR(20) NOT NULL DEFAULT 'customer',
+  `Email` VARCHAR(45) NOT NULL,
+  `Password` VARCHAR(45) NOT NULL,
+  `Role` VARCHAR(20) NOT NULL DEFAULT 'customer',
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC))
+  UNIQUE INDEX `email_UNIQUE` (`Email` ASC))
 ENGINE = InnoDB
 AUTO_INCREMENT = 13
 DEFAULT CHARACTER SET = latin1;
@@ -91,9 +90,9 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `useradmin`.`Orders` (
   `idOrder` INT(11) NOT NULL AUTO_INCREMENT,
-  `width` INT(11) NOT NULL,
-  `length` INT(11) NOT NULL,
-  `height` INT(11) NOT NULL DEFAULT '250',
+  `Width` INT(11) NOT NULL,
+  `Length` INT(11) NOT NULL,
+  `Height` INT(11) NOT NULL DEFAULT '250',
   `Users_id` INT(11) NOT NULL,
   #`Carport_idCarport` INT(11) NOT NULL,
   PRIMARY KEY (`idOrder`),
@@ -120,8 +119,8 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `useradmin`.`Line_item` (
   `Orders_idOrder` INT(11) NOT NULL,
   `Materials_MaterialsID` INT(11) NOT NULL,
-  `antal` INT(11) NOT NULL,
-  `pris` INT(11) NOT NULL,
+  `Amount` INT(11) NOT NULL,
+  `Price` INT(11) NOT NULL,
   PRIMARY KEY (`Orders_idOrder`, `Materials_MaterialsID`),
   INDEX `fk_Orders_has_Materials_Materials1_idx` (`Materials_MaterialsID` ASC),
   INDEX `fk_Orders_has_Materials_Orders_idx` (`Orders_idOrder` ASC),
@@ -142,7 +141,6 @@ DEFAULT CHARACTER SET = latin1;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
 
 
 LOCK TABLES `Users` WRITE;
