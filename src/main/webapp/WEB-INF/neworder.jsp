@@ -1,7 +1,10 @@
 <%@page import="java.util.ArrayList"%>
 <%@include file="//includes/header.jsp" %>  
 <%@page import="FunctionLayer.Order"%>
-<%@page import="FunctionLayer.User"%>
+<%@page import="FunctionLayer.User"%>    
+<% int shedlength = 150;
+   int shedwidth = 450; 
+%>
 <div class="orderStyle">
     <h1>Ordre side</h1>
     <% int[] itemList = (int[]) request.getAttribute("itemlist");%>
@@ -13,8 +16,7 @@
     = <%=itemList[1]%> 
     <h3>height</h3>
     = <%=itemList[2]%> 
-    
-    
+
 </div>
 <div class="orderStyle">
     <SVG width="760" height="600" viewBox="0 0 <%=itemList[1]%> <%=itemList[0]%> ">
@@ -36,35 +38,39 @@
           style="stroke:#006600;
         	    marker-start: url(#beginArrow);
                marker-end: url(#endArrow);"/>
-    <text x=40% y=98% text-anchor="middle" fill="black"> Length: <%=itemList[0]%>
+    <text x=40% y=98% text-anchor="middle" fill="black"> Length: <%=itemList[1]%>
     </text>
     <line x1="95%" y1="10%" x2="95%" y2="80%"
           style="stroke:#006600;
 	            marker-start: url(#beginArrow);
             marker-end: url(#endArrow);"/>
-    <text x=97% y=50% text-anchor="middle" style="writing-mode: tb;"> Width: <%=itemList[1]%>
+    <text x=97% y=50% text-anchor="middle" style="writing-mode: tb;"> Width: <%=itemList[0]%>
     </text>
     <svg width="90%" height="90%">
         <rect width="100%" height="100%" id="roof"
               style="stroke:black; fill:none"/>
-        <rect x="0" y="10%" height="10" width="<%=itemList[0]%>" id="upperRem"
+        <rect x="0" y="8%" height="5" width="<%=itemList[1]%>" id="upperRem"
               style="stroke:black; fill:none"/>
-        <rect x="0" y="85%" height="10" width="<%=itemList[0]%>" id="lowerRem"
+        <rect x="0" y="90%" height="5" width="<%=itemList[1]%>" id="lowerRem"
               style="stroke:black; fill:none"/>
-        <%for (int x = 0; x <= itemList[0]; x += 55) {%>
-        <rect x="<%= x %>" y="0%" height="100%" width="10" id="rafter"
+        <%for (int x = 0; x <= itemList[1]; x += 50) {%>
+        <rect x="<%= x %>" y="0%" height="100%" width="5" id="rafter"
               style="stroke:black; fill:none"/>
         <%}%>
-        <%for (int x = 1; x <= itemList[0]; x += 250) { %>
-        <rect x="<%= x %>" y="10%" height="10" width="10" id="upperPillar"
+        <rect x="99%" y="0%" height="100%" width="5" id="rafter"
+              style="stroke:black; fill:none"/>
+        <%for (int x = 50; x <= itemList[1]; x += 325) { %>
+        <rect x="<%= x %>" y="8%" height="5" width="5" id="upperPillar"
               style="stroke:black; fill:black"/>
-        <rect x="<%= x %>" y="85%" height="10" width="10" id="lowerPillar"
+        <rect x="<%= x %>" y="90%" height="5" width="5" id="lowerPillar"
               style="stroke:black; fill:black"/>
         <%}%>
-        <line x1="12%" y1="12%" x2="81.5%" y2="85.5%"
+        <%int x = 50; { %>
+        <line x1="<%= x %>" y1="8%" x2="72%" y2="90%"
               style="stroke-dasharray: 2 2; stroke: blue; fill: none"/>
-        <line x1="12%" y1="85.5%" x2="81.5%" y2="12%"
+        <line x1="<%= x %>" y1="90%" x2="72%" y2="8%"
               style="stroke-dasharray: 2 2; stroke: blue; fill: none"/>
+       <%}%>
         
     </svg>
 </SVG>
