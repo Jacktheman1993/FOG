@@ -5,14 +5,12 @@
 CREATE SCHEMA IF NOT EXISTS `useradmin` DEFAULT CHARACTER SET latin1 ;
 USE `useradmin` ;
 
-DROP TABLE IF EXISTS `Line_item`;
+DROP TABLE IF EXISTS `LineItems`;
 DROP TABLE IF EXISTS `Users`;
 DROP TABLE IF EXISTS `Orders`;
 DROP TABLE IF EXISTS `Materials`;
 DROP TABLE IF EXISTS `Carport`;
-DROP TABLE IF EXISTS `Type_Materials`;
-
--- MySQL Workbench Forward Engineering
+DROP TABLE IF EXISTS `Type`;
 
 -- MySQL Workbench Forward Engineering
 
@@ -41,7 +39,6 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
-<<<<<<< HEAD
 -- Table `useradmin`.`Type`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `useradmin`.`Type` (
@@ -69,17 +66,6 @@ CREATE TABLE IF NOT EXISTS `useradmin`.`Materials` (
     REFERENCES `useradmin`.`Type` (`idType`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-=======
--- Table `useradmin`.`Materials`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `useradmin`.`Materials` (
-  `MaterialsID` INT(11) NOT NULL AUTO_INCREMENT,
-  `MaterialsName` VARCHAR(45) NOT NULL,
-  `MaterialsInStock` INT(11) NOT NULL,
-  `Pris` INT(11) NOT NULL,
-  `Type` INT NOT NULL,
-  PRIMARY KEY (`MaterialsID`))
->>>>>>> parent of 561e916... Al SQL fra database
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -108,15 +94,15 @@ CREATE TABLE IF NOT EXISTS `useradmin`.`Orders` (
   `Length` INT(11) NOT NULL,
   `Height` INT(11) NOT NULL DEFAULT '250',
   `Users_id` INT(11) NOT NULL,
-  `Carport_idCarport` INT(11) NOT NULL,
+  #`Carport_idCarport` INT(11) NOT NULL,
   PRIMARY KEY (`idOrder`),
   INDEX `fk_Orders_Users1_idx` (`Users_id` ASC),
-  INDEX `fk_Orders_Carport1_idx` (`Carport_idCarport` ASC),
-  CONSTRAINT `fk_Orders_Carport1`
-    FOREIGN KEY (`Carport_idCarport`)
-    REFERENCES `useradmin`.`Carport` (`idCarport`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  #INDEX `fk_Orders_Carport1_idx` (`Carport_idCarport` ASC),
+  #CONSTRAINT `fk_Orders_Carport1`
+    #FOREIGN KEY (`Carport_idCarport`)
+    #REFERENCES `useradmin`.`Carport` (`idCarport`)
+    #ON DELETE NO ACTION
+    #ON UPDATE NO ACTION,
   CONSTRAINT `fk_Orders_Users1`
     FOREIGN KEY (`Users_id`)
     REFERENCES `useradmin`.`Users` (`id`)
@@ -130,7 +116,7 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 -- Table `useradmin`.`Line_item`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `useradmin`.`Line_item` (
+CREATE TABLE IF NOT EXISTS `useradmin`.`LineItems` (
   `Orders_idOrder` INT(11) NOT NULL,
   `Materials_MaterialsID` INT(11) NOT NULL,
   `Amount` INT(11) NOT NULL,
@@ -152,24 +138,6 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
 
--- -----------------------------------------------------
--- Table `useradmin`.`Type_Materials`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `useradmin`.`Type_Materials` (
-  `idType_Materials` INT(11) NOT NULL AUTO_INCREMENT,
-  `Product` VARCHAR(45) NULL DEFAULT NULL,
-  `Materials_MaterialsID` INT(11) NOT NULL,
-  PRIMARY KEY (`idType_Materials`),
-  INDEX `fk_Type_Materials_Materials1_idx` (`Materials_MaterialsID` ASC),
-  CONSTRAINT `fk_Type_Materials_Materials1`
-    FOREIGN KEY (`Materials_MaterialsID`)
-    REFERENCES `useradmin`.`Materials` (`MaterialsID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
-
-
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
@@ -184,9 +152,9 @@ INSERT INTO `Users` VALUES
 LOCK TABLES `Orders` WRITE;
 INSERT INTO `Orders` VALUES
 
-(1,500,800, 250, 1,1),
-(2,400,600, 250, 2,2),
-(3, 400, 1000, 250, 2,2);
+(1,500,800, 250, 1),
+(2,400,600, 250, 2),
+(3, 400, 1000, 250, 2);
 
 LOCK TABLES `Carport` WRITE;
 INSERT INTO `Carport` VALUES

@@ -46,7 +46,7 @@ public class MaterialMapper {
         try
         {
             Connection con = Connector.connection();
-            String SQL = "select * from `Materials` natural join Type";
+            String SQL = "select * from Materials,Type where Materials.Type_idType=Type.idType;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
 

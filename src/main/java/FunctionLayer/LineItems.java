@@ -11,22 +11,40 @@ package FunctionLayer;
  */
 public class LineItems {
     
-    int orderID, materialID, Amount, Price;
+    int Orders_idOrder, Materials_MaterialsID, Amount, Price;
     String tekst;
     int type;
 
-    public LineItems(int orderID, int materialID, int antal, int pris, String tekst, int type) {
-        this.orderID = orderID;
-        this.materialID = materialID;
-       // this.antal = antal;
-       // this.pris = pris;
-        this.tekst = tekst;
-        this.type = type;
+    public LineItems(int Orders_idOrder, int Materials_MaterialsID, int Amount, int Price) {
+        this.Orders_idOrder = Orders_idOrder;
+        this.Materials_MaterialsID = Materials_MaterialsID;
+        this.Amount = Amount;
+        this.Price = Price;
+//        this.tekst = tekst;
+//        this.type = type;
     }
     public LineItems(int Amount, int Price) {
         this.Amount = Amount;
         this.Price = Price;
     }
+
+    public int getOrders_idOrder() {
+        return Orders_idOrder;
+    }
+
+    public void setOrders_idOrder(int Orders_idOrder) {
+        this.Orders_idOrder = Orders_idOrder;
+    }
+
+    public int getMaterials_MaterialsID() {
+        return Materials_MaterialsID;
+    }
+
+    public void setMaterials_MaterialsID(int Materials_MaterialsID) {
+        this.Materials_MaterialsID = Materials_MaterialsID;
+    }
+    
+    
     public int getAmount()
     {
         return Amount;
@@ -46,26 +64,7 @@ public class LineItems {
     {
         this.Price = Price;
     }
-
-    
-    
-    
-
-    public int getOrderID() {
-        return orderID;
-    }
-
-    public void setOrderID(int orderID) {
-        this.orderID = orderID;
-    }
-
-    public int getMaterialID() {
-        return materialID;
-    }
-
-    public void setMaterialID(int materialID) {
-        this.materialID = materialID;
-    }
+ 
 
     public String getTekst() {
         return tekst;
@@ -84,9 +83,9 @@ public class LineItems {
     }
 
     @Override
-    public String toString()
-    {
-        return "LineItems{" + "orderID=" + orderID + ", materialID=" + materialID + ", Amount=" + Amount + ", Price=" + Price + ", tekst=" + tekst + ", type=" + type + '}';
+    public String toString() {
+        return "LineItems{" + "Orders_idOrder=" + Orders_idOrder + ", Materials_MaterialsID=" + Materials_MaterialsID + ", Amount=" + Amount + ", Price=" + Price + ", tekst=" + tekst + ", type=" + type + '}';
     }
+
 
 }
