@@ -3,7 +3,7 @@
 <%@page import="FunctionLayer.Order"%>
 <%@page import="FunctionLayer.User"%> 
 
-<% boolean shed = false; %>
+<% boolean shed = true; %>
 
 <div class="orderStyle">
     <h1>Sketch of carport</h1>
@@ -88,16 +88,16 @@
 </SVG>
 <svg width="760" height="400" viewbox="0 0 <%=itemList[1]%> <%=itemList[0]%>"
   preserveAspectRatio="none">
-<rect x="3%" y="0" height="10" width="<%=itemList[1]%>" id="Rooflayertop"
+<rect x="0%" y="0" height="10" width="<%=itemList[1]%>" id="Rooflayertop"
         style="stroke:#000000; fill: none "/>
-  <rect x="3.5%" y="10" height="10" width="99%" id="Rooflayermid"
+  <rect x="0.5%" y="10" height="10" width="99%" id="Rooflayermid"
         style="stroke:#000000; fill: none "/>
-    <rect x="4%" y="20" height="20" width="98%" id="Rooflayerbot"
+    <rect x="1%" y="20" height="20" width="98%" id="Rooflayerbot"
         style="stroke:#000000; fill: none "/>
         <%if (shed == true) { int z = 70; %>
-        <rect x="<%= z %>" y="40" height="70%" width="5" id="firstPillar"
+        <rect x="<%= z %>" y="40" height="70%" width="5" id="firstPillarwithShed"
               style="stroke:black; fill:none"/>
-        <rect x="70%" y="40" height="70%" width="30%" id="shedfromside"
+        <rect x="70%" y="40" height="70%" width="27%" id="shedfromside"
               style="stroke:black; fill:lightgrey"/>
          <%}
         else
