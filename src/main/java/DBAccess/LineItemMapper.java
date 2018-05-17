@@ -79,13 +79,14 @@ public static int createLineItems(Order order, Materials materials, int Amount, 
         try
         {
             Connection con = Connector.connection();
-            String SQL = "select LineItems.Orders_idOrder, LineItems.Materials_MaterialsID, LineItems.Amount, LineItems.Price from LineItems;";
+            //select Materials.MaterialsID, Materials.Name, Materials.Length, Materials.Stock, Materials.Price, Materials.Description,Type.Name_T from Materials,Type where Materials.Type_idType=Type.idType;
+            String SQL = "select LineItems.Orders_idOrder,LineItems.Materials_MaterialsID , LineItems.Amount, LineItems.Price, Materials.Name, Materials.Description, Materials.Length from LineItems,Materials where LineItems.Materials_MaterialsID=Materials.MaterialsID;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             ArrayList<LineItems> li = new ArrayList<>();
             while (rs.next())
             {
-                li.add(new LineItems(rs.getInt("Orders_idOrder"), rs.getInt("Materials_MaterialsID"), rs.getInt("Amount"), rs.getInt("Price")));
+                li.add(new LineItems(rs.getInt("Orders_idOrder"), rs.getInt("Materials_MaterialsID"), rs.getString("Name"), rs.getString("Description"), rs.getInt("Length"), rs.getInt("Amount"), rs.getInt("Price")));
             }
             if (li.size() > 0)
             {

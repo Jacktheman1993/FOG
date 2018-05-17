@@ -12,15 +12,19 @@ package FunctionLayer;
 public class LineItems {
     
     int Orders_idOrder, Materials_MaterialsID, Amount, Price;
-    String tekst;
+    String Name;
+    String Description;
+    int Length;
     int type;
 
-    public LineItems(int Orders_idOrder, int Materials_MaterialsID, int Amount, int Price) {
+    public LineItems(int Orders_idOrder, int Materials_MaterialsID, String Name, String Description, int Length, int Amount, int Price) {
         this.Orders_idOrder = Orders_idOrder;
         this.Materials_MaterialsID = Materials_MaterialsID;
         this.Amount = Amount;
         this.Price = Price;
-//        this.tekst = tekst;
+        this.Name = Name;
+        this.Description = Description;
+        this.Length = Length;
 //        this.type = type;
     }
     public LineItems(int Amount, int Price) {
@@ -64,16 +68,6 @@ public class LineItems {
     {
         this.Price = Price;
     }
- 
-
-    public String getTekst() {
-        return tekst;
-    }
-
-    public void setTekst(String tekst) {
-        this.tekst = tekst;
-    }
-
     public int getType() {
         return type;
     }
@@ -82,10 +76,42 @@ public class LineItems {
         this.type = type;
     }
 
-    @Override
-    public String toString() {
-        return "LineItems{" + "Orders_idOrder=" + Orders_idOrder + ", Materials_MaterialsID=" + Materials_MaterialsID + ", Amount=" + Amount + ", Price=" + Price + ", tekst=" + tekst + ", type=" + type + '}';
+    public String getName()
+    {
+        return Name;
     }
+
+    public void setName(String Name)
+    {
+        this.Name = Name;
+    }
+
+    public String getDescription()
+    {
+        return Description;
+    }
+
+    public void setDescription(String Description)
+    {
+        this.Description = Description;
+    }
+
+    public int getLength()
+    {
+        return Length;
+    }
+
+    public void setLength(int Length)
+    {
+        this.Length = Length;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Orders_idOrder= " + Orders_idOrder + ", Amount= " + Amount + ", Price= " + Price + " Kr, Name= " + Name + ", Description= " + Description + ", Length= " + Length + " Cm , type= " + type + '}';
+    }
+
 
 
 }
