@@ -17,11 +17,10 @@ abstract class Command {
         commands.put( "allOrders", new AllOrders() );
         commands.put( "allUsers", new AllUsers() );
         commands.put( "carportdrawing", new Carportdrawing());
-        commands.put( "getdata", new GetData());
+        commands.put( "stykListe", new GetData());
         commands.put( "orderinput", new Orderinput());
         commands.put( "neworder", new NewOrder());
         commands.put( "stock", new Stock());
-//        commands.put("stykliste", new LineItems());
 
     }
 
