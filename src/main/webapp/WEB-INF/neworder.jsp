@@ -38,13 +38,13 @@
           style="stroke:#006600;
         	    marker-start: url(#beginArrow);
                marker-end: url(#endArrow);"/>
-    <text x=40% y=98% text-anchor="middle" fill="black"> Length: <%=itemList[1]%>
+    <text x=40% y=98% text-anchor="middle" fill="black"> Length: <%=itemList[1]%> cm
     </text>
     <line x1="95%" y1="10%" x2="95%" y2="80%"
           style="stroke:#006600;
 	            marker-start: url(#beginArrow);
             marker-end: url(#endArrow);"/>
-    <text x=97% y=50% text-anchor="middle" style="writing-mode: tb;"> Width: <%=itemList[0]%>
+    <text x=97% y=50% text-anchor="middle" style="writing-mode: tb;"> Width: <%=itemList[0]%> cm
     </text>
     <svg width="90%" height="90%">
         <rect width="100%" height="100%" id="roof"
@@ -68,7 +68,7 @@
               style="stroke-dasharray: 2 2; stroke: blue; fill: none"/>
        <%}%>
        
-       <%if (shed == true) { int shedp = 50; %>
+       <%if (shed == true) for (int shedp = 50; shedp <= itemList[1]/2; shedp += 250) {  %>
         <rect x="<%= shedp %>" y="8%" height="5" width="5" id="upperPillar"
               style="stroke:black; fill:black"/>
         <rect x="<%= shedp %>" y="90%" height="5" width="5" id="lowerPillars"
@@ -94,7 +94,7 @@
         style="stroke:#000000; fill: none "/>
     <rect x="1%" y="20" height="20" width="98%" id="Rooflayerbot"
         style="stroke:#000000; fill: none "/>
-        <%if (shed == true) { int z = 70; %>
+        <%if (shed == true) for (int z = 70; z <= itemList[1]/2; z += 300) { %>
         <rect x="<%= z %>" y="40" height="70%" width="5" id="firstPillarwithShed"
               style="stroke:black; fill:none"/>
         <rect x="70%" y="40" height="70%" width="27%" id="shedfromside"
@@ -123,13 +123,13 @@
           style="stroke:#006600;
         	    marker-start: url(#beginArrow);
                marker-end: url(#endArrow);"/>
-    <text x=50% y=98% text-anchor="middle" fill="black"> Length: <%=itemList[1]%>
+    <text x=50% y=98% text-anchor="middle" fill="black"> Length: <%=itemList[1]%> cm
     </text>
     <line x1="110%" y1="20%" x2="110%" y2="80%"
           style="stroke:#006600;
 	            marker-start: url(#beginArrow);
             marker-end: url(#endArrow);"/>
-    <text x=110% y=50% text-anchor="middle" style="writing-mode: tb;"> Height: <%=itemList[2]%>
+    <text x=110% y=50% text-anchor="middle" style="writing-mode: tb;"> Height: <%=itemList[2]%> cm
     </text>
   
 </SVG>
