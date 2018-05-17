@@ -1,12 +1,12 @@
 <%@page import="java.util.ArrayList"%>
 <%@include file="//includes/header.jsp" %>  
 <%@page import="FunctionLayer.Order"%>
-<%@page import="FunctionLayer.User"%>    
-<% int shedlength = 150;
-   int shedwidth = 450; 
-%>
+<%@page import="FunctionLayer.User"%> 
+
+<% boolean shed = false; %>
+
 <div class="orderStyle">
-    <h1>Ordre side</h1>
+    <h1>Sketch of carport</h1>
     <% int[] itemList = (int[]) request.getAttribute("itemlist");%>
 
     <h1>Your order dimensions</h1>
@@ -59,31 +59,50 @@
         <%}%>
         <rect x="99%" y="0%" height="100%" width="5" id="rafter"
               style="stroke:black; fill:none"/>
-        <%for (int x = 50; x <= itemList[1]; x += 325) { %>
-        <rect x="<%= x %>" y="8%" height="5" width="5" id="upperPillar"
-              style="stroke:black; fill:black"/>
-        <rect x="<%= x %>" y="90%" height="5" width="5" id="lowerPillar"
-              style="stroke:black; fill:black"/>
-        <%}%>
-        <%int x = 50; { %>
-        <line x1="<%= x %>" y1="8%" x2="72%" y2="90%"
+        
+        
+        <%int x = 50; double y = (itemList[1] * 0.64) + 55; { %>
+        <line x1="<%= x %>" y1="8%" x2="<%= y %>" y2="90%"
               style="stroke-dasharray: 2 2; stroke: blue; fill: none"/>
         <line x1="<%= x %>" y1="90%" x2="72%" y2="8%"
               style="stroke-dasharray: 2 2; stroke: blue; fill: none"/>
        <%}%>
+       
+       <%if (shed == true) { int shedp = 50; %>
+        <rect x="<%= shedp %>" y="8%" height="5" width="5" id="upperPillar"
+              style="stroke:black; fill:black"/>
+        <rect x="<%= shedp %>" y="90%" height="5" width="5" id="lowerPillars"
+              style="stroke:black; fill:black"/>
+        <rect x="72%" y="8%" height="83%" width="25%" id="shed"
+              style="stroke:red; fill:none"/>
         
+        <%}
+        else
+        for (int shedpp = 50; shedpp <= itemList[1]; shedpp += 250) { %>
+        <rect x="<%= shedpp %>" y="8%" height="5" width="5" id="upperPillar"
+              style="stroke:black; fill:black"/>
+        <rect x="<%= shedpp %>" y="90%" height="5" width="5" id="lowerPillar"
+              style="stroke:black; fill:black"/>
+        <%}%>
     </svg>
 </SVG>
 <svg width="760" height="400" viewbox="0 0 <%=itemList[1]%> <%=itemList[0]%>"
   preserveAspectRatio="none">
-<rect x="3%" y="1%" height="10" width="<%=itemList[1]%>"
+<rect x="3%" y="0" height="10" width="<%=itemList[1]%>" id="Rooflayertop"
         style="stroke:#000000; fill: none "/>
-  <rect x="3.5%" y="2.5%" height="10" width="99%"
+  <rect x="3.5%" y="10" height="10" width="99%" id="Rooflayermid"
         style="stroke:#000000; fill: none "/>
-    <rect x="4%" y="4%" height="20" width="98%"
+    <rect x="4%" y="20" height="20" width="98%" id="Rooflayerbot"
         style="stroke:#000000; fill: none "/>
-    <%for (int y = 70; y <= itemList[1]; y += 350) { %>
-        <rect x="<%= y %>" y="7%" height="70%" width="5" id="upperPillar"
+        <%if (shed == true) { int z = 70; %>
+        <rect x="<%= z %>" y="40" height="70%" width="5" id="firstPillar"
+              style="stroke:black; fill:none"/>
+        <rect x="70%" y="40" height="70%" width="30%" id="shedfromside"
+              style="stroke:black; fill:lightgrey"/>
+         <%}
+        else
+        for (int z = 70; z <= itemList[1]; z += 300) { %>
+        <rect x="<%= z %>" y="40" height="70%" width="5" id="sideviewPillars"
               style="stroke:black; fill:none"/>
         <%}%>
 <defs>
