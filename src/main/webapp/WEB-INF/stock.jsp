@@ -2,15 +2,6 @@
 <%@page import="FunctionLayer.Materials"%>
 <%@page import="java.util.ArrayList"%>
 
-<style>
-td, th {
-    border: 2px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}    
-    
-</style>
-
 
     
         <% ArrayList<Materials>listen = (ArrayList<Materials>) request.getAttribute("Stock");%>

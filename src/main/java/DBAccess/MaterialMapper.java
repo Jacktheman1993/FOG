@@ -21,17 +21,17 @@ import java.util.ArrayList;
  */
 public class MaterialMapper {
     
-    public static int createMaterial(int MaterialsID, String Name, int Length, int Stock, int Price, String Description, int Type_idType) throws LoginSampleException {
+    public static int createMaterial(int MaterialsID, String Name, int Length, int Stock, int Price, String Description, String Name_T) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO `Materials` natural join Type( Name, Length Stock, Price, Description, Type_idType ) VALUES (?,?,?,?,?,?)";
+            String SQL = "INSERT INTO `Materials` natural join Type( Name, Length Stock, Price, Description, Name_T ) VALUES (?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
             ps.setInt( 1, MaterialsID);
             ps.setString( 2, Name);
             ps.setInt( 3, Length);
             ps.setInt( 4, Price);
             ps.setString( 5, Description);
-            ps.setInt( 6, Type_idType);
+            ps.setString( 6, Name_T);
             
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
@@ -46,14 +46,14 @@ public class MaterialMapper {
         try
         {
             Connection con = Connector.connection();
-            String SQL = "select * from Materials,Type where Materials.Type_idType=Type.idType;";
+            String SQL = "select Materials.MaterialsID, Materials.Name, Materials.Length, Materials.Stock, Materials.Price, Materials.Description,Type.Name_T from Materials,Type where Materials.Type_idType=Type.idType;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
 
                ArrayList<Materials> mats = new ArrayList<>();
             while (rs.next())
             {
-                mats.add(new Materials(rs.getInt("MaterialsID"), rs.getString("Name"), rs.getInt("Length"), rs.getInt("Stock"), rs.getInt("Price"), rs.getString("Description"), rs.getInt("Type_idType")));
+                mats.add(new Materials(rs.getInt("MaterialsID"), rs.getString("Name"), rs.getInt("Length"), rs.getInt("Stock"), rs.getInt("Price"), rs.getString("Description"), rs.getString("Name_T")));
             }
             if (mats.size() > 0)
             {

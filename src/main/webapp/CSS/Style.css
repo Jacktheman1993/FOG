@@ -3,3 +3,8 @@
     float: left;
     margin-left: 5px;
 }
+td, th {
+    border: 2px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}

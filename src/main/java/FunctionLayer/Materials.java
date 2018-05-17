@@ -15,7 +15,7 @@ public class Materials {
     private int Stock;
     private int Price;
     private String Description;
-    private int Type_idType;
+    private String Name_T;
 
 /*
 private int id;
@@ -23,14 +23,14 @@ private int type;
 private int Length;
 */
 
-    public Materials(int MaterialsID, String Name, int Length, int Stock, int Price, String Description, int Type_idType) {
+    public Materials(int MaterialsID, String Name, int Length, int Stock, int Price, String Description, String Name_T) {
         this.MaterialsID = MaterialsID;
         this.Name = Name;
         this.Length = Length;
         this.Stock = Stock;
         this.Price = Price;
         this.Description = Description;
-        this.Type_idType = Type_idType;
+        this.Name_T = Name_T;
     }
 
     public int getMaterialsID()
@@ -93,20 +93,20 @@ private int Length;
         this.Description = Description;
     }
 
-    public int getType()
+    public String getName_T()
     {
-        return Type_idType;
+        return Name_T;
     }
 
-    public void setType(int Type_idType)
+    public void setName_T(String Name_T)
     {
-        this.Type_idType = Type_idType;
+        this.Name_T = Name_T;
     }
 
     @Override
     public String toString()
     {
-        return "Materials{" + "MaterialsID=" + MaterialsID + ", Name=" + Name + ", Length=" + Length + ", Stock=" + Stock + ", Price=" + Price + ", Description=" + Description + ", Type=" + Type_idType + '}';
+        return "Materials{" + "MaterialsID=" + MaterialsID + ", Name=" + Name + ", Length=" + Length + ", Stock=" + Stock + ", Price=" + Price + ", Description=" + Description + ", Type=" + Name_T + '}';
     }
 
 
