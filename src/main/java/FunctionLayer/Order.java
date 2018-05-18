@@ -71,6 +71,12 @@ public class Order
     public void setHeight(int Height) {
         this.Height = Height;
     }
+    
+    @Override
+    public String toString()
+    {
+        return "Order{" + "IDorder=" + IDorder + ", Width=" + Width + ", Length=" + Length + ", Height=" + Height + '}';
+    }
 ///*
 //    public ArrayList getLineItems() {
 //        return lineItems;

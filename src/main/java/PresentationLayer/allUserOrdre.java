@@ -9,11 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import sun.security.pkcs11.wrapper.Functions;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author simon
- */
-public class AllOrders extends Command {
+public class allUserOrdre extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
