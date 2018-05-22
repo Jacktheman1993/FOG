@@ -90,7 +90,7 @@ public static int createOrder(User user, int width, int length, int height) thro
             ArrayList<LineItems> lineItems = new ArrayList<>();
             while (rs.next())
             {
-                list.add(new Order(rs.getInt("idOrder"), rs.getInt("Width"), rs.getInt("Length"), rs.getInt("Height"), lineItems));
+                list.add(new Order(rs.getInt("idOrder"), rs.getInt("Width"), rs.getInt("Length"), rs.getInt("Height")));
             }
             if (list.size() > 0)
             {
