@@ -1,6 +1,7 @@
 package PresentationLayer;
 
 import DBAccess.OrderMapper;
+import DBAccess.UsersOrderMapper;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Order;
 import java.util.ArrayList;
@@ -14,11 +15,11 @@ public class AllUserOrder extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         
-        ArrayList<Order> ord = OrderMapper.getOrders();
+        ArrayList<Order> Uord = UsersOrderMapper.getUsersOrders();
         
-        request.setAttribute("allOrders", ord);
+        request.setAttribute("allUsersOrder", Uord);
         
-        return "allOrders";
+        return "allUsersOrders";
 
     }
     
