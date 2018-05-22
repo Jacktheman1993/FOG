@@ -18,16 +18,16 @@ public class Order
     private int Width;
     private int Length;
     private int Height;
-    
-    // boolean skur;
+    private int Shed;
     // int carportType;
     
 
-    public Order(int IDorder, int Width, int Length, int Height) {
+    public Order(int IDorder, int Width, int Length, int Height, int Shed) {
         this.IDorder = IDorder;
         this.Width = Width;
         this.Length = Length;
         this.Height = Height;
+        this.Shed = Shed;
     }
 
     
@@ -67,11 +67,21 @@ public class Order
     public void setHeight(int Height) {
         this.Height = Height;
     }
-    
-    @Override
-    public String toString()
-    {
-        return "Order{" + "IDorder=" + IDorder + ", Width=" + Width + ", Length=" + Length + ", Height=" + Height + '}';
+
+    public int isShed() {
+        return Shed;
     }
+
+    public void setShed(int Shed) {
+        this.Shed = Shed;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" + "IDorder=" + IDorder + ", Width=" + Width + ", Length=" + Length + ", Height=" + Height + ", Shed=" + Shed + '}';
+    }
+    
+    
+    
         
 }
