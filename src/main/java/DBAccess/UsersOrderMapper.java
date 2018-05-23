@@ -70,7 +70,7 @@ public class UsersOrderMapper
             ArrayList<LineItems> lineItems = new ArrayList<>();
             while (rs.next())
             {
-                list.add(new Order(rs.getInt("idOrder"), rs.getInt("Width"), rs.getInt("Length"), rs.getInt("Height"), rs.getBoolean("Shed")));
+                list.add(new Order(rs.getInt("idOrder"), rs.getInt("Width"), rs.getInt("Length"), rs.getInt("Height"), rs.getBoolean("Shed"), rs.getBoolean("Status")));
             }
             if (list.size() > 0)
             {

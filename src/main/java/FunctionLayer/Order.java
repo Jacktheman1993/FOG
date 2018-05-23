@@ -14,15 +14,27 @@ public class Order
     private int Length;
     private int Height;
     private boolean Shed;
+    private boolean Status;
     // int carportType;
     
 
-    public Order(int IDorder, int Width, int Length, int Height, boolean Shed) {
+    public Order(int IDorder, int Width, int Length, int Height, boolean Shed, boolean Status) {
         this.IDorder = IDorder;
         this.Width = Width;
         this.Length = Length;
         this.Height = Height;
         this.Shed = Shed;
+        this.Status = Status;
+    }
+
+    public boolean isStatus()
+    {
+        return Status;
+    }
+
+    public void setStatus(boolean Status)
+    {
+        this.Status = Status;
     }
 
     
@@ -63,7 +75,7 @@ public class Order
         this.Height = Height;
     }
 
-    public boolean Shed() {
+    public boolean isShed() {
         return Shed;
     }
 
@@ -72,9 +84,12 @@ public class Order
     }
 
     @Override
-    public String toString() {
-        return "Order{" + "IDorder=" + IDorder + ", Width=" + Width + ", Length=" + Length + ", Height=" + Height + ", Shed=" + Shed + '}';
+    public String toString()
+    {
+        return "Order{" + "date=" + date + ", IDorder=" + IDorder + ", Width=" + Width + ", Length=" + Length + ", Height=" + Height + ", Shed=" + Shed + ", Status=" + Status + '}';
     }
+
+    
     
     
     

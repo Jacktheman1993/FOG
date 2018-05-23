@@ -26,7 +26,7 @@ public class NewOrder extends Command {
         int getlength = Integer.parseInt(request.getParameter("length"));
         int getheight = Integer.parseInt(request.getParameter("height"));
         String getshed = request.getParameter("shed");
-        
+        boolean status = false;
         boolean shed = false;
         
         shed = "shed_yes".equals(getshed);
@@ -55,7 +55,7 @@ public class NewOrder extends Command {
         User user = (User)request.getSession().getAttribute("user");
             try
             {
-                LogicFacade.createOrder(user, getwidth, getlength, getheight, shed);
+                LogicFacade.createOrder(user, getwidth, getlength, getheight, shed, status);
             } catch (SQLException ex)
             {
                 Conf.MYLOGGER.log(Level.SEVERE, null, ex);

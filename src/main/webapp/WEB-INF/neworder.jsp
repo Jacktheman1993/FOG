@@ -59,21 +59,19 @@
         <%}%>
         <rect x="99%" y="0%" height="100%" width="5" id="rafter"
               style="stroke:black; fill:none"/>
-        
-        
-        <%int x = 50; double y = (itemList[1] * 0.64) + 55; { %>
-        <line x1="<%= x %>" y1="8%" x2="<%= y %>" y2="90%"
+        <% int x = 50; { %>
+        <line x1="<%= x %>" y1="8%" x2="72%" y2="90%" id="hulbaand"
               style="stroke-dasharray: 2 2; stroke: blue; fill: none"/>
-        <line x1="<%= x %>" y1="90%" x2="72%" y2="8%"
+        <line x1="<%= x %>" y1="90%" x2="72%" y2="8%" id="hulbaand"
               style="stroke-dasharray: 2 2; stroke: blue; fill: none"/>
-       <%}%>
+        <%}%>
        
        <%if (shed != false) for (int shedp = 50; shedp <= itemList[1]/2; shedp += 250) {  %>
         <rect x="<%= shedp %>" y="8%" height="5" width="5" id="upperPillar"
               style="stroke:black; fill:black"/>
         <rect x="<%= shedp %>" y="90%" height="5" width="5" id="lowerPillars"
               style="stroke:black; fill:black"/>
-        <rect x="72%" y="8%" height="83%" width="25%" id="shed"
+        <rect x="72%" y="8%" height="83%" width="25%" id="staticScaleshed"
               style="stroke:red; fill:none"/>
         
         <%}
