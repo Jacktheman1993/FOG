@@ -53,36 +53,7 @@ public class Calc {
             
             
         }
-       /* 
-        public void calcLægteBagsideDør(int width){
-            int quantity = 0;
-            quantity = width / 360;
-            quantity += (width % 360 >= 360 ? + 1 : 0);
-            
-            length på 360
-            lineItems.add(new LineItems(quantity, 3));
-            
-        }*/
-        
-        /*public void calcLøsholterSkurGalve(int width){
-            int quantity = 0;
-            quantity = width / 360;
-            quantity += (width % 360 >= 360 ? + 1 : 0);
-            
-            length på 360
-            lineItems.add(new LineItems(quantity, 3));
-            
-        }*/
-        
-        /*public void calcLøsholtSkurSider(int width){
-            int quantity = 0;
-            quantity = width / 360;
-            quantity += (width % 360 >= 360 ? + 1 : 0);
-            
-            length på 360
-            lineItems.add(new LineItems(quantity, 3));
-            
-        }*/
+
         public LineItems calcRemmeISider(int width){
             int quantity = 0;
             width += width * 2;
@@ -299,6 +270,98 @@ public class Calc {
         
         }
         
+        
+        //Shed Calculator. All sheds are the same
+        
+                
+        public LineItems calcLægteBagsideDør(){
+            int quantity = 0;
+            
+            quantity++;
+            
+            return new LineItems(quantity, 23);
+            
+        }
+       /* 
+        public void calcLøsholterSkurGalve(int width){
+            int quantity = 0;
+            quantity = width / 360;
+            quantity += (width % 360 >= 360 ? + 1 : 0);
+            
+            length på 360
+            lineItems.add(new LineItems(quantity, 3));
+            
+        }
+        */
+        public LineItems calcLøsholtSkurSider(int width){
+            int quantity = 0;
+            
+            while(width >=600)
+            {
+                width -= 600;
+                
+                quantity += 4;    
+            }
+            while(width >= 1)
+            {
+                width -= 600;
+                
+                quantity += 2;
+            }
+            
+            return new LineItems(quantity, 24);
+            
+        }
+        
+        public LineItems calcStaldDørsGreb(){
+            int quantity = 1;
+            
+            
+            return new LineItems(quantity, 25);
+        }
+        
+         public LineItems calcHængsler(){
+            int quantity = 2;
+            
+            
+            return new LineItems(quantity, 26);
+        }
+        
+         public ArrayList<LineItems> calcAllShed(int width, int length, int height){
+            ArrayList<LineItems> listwithall = new ArrayList<>();
+            
+            listwithall.add(calc4dot5x50(length));
+            listwithall.add(calc4dot5x70(length));
+            listwithall.add(calc4dot5x60Skruer(length));
+            listwithall.add(calc4x50BesSkruer(length));
+            listwithall.add(calcBræddeBolt(length));
+            listwithall.add(calcBundskruerPakke(width, length));
+            listwithall.add(calcFirkantsskiver(length));
+            listwithall.add(calcHulbånd(length));
+            listwithall.add(calcOverSternbrædderForenden(width));
+            listwithall.add(calcOverSternbrædderSiderne(length));
+            listwithall.add(calcRemmeISider(width));
+            listwithall.add(calcSpærMontPåRem(width));
+            listwithall.add(calcSpærpåRemUniversalHøjre(width));
+            listwithall.add(calcSpærpåRemUniversalVenstre(width));
+            listwithall.add(calcStolper());
+            listwithall.add(calcTagpladerMontPåSpær360(width));
+            listwithall.add(calcTagpladerMontPåSpær600(width));
+            listwithall.add(calcUnderSternbrædderForBag(width));
+            listwithall.add(calcUnderSternbrædderSide(length));
+            listwithall.add(calcVandbrædtSternForende(width));
+            listwithall.add(calcVandbrædtSternSider(length));
+            listwithall.add(calcVinkelBeslag(length));
+            
+            listwithall.add(calcLægteBagsideDør());
+            listwithall.add(calcLøsholtSkurSider(width));
+            listwithall.add(calcStaldDørsGreb());
+            listwithall.add(calcHængsler());
+            
+            
+            return listwithall;
+        }
+         
         public ArrayList<LineItems> calcAllNoShed(int width, int length, int height){
             ArrayList<LineItems> listwithall = new ArrayList<>();
             
