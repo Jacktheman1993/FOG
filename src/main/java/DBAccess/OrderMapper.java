@@ -25,7 +25,7 @@ public class OrderMapper
 
     java.sql.Date date1 = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 // Martin
-public static int createOrder(User user, int width, int length, int height, int shed) throws LoginSampleException {
+public static int createOrder(User user, int width, int length, int height, boolean shed) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO `Orders` (Users_id, width, length, height, shed ) VALUES (?,?,?,?,?)";
@@ -34,7 +34,7 @@ public static int createOrder(User user, int width, int length, int height, int 
             ps.setInt( 2, width);
             ps.setInt( 3, length );
             ps.setInt( 4, height );
-            ps.setInt(5, shed );
+            ps.setBoolean(5, shed );
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
@@ -90,7 +90,7 @@ public static int createOrder(User user, int width, int length, int height, int 
             ArrayList<LineItems> lineItems = new ArrayList<>();
             while (rs.next())
             {
-                list.add(new Order(rs.getInt("idOrder"), rs.getInt("Width"), rs.getInt("Length"), rs.getInt("Height"), rs.getInt("Shed")));
+                list.add(new Order(rs.getInt("idOrder"), rs.getInt("Width"), rs.getInt("Length"), rs.getInt("Height"), rs.getBoolean("Shed")));
             }
             if (list.size() > 0)
             {

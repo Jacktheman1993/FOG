@@ -13,11 +13,11 @@ public class Order
     private int Width;
     private int Length;
     private int Height;
-    private int Shed;
+    private boolean Shed;
     // int carportType;
     
 
-    public Order(int IDorder, int Width, int Length, int Height, int Shed) {
+    public Order(int IDorder, int Width, int Length, int Height, boolean Shed) {
         this.IDorder = IDorder;
         this.Width = Width;
         this.Length = Length;
@@ -63,11 +63,11 @@ public class Order
         this.Height = Height;
     }
 
-    public int isShed() {
+    public boolean Shed() {
         return Shed;
     }
 
-    public void setShed(int Shed) {
+    public void setShed(boolean Shed) {
         this.Shed = Shed;
     }
 

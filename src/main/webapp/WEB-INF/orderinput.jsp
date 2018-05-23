@@ -13,8 +13,8 @@
     <input type="number" name="height" value="200" maxlength="300" minlength="200">
     <br>
     <h3>Would you like a shed for your carport?</h3>
-    Yes<input type="radio" name="shed" value="1" />
-    No<input type="radio" name="shed" value="0" />
+    Yes<input type="radio" name="shed" value="shed_yes" />
+    No<input type="radio" name="shed"  value="shed_no" checked="checked" />
     <br>
     <a href="FrontController?command=neworder"><button>Bestil ordre</button></a>
 </form>

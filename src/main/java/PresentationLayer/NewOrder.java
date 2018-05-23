@@ -25,7 +25,11 @@ public class NewOrder extends Command {
         int getwidth = Integer.parseInt(request.getParameter( "width" ));
         int getlength = Integer.parseInt(request.getParameter("length"));
         int getheight = Integer.parseInt(request.getParameter("height"));
-        int isShed = Integer.parseInt(request.getParameter("shed"));
+        String getshed = request.getParameter("shed");
+        
+        boolean shed = false;
+        
+        shed = "shed_yes".equals(getshed);
         
         if(getwidth > 1000 || getwidth < 400){
             return "orderinput";
@@ -40,17 +44,18 @@ public class NewOrder extends Command {
         }
         
         else{
-        int[] result = new int[4];
+        int[] result = new int[3];
         result[0] = getwidth;
         result[1] = getlength;
         result[2] = getheight;
-        result[3] = isShed;
+
         
+        request.setAttribute("shedBool", shed);
         request.setAttribute("itemlist", result);
         User user = (User)request.getSession().getAttribute("user");
             try
             {
-                LogicFacade.createOrder(user, getwidth, getlength, getheight, isShed);
+                LogicFacade.createOrder(user, getwidth, getlength, getheight, shed);
             } catch (SQLException ex)
             {
                 Conf.MYLOGGER.log(Level.SEVERE, null, ex);

@@ -3,7 +3,7 @@
 <%@page import="FunctionLayer.Order"%>
 <%@page import="FunctionLayer.User"%> 
 
-<% boolean shed = true; %>
+<% Boolean shed = (Boolean)request.getAttribute("shedBool");%>
 
 <div class="orderStyle">
     <h1>Sketch of carport</h1>
@@ -68,7 +68,7 @@
               style="stroke-dasharray: 2 2; stroke: blue; fill: none"/>
        <%}%>
        
-       <%if (shed == true) for (int shedp = 50; shedp <= itemList[1]/2; shedp += 250) {  %>
+       <%if (shed != false) for (int shedp = 50; shedp <= itemList[1]/2; shedp += 250) {  %>
         <rect x="<%= shedp %>" y="8%" height="5" width="5" id="upperPillar"
               style="stroke:black; fill:black"/>
         <rect x="<%= shedp %>" y="90%" height="5" width="5" id="lowerPillars"
@@ -94,7 +94,7 @@
         style="stroke:#000000; fill: none "/>
     <rect x="1%" y="20" height="20" width="98%" id="Rooflayerbot"
         style="stroke:#000000; fill: none "/>
-        <%if (shed == true) for (int z = 70; z <= itemList[1]/2; z += 300) { %>
+        <%if (shed != false) for (int z = 70; z <= itemList[1]/2; z += 300) { %>
         <rect x="<%= z %>" y="40" height="70%" width="5" id="firstPillarwithShed"
               style="stroke:black; fill:none"/>
         <rect x="70%" y="40" height="70%" width="27%" id="shedfromside"

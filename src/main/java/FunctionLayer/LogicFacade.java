@@ -24,7 +24,7 @@ public class LogicFacade
         return OrderMapper.getOrder(idOrder);
     }
 
-    public static int createOrder(User user, int width, int length, int height, int shed) throws LoginSampleException, SQLException
+    public static int createOrder(User user, int width, int length, int height, boolean shed) throws LoginSampleException, SQLException
     {
         return OrderMapper.createOrder(user, width, length, height, shed);
     }
