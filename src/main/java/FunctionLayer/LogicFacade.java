@@ -4,11 +4,6 @@ import DBAccess.OrderMapper;
 import DBAccess.UserMapper;
 import java.sql.SQLException;
 
-/**
- * The purpose of LogicFacade is to...
- *
- * @author kasper
- */
 public class LogicFacade
 {
 

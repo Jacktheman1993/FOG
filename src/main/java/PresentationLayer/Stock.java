@@ -12,10 +12,8 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Alek
- */
+// Alessandro & Simon
+
  public class Stock extends Command {
 
     public Stock() {
@@ -23,16 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-        
-        //int getMaterialsID = Integer.parseInt(request.getParameter( "MaterialsID" ));
-        //String getMaterialsName = request.getParameter("MaterialsName");
-        //int getMaterialsInStock = Integer.parseInt(request.getParameter("MaterialsInStock"));
-        
-        //int[] stock = new int[2];
-        //stock[0] = getMaterialsID;
-        //result[1] = getMaterialsName;
-        //stock[1] = getMaterialsInStock;
-        
+
         ArrayList<Materials> mat = MaterialMapper.getMaterials();
         
         request.setAttribute("Stock", mat);

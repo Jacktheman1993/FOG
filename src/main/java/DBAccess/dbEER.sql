@@ -2,6 +2,7 @@
 -- -----------------------------------------------------
 -- Schema useradmin
 -- -----------------------------------------------------
+#Alessandro
 CREATE SCHEMA IF NOT EXISTS `useradmin` DEFAULT CHARACTER SET latin1 ;
 USE `useradmin` ;
 

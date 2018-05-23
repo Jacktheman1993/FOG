@@ -9,10 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import sun.security.pkcs11.wrapper.Functions;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author simon
- */
+// Simon
+
 public class AllOrders extends Command {
 
     @Override

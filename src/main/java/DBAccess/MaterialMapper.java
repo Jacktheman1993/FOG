@@ -41,6 +41,8 @@ public class MaterialMapper {
             throw new LoginSampleException( ex.getMessage() );
         }
     }
+    
+    // Alessandro & Simon
             public static ArrayList<Materials> getMaterials() throws LoginSampleException
     {
         try

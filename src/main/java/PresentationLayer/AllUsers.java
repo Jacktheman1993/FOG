@@ -12,10 +12,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Alek
- */
+// Alessandro & Simon
 public class AllUsers  extends Command{
 
     @Override

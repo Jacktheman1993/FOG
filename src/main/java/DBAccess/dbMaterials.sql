@@ -1,3 +1,4 @@
+#Alessandro
 INSERT INTO `Materials` VALUES
 #ID, navn, length, stock, pris, beskrivelse, type_idType
 #Træ & Tagplader
