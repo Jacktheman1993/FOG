@@ -18,10 +18,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-/**
- *
- * @author Alek
- */
+
 public class LineItemMapper {
 
 public static int createLineItems(Order order, Materials materials, int Amount, int Price) throws LoginSampleException {
@@ -73,7 +70,7 @@ public static int createLineItems(Order order, Materials materials, int Amount, 
             throw new LoginSampleException(ex.getMessage());
         }
     }
-
+// Simon & Sandro
     public static ArrayList<LineItems> getLineItems() throws LoginSampleException
     {
         try

@@ -60,7 +60,7 @@ public class UserMapper {
             throw new LoginSampleException(ex.getMessage());
         }
     }
-    
+    //Copied from GetOrders()
         public static ArrayList<User> getUsers() throws LoginSampleException
     {
         try

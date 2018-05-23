@@ -19,15 +19,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-/**
- *
- * @author Martin
- */
+
 public class OrderMapper
 {
 
     java.sql.Date date1 = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-
+// Martin
 public static int createOrder(User user, int width, int length, int height, int shed) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -46,6 +43,8 @@ public static int createOrder(User user, int width, int length, int height, int 
             throw new LoginSampleException( ex.getMessage() );
         }
     }
+
+//Martin
     public static Order getOrder(int idOrder) throws LoginSampleException
     {
         try
@@ -78,7 +77,7 @@ public static int createOrder(User user, int width, int length, int height, int 
             throw new LoginSampleException(ex.getMessage());
         }
     }
-
+// Simon
     public static ArrayList<Order> getOrders() throws LoginSampleException
     {
         try
@@ -105,6 +104,8 @@ public static int createOrder(User user, int width, int length, int height, int 
             throw new LoginSampleException(ex.getMessage());
         }
     }
+    
+    //Nicolai
     public static Order getUserOrder(int idOrder) throws LoginSampleException
     {
         try
