@@ -84,14 +84,14 @@ public static int createOrder(User user, int width, int length, int height, bool
         try
         {
             Connection con = Connector.connection();
-            String SQL = "select * from `Orders`";
+            String SQL = "select Orders.IDorder, Orders.Width, Orders.Length, Orders.Height, Orders.Shed, Orders.Status, Users.id from Orders, Users where Orders.Users_id = Users.id";
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             ArrayList<Order> list = new ArrayList<>();
             ArrayList<LineItems> lineItems = new ArrayList<>();
             while (rs.next())
             {
-                list.add(new Order(rs.getInt("idOrder"), rs.getInt("Width"), rs.getInt("Length"), rs.getInt("Height"), rs.getBoolean("Shed"), rs.getBoolean("Status")));
+                list.add(new Order(rs.getInt("id"),rs.getInt("idOrder"), rs.getInt("Width"), rs.getInt("Length"), rs.getInt("Height"), rs.getBoolean("Shed"), rs.getBoolean("Status")));
             }
             if (list.size() > 0)
             {

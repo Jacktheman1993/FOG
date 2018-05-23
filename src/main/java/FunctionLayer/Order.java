@@ -9,6 +9,7 @@ import java.util.Calendar;
 public class Order
 {
        private java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+       private int id;
     private int IDorder;
     private int Width;
     private int Length;
@@ -18,7 +19,8 @@ public class Order
     // int carportType;
     
 
-    public Order(int IDorder, int Width, int Length, int Height, boolean Shed, boolean Status) {
+    public Order( int id, int IDorder, int Width, int Length, int Height, boolean Shed, boolean Status) {
+        this.id =id;
         this.IDorder = IDorder;
         this.Width = Width;
         this.Length = Length;
@@ -83,10 +85,27 @@ public class Order
         this.Shed = Shed;
     }
 
+    public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
+    
+//    @Override
+//    public String toString()
+//    {
+//        return "Order{" + "date=" + date + ", IDorder=" + IDorder + ", Width=" + Width + ", Length=" + Length + ", Height=" + Height + ", Shed=" + Shed + ", Status=" + Status + '}';
+//    }
+
     @Override
     public String toString()
     {
-        return "Order{" + "date=" + date + ", IDorder=" + IDorder + ", Width=" + Width + ", Length=" + Length + ", Height=" + Height + ", Shed=" + Shed + ", Status=" + Status + '}';
+        return "Order{" + "date=" + date + ", User id=" + id + ", IDorder=" + IDorder + ", Width=" + Width + ", Length=" + Length + ", Height=" + Height + ", Shed=" + Shed + ", Status=" + Status + '}';
     }
 
     

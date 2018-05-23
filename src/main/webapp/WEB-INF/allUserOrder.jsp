@@ -11,15 +11,14 @@ td, th {
 }    
     
 </style>
-
-<% ArrayList<Order>listen = (ArrayList<Order>) request.getAttribute("allUsersOrders");%>
-
+<% ArrayList<Order>listen = (ArrayList<Order>) request.getAttribute("allOrders");%>
 <table>
-                <h1>Mine Orders</h1>
+                <h1><%=request.getParameter( "email" )%>: Ordere</h1>
                 <% for(int i = 0; i < listen.size(); i++){
                     out.println("<tr>");
                     out.println("<th>");
                     out.println("Order Nummer: " + "<td>" + listen.get(i) + "</td>");
+                    out.println("<a href=´FrontController?command=stykListe´><button>Se Stykliste</button></a>");
                     out.println("</th>");
                     out.println("<tr>");
                 }
