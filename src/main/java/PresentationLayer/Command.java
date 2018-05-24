@@ -21,6 +21,7 @@ abstract class Command {
         commands.put( "stock", new Stock());
         commands.put("allUserOrder", new AllUserOrder());
         commands.put("stykListe", new StykListe());
+        commands.put("orders", new SearchOrder());
 
     }
 
