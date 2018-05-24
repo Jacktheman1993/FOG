@@ -31,7 +31,7 @@
     int width = itemList[0];
     int length = itemList[1];
     int height = itemList[2];
-    
+   
     if(shed)
     {
         ArrayList<LineItems> li1 = calc.calcAllShed(width, length, height);
@@ -52,6 +52,7 @@
         out.print("MatId = " + li2.get(i).getMaterials_MaterialsID());
         out.print(",  "+"Amount = " + li2.get(i).getAmount());
         out.print("<br>");
+    }
     }
     
     %>
