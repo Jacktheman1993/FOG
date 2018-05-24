@@ -8,4 +8,13 @@
         <a href="FrontController?command=insertdata"><button>G? til insert data</button></a>
         <a href="FrontController?command=stykListe"><button>Gå til stykliste data</button></a>
         <a href="FrontController?command=stock"><button>Gå til lager status</button></a>
+        
+        <h2>SEARCH ORDER</h2>
+        
+        <form id="formSearch" action="FrontController" method="post">
+            <label id="labelUsername" for="idOrder">idOrder</label>
+            <input type="hidden" name="command" value="orders" />
+            <input type="number" name="idOrder" />
+            <input type="submit" value="SEARCH ORDER" />
+        </form>
 <%@include file="//includes/footer.jsp" %>  

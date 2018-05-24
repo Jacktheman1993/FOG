@@ -27,7 +27,10 @@ private int Length;
         this.Description = Description;
         this.Name_T = Name_T;
     }
-
+    public Materials(int MaterialsID)
+    {
+        this.MaterialsID = MaterialsID;
+    }
     public int getMaterialsID()
     {
         return MaterialsID;

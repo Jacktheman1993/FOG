@@ -71,7 +71,7 @@ public static int createOrder(User user, int width, int length, int height, bool
 //                return rs;
             } else
             {
-                throw new LoginSampleException("Something went wrong: OrderID is not used yet");
+                throw new LoginSampleException("Could not find an order: OrderID is not used yet");
             }
         } catch (ClassNotFoundException | SQLException ex)
         {

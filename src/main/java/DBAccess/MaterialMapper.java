@@ -41,7 +41,36 @@ public class MaterialMapper {
             throw new LoginSampleException( ex.getMessage() );
         }
     }
-    
+    public static Materials getPrice(int MaterialsID) throws LoginSampleException, SQLException
+    {
+        try{
+            Connection con = Connector.connection();
+            String SQL = "select * from Materials where Materials.MaterialsID= ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, MaterialsID);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next())
+            {
+                            Materials mats = new Materials(MaterialsID);
+                mats.setMaterialsID(MaterialsID);
+                mats.setPrice(rs.getInt("Price"));
+                mats.setDesp(rs.getString("Description"));
+                mats.setName(rs.getString("Name"));
+                mats.setStock(rs.getInt("Stock"));
+                mats.setLength(rs.getInt("Length"));
+                
+            return mats;
+                
+            } else
+            {
+             throw new LoginSampleException("Cant find price");
+            }
+            
+        }    catch (ClassNotFoundException | SQLException ex) {
+            throw new LoginSampleException( ex.getMessage() );
+        }
+    }
     // Alessandro & Simon
             public static ArrayList<Materials> getMaterials() throws LoginSampleException
     {
