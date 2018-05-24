@@ -5,26 +5,27 @@
  */
 package PresentationLayer;
 
-import DBAccess.LineItemMapper;
-import FunctionLayer.LineItems;
+import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
-import java.util.ArrayList;
+import FunctionLayer.Materials;
+import java.sql.SQLException;
+import java.util.logging.Level;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import loggingdemo.Conf;
 
-//Simon
-
-public class StykListe extends Command {
+/**
+ *
+ * @author Alek
+ */
+public class UpdateMaterial extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         
-        ArrayList<LineItems> li = LineItemMapper.getLineItems();
-        
-        request.setAttribute("stykListe", li);
-        
-        
-        return "stykListe";
+        return "updateMaterial";
     }
-    
 }
+    
+    
+

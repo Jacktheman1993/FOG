@@ -22,6 +22,8 @@ abstract class Command {
         commands.put("allUserOrder", new AllUserOrder());
         commands.put("stykListe", new StykListe());
         commands.put("orders", new SearchOrder());
+        commands.put("updateMaterial", new UpdateMaterial());
+        commands.put("matUpdated", new MatUpdated());
 
     }
 

@@ -2,6 +2,7 @@ package FunctionLayer;
 
 import DBAccess.OrderMapper;
 import DBAccess.UserMapper;
+import DBAccess.MaterialMapper;
 import java.sql.SQLException;
 
 public class LogicFacade
@@ -27,5 +28,9 @@ public class LogicFacade
     public static int createOrder(User user, int width, int length, int height, boolean shed, boolean status) throws LoginSampleException, SQLException
     {
         return OrderMapper.createOrder(user, width, length, height, shed, status);
+    }
+
+    public static int updateMaterial( String Name, int Length, int Stock, int Price, String Description, int MaterialsID) throws LoginSampleException {
+    return MaterialMapper.updateMaterial( Name, Length, Stock, Price, Description, MaterialsID);
     }
 }

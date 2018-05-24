@@ -8,6 +8,7 @@
         <a href="FrontController?command=insertdata"><button>G? til insert data</button></a>
         <a href="FrontController?command=stykListe"><button>Gå til stykliste data</button></a>
         <a href="FrontController?command=stock"><button>Gå til lager status</button></a>
+        <a href="FrontController?command=updateMaterial"><button>Edit a Material</button></a>
         
         <h2>SEARCH ORDER</h2>
         
