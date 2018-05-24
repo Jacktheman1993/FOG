@@ -30,7 +30,7 @@ public class LogicFacade
         return OrderMapper.createOrder(user, width, length, height, shed, status);
     }
 
-    public static int updateMaterial( String Name, int Length, int Stock, int Price, String Description, int MaterialsID) throws LoginSampleException {
-    return MaterialMapper.updateMaterial( Name, Length, Stock, Price, Description, MaterialsID);
+    public static void updateMaterial( String Name, int Length, int Stock, int Price, String Description, int MaterialsID) throws LoginSampleException {
+    MaterialMapper.updateMaterial( Name, Length, Stock, Price, Description, MaterialsID);
     }
 }

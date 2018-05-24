@@ -72,38 +72,27 @@ public class MaterialMapper {
         }
     }
     
-    public static int updateMaterial( String Name, int Length, int Stock, int Price, String Description, int MaterialsID) throws LoginSampleException {
+    public static void updateMaterial( String Name, int Length, int Stock, int Price, String Description, int MaterialsID) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
             String SQL = "UPDATE `Materials`"
-                    + " SET MaterialsID=?, "
-                    + "`Name`='?',"
-                    + " Length=?, "
-                    + "Stock=?, "
-                    + "Price=?, "
-                    + "Description='?' "
+                    + " SET MaterialsID= ?, "
+                    + "`Name`= ?,"
+                    + " Length= ?, "
+                    + "Stock= ?, "
+                    + "Price= ?, "
+                    + "Description= ? "
                     + "where MaterialsID = ?;";
             
-            
-            
-//            String SQL = "UPDATE Materials where MaterialsID = MaterialsID set"
-//                    + "Name = ?,"
-//                    + "Length = ?,"
-//                    + "Stock = ?,"
-//                    + "Price = ?,"
-//                    + "Description = ?,"
-//                    + "MaterialsID = ?";
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
-            ps.setString( 1, Name);
-            ps.setInt( 2, Length);
-            ps.setInt( 3, Stock);
-            ps.setInt( 4, Price);
-            ps.setString( 5, Description);
-            ps.setInt( 6, MaterialsID);
+            ps.setInt( 1, MaterialsID);
+            ps.setString( 2, Name);
+            ps.setInt( 3, Length);
+            ps.setInt( 4, Stock);
+            ps.setInt( 5, Price);
+            ps.setString( 6, Description);
+            ps.setInt( 7, MaterialsID);
             ps.executeUpdate();
-            ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
-            return ids.getInt( 1 );
         } catch ( SQLException | ClassNotFoundException ex ) {
             throw new LoginSampleException( ex.getMessage() );
         }
