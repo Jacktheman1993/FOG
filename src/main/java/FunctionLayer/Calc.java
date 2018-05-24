@@ -263,7 +263,7 @@ public class Calc {
                 quantity++;
                 length -= 10;
             }
-            quantity = quantity * 40;
+            //quantity = quantity * 40;
                     
             //length på 600
         LineItems li = new LineItems(22, quantity);

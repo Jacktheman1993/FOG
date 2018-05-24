@@ -1,3 +1,7 @@
+<%@page import="java.util.Collections"%>
+<%@page import="java.util.Arrays"%>
+<%@page import="FunctionLayer.LineItems"%>
+<%@page import="FunctionLayer.Calc"%>
 <%@page import="java.util.ArrayList"%>
 <%@include file="//includes/header.jsp" %>  
 <%@page import="FunctionLayer.Order"%>
@@ -16,6 +20,41 @@
     = <%=itemList[1]%> 
     <h3>height</h3>
     = <%=itemList[2]%> 
+    <br>
+    <br>
+    
+    
+    
+    <%
+        Calc calc = new Calc(); 
+    
+    int width = itemList[0];
+    int length = itemList[1];
+    int height = itemList[2];
+    
+    if(shed)
+    {
+        ArrayList<LineItems> li1 = calc.calcAllShed(width, length, height);
+        
+        
+        for(int i = 0; i < li1.size(); i++){
+        out.print("MatId = " + li1.get(i).getMaterials_MaterialsID());
+        out.print(",  "+"Amount = " + li1.get(i).getAmount());
+        out.print("<br>");
+        }
+        
+    }    
+    else
+    {
+        ArrayList<LineItems> li2 = calc.calcAllNoShed(width, length, height);
+
+        for(int i = 0; i < li2.size(); i++){
+        out.print("MatId = " + li2.get(i).getMaterials_MaterialsID());
+        out.print(",  "+"Amount = " + li2.get(i).getAmount());
+        out.print("<br>");
+    }
+    
+    %>
 
 </div>
 <div class="orderStyle">
