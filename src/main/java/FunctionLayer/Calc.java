@@ -1,5 +1,6 @@
 package FunctionLayer;
 
+import DBAccess.LineItemMapper;
 import java.util.ArrayList;
 
 //Simon
@@ -17,7 +18,7 @@ public class Calc {
         quantity += (width % 360 >= 360 ? + 1 : 0);
         
         //length på 360
-        LineItems li = new LineItems(quantity, 1);
+        LineItems li = new LineItems(1, quantity);
         return li;
     }
 
@@ -28,7 +29,7 @@ public class Calc {
         quantity += (length % 540 >= 540 ? + 1 : 0);
         
         //length på 540
-        LineItems li = new LineItems(quantity, 2);
+        LineItems li = new LineItems(2, quantity);
         return li;
     }
     
@@ -38,7 +39,7 @@ public class Calc {
             quantity += (width % 360 >= 360 ? + 1 : 0);
             
           //  length på 360
-        LineItems li = new LineItems(quantity, 3);
+        LineItems li = new LineItems(3, quantity);
         return li;            
         }
         public LineItems calcOverSternbrædderSiderne(int length){
@@ -48,7 +49,7 @@ public class Calc {
             quantity += (length % 360 >= 360 ? + 1 : 0);
             
             //length på 360
-        LineItems li = new LineItems(quantity, 4);
+        LineItems li = new LineItems(4, quantity);
         return li;            
             
             
@@ -61,7 +62,7 @@ public class Calc {
             quantity += (width % 600 >= 600 ? + 1 : 0);
             
             //length på 600
-        LineItems li = new LineItems(quantity, 5);
+        LineItems li = new LineItems(5, quantity);
         return li;            
         }
         public LineItems calcSpærMontPåRem(int width){
@@ -72,7 +73,7 @@ public class Calc {
             quantity += quantity * 15;
                     
             //length på 360
-            LineItems li = new LineItems(quantity, 6);
+            LineItems li = new LineItems(6, quantity);
             return li;
         }
         public LineItems calcStolper(){
@@ -80,7 +81,7 @@ public class Calc {
             quantity += 6;
                     
             //length på 300
-        LineItems li = new LineItems(quantity, 7);
+        LineItems li = new LineItems(7, quantity);
         return li;            
         }
         
@@ -91,7 +92,7 @@ public class Calc {
             quantity += (length % 540 >= 540 ? + 1 : 0);
                     
             //length på 360
-        LineItems li = new LineItems(quantity, 8);
+        LineItems li = new LineItems(8, quantity);
         return li;            
         }
         
@@ -101,7 +102,7 @@ public class Calc {
             quantity += (width % 360 >= 360 ? + 1 : 0);
                     
             //length på 360
-        LineItems li = new LineItems(quantity, 9);
+        LineItems li = new LineItems(9, quantity);
         return li;
         }
         
@@ -112,7 +113,7 @@ public class Calc {
             quantity += (width % 100 >= 100 ? + 1 : 0);
                     
             //length på 600
-        LineItems li = new LineItems(quantity, 10);
+        LineItems li = new LineItems(10, quantity);
         return li;
         }
         
@@ -122,7 +123,7 @@ public class Calc {
             quantity = width / 100;
             quantity += (width % 100 >= 100 ? + 1 : 0);
                     
-        LineItems li = new LineItems(quantity, 11);
+        LineItems li = new LineItems(11, quantity);
         return li;        
         }
         
@@ -133,7 +134,7 @@ public class Calc {
             width = width / 100;
             quantity = length * width;
             //length på 600
-        LineItems li = new LineItems(quantity, 12);
+        LineItems li = new LineItems(12, quantity);
         return li;
         }
         
@@ -146,7 +147,7 @@ public class Calc {
             quantity = quantity * 2;
                     
             //length på 600
-        LineItems li = new LineItems(quantity, 13);
+        LineItems li = new LineItems(13, quantity);
         return li;
         }
         
@@ -158,7 +159,7 @@ public class Calc {
             quantity += quantity * 15;
                     
             //length på 360
-        LineItems li = new LineItems(quantity, 14);
+        LineItems li = new LineItems(14, quantity);
         return li;
         }
         
@@ -170,7 +171,7 @@ public class Calc {
             quantity += quantity * 15;
                     
             //length på 360
-        LineItems li = new LineItems(quantity, 15);
+        LineItems li = new LineItems(15, quantity);
         return li;
             
         }
@@ -183,7 +184,7 @@ public class Calc {
             }
             quantity = quantity * 2;
                     
-        LineItems li = new LineItems(quantity, 16);
+        LineItems li = new LineItems(16, quantity);
         return li;
         }
         
@@ -196,7 +197,7 @@ public class Calc {
             quantity = quantity * 3;
                     
             //length på 600
-        LineItems li = new LineItems(quantity, 17);
+        LineItems li = new LineItems(17, quantity);
         return li;        
         }
         
@@ -209,7 +210,7 @@ public class Calc {
             quantity = quantity * 18;
                     
             //length på 600
-        LineItems li = new LineItems(quantity, 18);
+        LineItems li = new LineItems(18, quantity);
         return li;    
         
         }
@@ -223,7 +224,7 @@ public class Calc {
             quantity = quantity * 12;
                     
             //length på 600
-        LineItems li = new LineItems(quantity, 19);
+        LineItems li = new LineItems(19, quantity);
         return li;
         
         }
@@ -237,7 +238,7 @@ public class Calc {
             quantity = quantity * 2;
                     
             //length på 600
-        LineItems li = new LineItems(quantity, 20);
+        LineItems li = new LineItems(20, quantity);
         return li;
         
         }
@@ -251,7 +252,7 @@ public class Calc {
             quantity = quantity * 2;
                     
             //length på 600
-        LineItems li = new LineItems(quantity, 21);
+        LineItems li = new LineItems(21, quantity);
         return li;
         
         }
@@ -265,7 +266,7 @@ public class Calc {
             quantity = quantity * 40;
                     
             //length på 600
-        LineItems li = new LineItems(quantity, 22);
+        LineItems li = new LineItems(22, quantity);
         return li;
         
         }
@@ -279,7 +280,7 @@ public class Calc {
             
             quantity++;
             
-            return new LineItems(quantity, 23);
+            return new LineItems(23, quantity);
             
         }
        /* 
@@ -309,7 +310,7 @@ public class Calc {
                 quantity += 2;
             }
             
-            return new LineItems(quantity, 24);
+            return new LineItems(24, quantity);
             
         }
         
@@ -317,14 +318,14 @@ public class Calc {
             int quantity = 1;
             
             
-            return new LineItems(quantity, 25);
+            return new LineItems(25, quantity);
         }
         
          public LineItems calcHængsler(){
             int quantity = 2;
             
             
-            return new LineItems(quantity, 26);
+            return new LineItems(26, quantity);
         }
         
          public ArrayList<LineItems> calcAllShed(int width, int length, int height){

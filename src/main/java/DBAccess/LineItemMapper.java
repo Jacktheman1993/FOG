@@ -38,7 +38,7 @@ public static int createLineItems(Order order, Materials materials, int Amount, 
             throw new LoginSampleException( ex.getMessage() );
         }
     }
-    public static LineItems getLineItems(int idOrder, int MaterialsID) throws LoginSampleException
+    public static LineItems getLineItems(int MaterialsID) throws LoginSampleException
     {
         try
         {
@@ -46,14 +46,13 @@ public static int createLineItems(Order order, Materials materials, int Amount, 
 //            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
             String SQL = "select * from `LineItems` where idOrder = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, idOrder);
             ps.setInt(2, MaterialsID);
             ResultSet rs = ps.executeQuery();
             if (rs.next())
             {
 
-                LineItems getLineItems = new LineItems(idOrder, MaterialsID);
-                getLineItems.setOrders_idOrder(idOrder);
+                LineItems getLineItems = new LineItems(MaterialsID);
+                getLineItems.setOrders_idOrder(rs.getInt("idOrder"));
                 getLineItems.setMaterials_MaterialsID(MaterialsID);
                 getLineItems.setAmount(rs.getInt("Amount"));
                 getLineItems.setPrice(rs.getInt("Price"));
@@ -123,6 +122,43 @@ public static int createLineItems(Order order, Materials materials, int Amount, 
             } else
             {
                 throw new LoginSampleException("Something went wrong: OrderID is not used yet");
+            }
+        } catch (ClassNotFoundException | SQLException ex)
+        {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
+    
+    
+    
+     public static LineItems getLineitem(int materialID) throws LoginSampleException
+    {
+        try
+        {
+            Connection con = Connector.connection();
+//            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+            String SQL = "select * from `LineItems` where Materials_MaterialsID = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, materialID);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next())
+            {
+
+                LineItems getLi = new LineItems(materialID);
+                getLi.setOrders_idOrder(rs.getInt("Orders_idOrder"));
+                getLi.setMaterials_MaterialsID(rs.getInt("Materials_MaterialsID"));
+                getLi.setAmount(rs.getInt("Amount"));
+                getLi.setPrice(rs.getInt("Price"));
+                getLi.setName(rs.getString("Name"));
+                getLi.setDescription(rs.getString("Description"));
+                getLi.setLength(rs.getInt("Length"));
+                return getLi;
+//                String orderID = rs.getString( "orderID" );
+//                getorder.setOrderID(orderID);
+//                return rs;
+            } else
+            {
+                throw new LoginSampleException("Something went wrong: LineItem doesn't exist");
             }
         } catch (ClassNotFoundException | SQLException ex)
         {

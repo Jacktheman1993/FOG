@@ -9,7 +9,6 @@ public class LineItems {
     String Name;
     String Description;
     int Length;
-    int type;
 
     public LineItems(int Orders_idOrder, int Materials_MaterialsID, String Name, String Description, int Length, int Amount, int Price) {
         this.Orders_idOrder = Orders_idOrder;
@@ -19,12 +18,19 @@ public class LineItems {
         this.Name = Name;
         this.Description = Description;
         this.Length = Length;
-//        this.type = type;
     }
-    public LineItems(int Amount, int Price) {
+
+    public LineItems(int Materials_MaterialsID, int Amount) {
+        this.Materials_MaterialsID = Materials_MaterialsID;
         this.Amount = Amount;
-        this.Price = Price;
     }
+
+ public LineItems(int Amount){
+     this.Amount = Amount;
+ }
+
+
+    
 
     public int getOrders_idOrder() {
         return Orders_idOrder;
@@ -62,13 +68,7 @@ public class LineItems {
     {
         this.Price = Price;
     }
-    public int getType() {
-        return type;
-    }
 
-    public void setType(int type) {
-        this.type = type;
-    }
 
     public String getName()
     {
@@ -101,10 +101,11 @@ public class LineItems {
     }
 
     @Override
-    public String toString()
-    {
-        return "Orders_idOrder= " + Orders_idOrder + ", Amount= " + Amount + ", Price= " + Price + " Kr, Name= " + Name + ", Description= " + Description + ", Length= " + Length + " Cm , type= " + type + '}';
+    public String toString() {
+        return "LineItems{" + "Orders_idOrder=" + Orders_idOrder + ", Materials_MaterialsID=" + Materials_MaterialsID + ", Amount=" + Amount + ", Price=" + Price + ", Name=" + Name + ", Description=" + Description + ", Length=" + Length + '}';
     }
+
+
 
 
 
