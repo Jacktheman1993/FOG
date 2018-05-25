@@ -18,4 +18,5 @@
             <input type="number" name="idOrder" />
             <input type="submit" value="SEARCH ORDER" />
         </form>
+        
 <%@include file="//includes/footer.jsp" %>  

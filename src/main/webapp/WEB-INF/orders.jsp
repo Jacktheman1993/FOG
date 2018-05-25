@@ -35,6 +35,19 @@
             
         %>
         
+        <h1>Change Status on Order</h1>
+        
+<form name="status" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="UpdateStatus">
+                        Order ID:<br>
+                        <input type="number" name="idOrder" value="">
+                        <br>
+                        <h3>Change order from "Processing" to "Ready to deliver"?</h3>
+                        Yes<input type="radio" name="status" value="status_yes" />
+                        No<input type="radio" name="status"  value="status_no" checked="checked" />
+                        <input type="submit" value="Update Status">
+                    </form>
+        
         <a href="index.jsp">BACK TO LOGIN PAGE</a>
     </body>
 </html>

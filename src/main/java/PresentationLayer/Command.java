@@ -24,7 +24,7 @@ abstract class Command {
         commands.put("orders", new SearchOrder());
         commands.put("updateMaterial", new UpdateMaterial());
         commands.put("matUpdated", new MatUpdated());
-
+        commands.put("UpdateStatus", new UpdateStatus());
     }
 
     static Command from( HttpServletRequest request ) {

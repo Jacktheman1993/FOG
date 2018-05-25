@@ -33,4 +33,8 @@ public class LogicFacade
     public static void updateMaterial( String Name, int Length, int Stock, double Price, String Description, int MaterialsID) throws LoginSampleException {
     MaterialMapper.updateMaterial( Name, Length, Stock, Price, Description, MaterialsID);
     }
+    public static void updateOrderStatus( int idOrder, boolean status) throws LoginSampleException
+    {
+       OrderMapper.updateOrderStatus(idOrder, status);
+    }
 }

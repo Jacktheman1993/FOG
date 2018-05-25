@@ -19,29 +19,32 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-
 public class OrderMapper
 {
 
     java.sql.Date date1 = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 // Martin
-public static int createOrder(User user, int width, int length, int height, boolean shed, boolean status) throws LoginSampleException {
-        try {
+
+    public static int createOrder(User user, int width, int length, int height, boolean shed, boolean status) throws LoginSampleException
+    {
+        try
+        {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO `Orders` (Users_id, width, length, height, shed, status ) VALUES (?,?,?,?,?,?)";
-            PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
-            ps.setInt( 1, user.getId());
-            ps.setInt( 2, width);
-            ps.setInt( 3, length );
-            ps.setInt( 4, height );
-            ps.setBoolean(5, shed );
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, user.getId());
+            ps.setInt(2, width);
+            ps.setInt(3, length);
+            ps.setInt(4, height);
+            ps.setBoolean(5, shed);
             ps.setBoolean(6, status);
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
-            return ids.getInt( 1 );
-        } catch ( SQLException | ClassNotFoundException ex ) {
-            throw new LoginSampleException( ex.getMessage() );
+            return ids.getInt(1);
+        } catch (SQLException | ClassNotFoundException ex)
+        {
+            throw new LoginSampleException(ex.getMessage());
         }
     }
 
@@ -79,6 +82,7 @@ public static int createOrder(User user, int width, int length, int height, bool
         }
     }
 // Simon
+
     public static ArrayList<Order> getOrders() throws LoginSampleException
     {
         try
@@ -91,7 +95,7 @@ public static int createOrder(User user, int width, int length, int height, bool
             ArrayList<LineItems> lineItems = new ArrayList<>();
             while (rs.next())
             {
-                list.add(new Order(rs.getInt("id"),rs.getInt("idOrder"), rs.getInt("Width"), rs.getInt("Length"), rs.getInt("Height"), rs.getBoolean("Shed"), rs.getBoolean("Status")));
+                list.add(new Order(rs.getInt("id"), rs.getInt("idOrder"), rs.getInt("Width"), rs.getInt("Length"), rs.getInt("Height"), rs.getBoolean("Shed"), rs.getBoolean("Status")));
             }
             if (list.size() > 0)
             {
@@ -105,7 +109,7 @@ public static int createOrder(User user, int width, int length, int height, bool
             throw new LoginSampleException(ex.getMessage());
         }
     }
-    
+
     //Nicolai
     public static Order getUserOrder(int idOrder) throws LoginSampleException
     {
@@ -140,4 +144,23 @@ public static int createOrder(User user, int width, int length, int height, bool
         }
     }
 
+    public static void updateOrderStatus(int idOrder, boolean status) throws LoginSampleException
+    {
+        try
+        {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE `Orders` "
+                    + "SET Status = ? "
+                    + "where idOrder = ?;";
+
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ps.setBoolean(1, status);
+            ps.setInt(2, idOrder);
+            ps.executeUpdate();
+        } catch (SQLException | ClassNotFoundException ex)
+        {
+            throw new LoginSampleException("Failed to update status. Check inputs made by user and see if they are correct.");
+        }
+    }
 }
