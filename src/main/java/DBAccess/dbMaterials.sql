@@ -63,3 +63,9 @@ insert into `Type` values
 (25,'LægteSkurDør'),
 (26,'ReglarGavl'),
 (27,'ReglarSide');
+
+#UPDATE `Materials` SET Name='lol',Stock = 500, Price = 250 where MaterialsID=1;
+
+#UPDATE `Materials` SET `Name`='testupdate', Length=300, Stock=1000, Price=99, Description='hej' where MaterialsID = 2;
+#UPDATE `Materials` SET MaterialsID=2, `Name`='test test', Length=360, Stock=128, Price=199, Description='hejhej simon' where MaterialsID = 2;
+#UPDATE Materials from Materials where MaterialsID = MaterialsID setName = 'test test', Length = 360, Stock = 234, Price = 199, Description = 'hej simon';
