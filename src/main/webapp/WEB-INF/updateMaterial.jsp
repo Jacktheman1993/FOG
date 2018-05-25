@@ -1,6 +1,4 @@
 <%-- 
-    Document   : updateMaterials
-    Created on : May 23, 2018, 12:15:14 PM
     Author     : Alek
 --%>
 
@@ -17,22 +15,22 @@
 <form name="update" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="matUpdated">
                         ID:<br>
-                        <input type="number" name="ID" value="2">
+                        <input type="number" name="ID" value="">
                         <br>
                         Name:<br>
-                        <input type="text" name="Name" value="test test">
+                        <input type="text" name="Name" value="">
                         <br>
                         Length:<br>
-                        <input type="number" name="Length" value="360">
+                        <input type="number" name="Length" value="">
                         <br>
                         Stock:<br>
-                        <input type="number" name="Stock" value="237">
+                        <input type="number" name="Stock" value="">
                         <br>
                         Price:<br>
-                        <input type="number" name="Price" value="199">
+                        <input type="number" name="Price" value="">
                         <br>
                         Description:<br>
-                        <input type="text" name="Description" value="hej simon">
+                        <input type="text" name="Description" value="">
                         <br>
                         <input type="submit" value="Update Material">
                     </form>

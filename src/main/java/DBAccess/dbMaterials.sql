@@ -58,9 +58,9 @@ insert into `Type` values
 (20,'VandbrædtSternForende'),
 (21,'VandbrædtSternSider'),
 (22,'VinkelBeslag'),
-(23,'HængselSkur'),
-(24,'GrebSkur'),
-(25,'LægteSkurDør'),
+(23,'Hængsler'),
+(24,'StaldDørsGreb'),
+(25,'LægteBagsideDør'),
 (26,'ReglarGavl'),
 (27,'ReglarSide');
 
