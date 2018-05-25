@@ -21,7 +21,7 @@ import java.util.ArrayList;
  */
 public class MaterialMapper {
     
-    public static int createMaterial(int MaterialsID, String Name, int Length, int Stock, int Price, String Description, String Name_T) throws LoginSampleException {
+    public static int createMaterial(int MaterialsID, String Name, int Length, int Stock, double Price, String Description, String Name_T) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO `Materials` natural join Type( Name, Length Stock, Price, Description, Name_T ) VALUES (?,?,?,?,?,?)";
@@ -29,7 +29,7 @@ public class MaterialMapper {
             ps.setInt( 1, MaterialsID);
             ps.setString( 2, Name);
             ps.setInt( 3, Length);
-            ps.setInt( 4, Price);
+            ps.setDouble( 4, Price);
             ps.setString( 5, Description);
             ps.setString( 6, Name_T);
             
@@ -72,7 +72,7 @@ public class MaterialMapper {
         }
     }
     
-    public static void updateMaterial( String Name, int Length, int Stock, int Price, String Description, int MaterialsID) throws LoginSampleException {
+    public static void updateMaterial( String Name, int Length, int Stock, double Price, String Description, int MaterialsID) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
             String SQL = "UPDATE `Materials`"
@@ -89,7 +89,7 @@ public class MaterialMapper {
             ps.setString( 2, Name);
             ps.setInt( 3, Length);
             ps.setInt( 4, Stock);
-            ps.setInt( 5, Price);
+            ps.setDouble( 5, Price);
             ps.setString( 6, Description);
             ps.setInt( 7, MaterialsID);
             ps.executeUpdate();

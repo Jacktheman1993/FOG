@@ -8,17 +8,17 @@ public class Materials {
     private String Name;
     private int Length;
     private int Stock;
-    private int Price;
+    private double Price;
     private String Description;
     private String Name_T;
-
+    
 /*
 private int id;
 private int type;
 private int Length;
 */
 
-    public Materials(int MaterialsID, String Name, int Length, int Stock, int Price, String Description, String Name_T) {
+    public Materials(int MaterialsID, String Name, int Length, int Stock, double Price, String Description, String Name_T) {
         this.MaterialsID = MaterialsID;
         this.Name = Name;
         this.Length = Length;
@@ -71,12 +71,12 @@ private int Length;
         this.Stock = Stock;
     }
 
-    public int getPrice()
+    public double getPrice()
     {
         return Price;
     }
 
-    public void setPrice(int Price)
+    public void setPrice(double Price)
     {
         this.Price = Price;
     }

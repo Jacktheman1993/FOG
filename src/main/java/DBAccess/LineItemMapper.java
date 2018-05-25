@@ -21,7 +21,7 @@ import java.util.Calendar;
 
 public class LineItemMapper {
 
-public static int createLineItems(Order order, Materials materials, int Amount, int Price) throws LoginSampleException {
+public static int createLineItems(Order order, Materials materials, int Amount, double Price) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO `LineItems` (Users_id, width, length, height ) VALUES (?,?,?,?)";
@@ -29,7 +29,7 @@ public static int createLineItems(Order order, Materials materials, int Amount, 
             ps.setInt( 1, order.getIDorder());
             ps.setInt( 2, materials.getMaterialsID());
             ps.setInt( 3, Amount);
-            ps.setInt( 4, Price );
+            ps.setDouble( 4, Price );
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
@@ -76,7 +76,7 @@ public static int createLineItems(Order order, Materials materials, int Amount, 
         {
             Connection con = Connector.connection();
             //select Materials.MaterialsID, Materials.Name, Materials.Length, Materials.Stock, Materials.Price, Materials.Description,Type.Name_T from Materials,Type where Materials.Type_idType=Type.idType;
-            String SQL = "select LineItems.Orders_idOrder,LineItems.Materials_MaterialsID , LineItems.Amount, LineItems.Price, Materials.Name, Materials.Description, Materials.Length from LineItems,Materials where LineItems.Materials_MaterialsID=Materials.MaterialsID;";
+            String SQL = "select LineItems.Orders_idOrder,LineItems.Materials_MaterialsID , LineItems.Amount, LineItems.Price, Materials.Name, Materials.Description, Materials.Length from LineItems,Materials where LineItems.Materials_MaterialsID=Materials.MaterialsID Order by Materials_MaterialsID;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             ArrayList<LineItems> li = new ArrayList<>();

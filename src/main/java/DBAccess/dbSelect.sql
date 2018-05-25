@@ -13,6 +13,6 @@ select * from LineItems, Materials where LineItems.Materials_MaterialsID=Materia
 
 select Materials.MaterialsID, Materials.Name, Materials.Length, Materials.Stock, Materials.Price, Materials.Description,Type.Name_T from Materials,Type where Materials.Type_idType=Type.idType;
 
-select LineItems.Orders_idOrder,LineItems.Materials_MaterialsID , LineItems.Amount, LineItems.Price, Materials.Name, Materials.Description, Materials.Length from LineItems,Materials where LineItems.Materials_MaterialsID=Materials.MaterialsID;
+select LineItems.Orders_idOrder,LineItems.Materials_MaterialsID , LineItems.Amount, LineItems.Price, Materials.Name, Materials.Description, Materials.Length from LineItems,Materials where LineItems.Materials_MaterialsID=Materials.MaterialsID Order by Materials_MaterialsID;
 
 select Materials.Price from Materials where Materials.MaterialsID=Materials.MaterialsID;

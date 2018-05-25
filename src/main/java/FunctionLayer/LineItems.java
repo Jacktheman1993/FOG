@@ -5,12 +5,13 @@ package FunctionLayer;
 
 public class LineItems {
     
-    int Orders_idOrder, Materials_MaterialsID, Amount, Price;
+    int Orders_idOrder, Materials_MaterialsID, Amount; 
+    double Price;
     String Name;
     String Description;
     int Length;
 
-    public LineItems(int Orders_idOrder, int Materials_MaterialsID, String Name, String Description, int Length, int Amount, int Price) {
+    public LineItems(int Orders_idOrder, int Materials_MaterialsID, String Name, String Description, int Length, int Amount, double Price) {
         this.Orders_idOrder = Orders_idOrder;
         this.Materials_MaterialsID = Materials_MaterialsID;
         this.Amount = Amount;
@@ -59,12 +60,12 @@ public class LineItems {
         this.Amount = Amount;
     }
 
-    public int getPrice()
+    public double getPrice()
     {
         return Price;
     }
 
-    public void setPrice(int Price)
+    public void setPrice(double Price)
     {
         this.Price = Price;
     }
