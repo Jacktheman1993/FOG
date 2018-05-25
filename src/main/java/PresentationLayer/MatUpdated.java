@@ -28,7 +28,7 @@ public class MatUpdated extends Command {
         String name = request.getParameter( "Name" );
         int length = Integer.parseInt(request.getParameter("Length"));
         int stock = Integer.parseInt(request.getParameter("Stock"));
-        int price = Integer.parseInt(request.getParameter("Price"));
+        double price = Double.parseDouble(request.getParameter("Price"));
         String description = request.getParameter( "Description" );
         
         LogicFacade.updateMaterial(name, length, stock, price, description, MaterialsID);
