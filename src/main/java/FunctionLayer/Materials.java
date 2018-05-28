@@ -30,7 +30,7 @@ private int Length;
     public Materials(int MaterialsID)
     {
         this.MaterialsID = MaterialsID;
-    }
+    }  
     public int getMaterialsID()
     {
         return MaterialsID;

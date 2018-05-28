@@ -29,6 +29,12 @@ public class LineItems {
  public LineItems(int Amount){
      this.Amount = Amount;
  }
+ 
+    public LineItems(double Price) {
+        this.Price = Price;
+    }
+    
+  
 
 
     

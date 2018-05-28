@@ -1,3 +1,5 @@
+<%@page import="FunctionLayer.Materials"%>
+<%@page import="DBAccess.MaterialMapper"%>
 <%@page import="java.util.Collections"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="FunctionLayer.LineItems"%>
@@ -10,7 +12,7 @@
 <% Boolean shed = (Boolean)request.getAttribute("shedBool");%>
 
 <div class="orderStyle">
-    <h1>Sketch of carport</h1>
+    <h1>Order details</h1>
     <% int[] itemList = (int[]) request.getAttribute("itemlist");%>
 
     <h1>Your order dimensions</h1>
@@ -26,8 +28,13 @@
     
     
     <%
+        // <Simon>
+        
         Calc calc = new Calc(); 
-    
+        ArrayList<LineItems> liP = new ArrayList<>();
+        double price = 0;
+        LineItems mat = new LineItems(0);
+        
     int width = itemList[0];
     int length = itemList[1];
     int height = itemList[2];
@@ -37,12 +44,23 @@
         ArrayList<LineItems> li1 = calc.calcAllShed(width, length, height);
         
         
+        
+        
         for(int i = 0; i < li1.size(); i++){
         out.print("MatId = " + li1.get(i).getMaterials_MaterialsID());
         out.print(",  "+"Amount = " + li1.get(i).getAmount());
         out.print("<br>");
         }
+        for(int i = 0; i < li1.size(); i++){
+            mat.setPrice(MaterialMapper.getPrice(li1.get(i).getMaterials_MaterialsID()));
+            liP.add(mat);
+        }
         
+        for(int i = 0; i < liP.size(); i++){
+            price += liP.get(i).getPrice() * li1.get(i).getAmount();
+        }
+        out.print("<br>");
+        out.print("<h1> TOTAL PRICE: " + price + " DKK </h1>");
     }    
     else
     {
@@ -53,10 +71,21 @@
         out.print(",  "+"Amount = " + li2.get(i).getAmount());
         out.print("<br>");
     }
+                for(int i = 0; i < li2.size(); i++){
+            mat.setPrice(MaterialMapper.getPrice(li2.get(i).getMaterials_MaterialsID()));
+            liP.add(mat);
+        }
+        
+        for(int i = 0; i < liP.size(); i++){
+            price += liP.get(i).getPrice() * li2.get(i).getAmount();
+        }
+        out.print("<br>");
+        out.print("<h1> TOTAL PRICE: " + price + " DKK </h1>");
     }
-    
+    // </Simon>
     %>
 
+    
 </div>
 <div class="orderStyle">
     <SVG width="760" height="600" viewBox="0 0 <%=itemList[1]%> <%=itemList[0]%> ">
