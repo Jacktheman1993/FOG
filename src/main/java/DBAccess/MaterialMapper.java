@@ -58,7 +58,7 @@ public class MaterialMapper {
                 mats.setMaterialsID(MaterialsID);
                 mats.setPrice(rs.getInt("Price"));              
                 
-                double mat = rs.getInt("Price");
+                double mat = rs.getDouble("Price");
                 
 /*                mats.setDesp(rs.getString("Description"));
                 mats.setName(rs.getString("Name"));
