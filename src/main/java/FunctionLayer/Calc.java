@@ -119,7 +119,6 @@ public class Calc {
         
         public LineItems calcTagpladerMontPåSpær360(int width){
             int quantity = 0;
-            //der bliver brugt lige mange 600 og 360 plader
             quantity = width / 100;
             quantity += (width % 100 >= 100 ? + 1 : 0);
                     
@@ -133,7 +132,7 @@ public class Calc {
             length = length / 100;
             width = width / 100;
             quantity = length * width;
-            //length på 600
+            quantity = quantity / 10;
         LineItems li = new LineItems(12, quantity);
         return li;
         }
@@ -142,7 +141,7 @@ public class Calc {
             int quantity = 1;
             while (length > 10){
                 quantity++;
-                length -= 10;
+                length -= 1000;
             }
             quantity = quantity * 2;
                     
@@ -177,12 +176,11 @@ public class Calc {
         }
         
         public LineItems calc4dot5x60Skruer(int length){
-            int quantity = 1;
+            int quantity = 0;
             while (length > 10){
                 quantity++;
-                length -= 10;
+                length -= 1000;
             }
-            quantity = quantity * 2;
                     
         LineItems li = new LineItems(16, quantity);
         return li;
@@ -192,9 +190,8 @@ public class Calc {
             int quantity = 1;
             while (length > 10){
                 quantity++;
-                length -= 10;
+                length -= 250;
             }
-            quantity = quantity * 3;
                     
             //length på 600
         LineItems li = new LineItems(17, quantity);
@@ -205,9 +202,9 @@ public class Calc {
             int quantity = 1;
             while (length > 10){
                 quantity++;
-                length -= 10;
+                length -= 90;
             }
-            quantity = quantity * 18;
+            quantity = quantity * 2;
                     
             //length på 600
         LineItems li = new LineItems(18, quantity);
@@ -219,9 +216,9 @@ public class Calc {
             int quantity = 1;
             while (length > 10){
                 quantity++;
-                length -= 10;
+                length -= 100;
             }
-            quantity = quantity * 12;
+            quantity = quantity * 2;
                     
             //length på 600
         LineItems li = new LineItems(19, quantity);
@@ -230,10 +227,10 @@ public class Calc {
         }
         
         public LineItems calc4dot5x70(int length){
-            int quantity = 1;
+            int quantity = 0;
             while (length > 10){
                 quantity++;
-                length -= 10;
+                length -= 1000;
             }
             quantity = quantity * 2;
                     
@@ -244,10 +241,10 @@ public class Calc {
         }
         
         public LineItems calc4dot5x50(int length){
-            int quantity = 1;
+            int quantity = 0;
             while (length > 10){
                 quantity++;
-                length -= 10;
+                length -= 1000;
             }
             quantity = quantity * 2;
                     
@@ -257,24 +254,23 @@ public class Calc {
         
         }
         
+        
+        
+        
+         //Shed Calculator. All sheds are the same
+        
         public LineItems calcVinkelBeslag(int length){
-            int quantity = 1;
+            int quantity = 0;
             while (length > 10){
                 quantity++;
-                length -= 10;
+                length -= 20;
             }
-            //quantity = quantity * 40;
                     
-            //length på 600
         LineItems li = new LineItems(22, quantity);
         return li;
         
         }
         
-        
-        //Shed Calculator. All sheds are the same
-        
-                
         public LineItems calcLægteBagsideDør(){
             int quantity = 0;
             
@@ -289,7 +285,6 @@ public class Calc {
             quantity = width / 360;
             quantity += (width % 360 >= 360 ? + 1 : 0);
             
-            length på 360
             lineItems.add(new LineItems(quantity, 3));
             
         }
@@ -387,7 +382,6 @@ public class Calc {
             listwithall.add(calcUnderSternbrædderSide(length));
             listwithall.add(calcVandbrædtSternForende(width));
             listwithall.add(calcVandbrædtSternSider(length));
-            listwithall.add(calcVinkelBeslag(length));
             
             
             return listwithall;
