@@ -1,7 +1,7 @@
 package FunctionLayer;
 
-import DBAccess.LineItemMapper;
 import java.util.ArrayList;
+import java.util.Collections;
 
 //Simon
 
@@ -72,7 +72,6 @@ public class Calc {
             quantity += (width % 600 >= 600 ? + 1 : 0);
             quantity += quantity * 15;
                     
-            //length på 360
             LineItems li = new LineItems(6, quantity);
             return li;
         }
@@ -80,7 +79,6 @@ public class Calc {
             int quantity = 0;
             quantity += 6;
                     
-            //length på 300
         LineItems li = new LineItems(7, quantity);
         return li;            
         }
@@ -157,7 +155,6 @@ public class Calc {
             quantity += (width % 600 >= 600 ? + 1 : 0);
             quantity += quantity * 15;
                     
-            //length på 360
         LineItems li = new LineItems(14, quantity);
         return li;
         }
@@ -325,6 +322,7 @@ public class Calc {
         
          public ArrayList<LineItems> calcAllShed(int width, int length, int height){
             ArrayList<LineItems> listwithall = new ArrayList<>();
+            SortLineItems quicksort = new SortLineItems();
             
             listwithall.add(calc4dot5x50(length));
             listwithall.add(calc4dot5x70(length));
@@ -347,19 +345,21 @@ public class Calc {
             listwithall.add(calcUnderSternbrædderSide(length));
             listwithall.add(calcVandbrædtSternForende(width));
             listwithall.add(calcVandbrædtSternSider(length));
-            listwithall.add(calcVinkelBeslag(length));
             
+            listwithall.add(calcVinkelBeslag(length));
             listwithall.add(calcLægteBagsideDør());
             listwithall.add(calcLøsholtSkurSider(width));
             listwithall.add(calcStaldDørsGreb());
             listwithall.add(calcHængsler());
             
+            quicksort.quickSorting(listwithall, 0, listwithall.size() - 1);
             
             return listwithall;
         }
          
         public ArrayList<LineItems> calcAllNoShed(int width, int length, int height){
             ArrayList<LineItems> listwithall = new ArrayList<>();
+            SortLineItems quicksort = new SortLineItems();
             
             listwithall.add(calc4dot5x50(length));
             listwithall.add(calc4dot5x70(length));
@@ -383,6 +383,7 @@ public class Calc {
             listwithall.add(calcVandbrædtSternForende(width));
             listwithall.add(calcVandbrædtSternSider(length));
             
+            quicksort.quickSorting(listwithall, 0, listwithall.size() - 1);            
             
             return listwithall;
         }

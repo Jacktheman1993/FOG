@@ -2,8 +2,11 @@ package FunctionLayer;
 
 //Simon
 
+import java.util.Comparator;
 
-public class LineItems {
+
+
+public class LineItems implements Comparable<LineItems>{
     
     int Orders_idOrder, Materials_MaterialsID, Amount; 
     double Price;
@@ -33,11 +36,12 @@ public class LineItems {
     public LineItems(double Price) {
         this.Price = Price;
     }
-    
-  
 
-
-    
+    public LineItems(int Materials_MaterialsID, double Price) {
+        super();
+        this.Materials_MaterialsID = Materials_MaterialsID;
+        this.Price = Price;
+    }
 
     public int getOrders_idOrder() {
         return Orders_idOrder;
@@ -111,9 +115,13 @@ public class LineItems {
     public String toString() {
         return "LineItems{" + "Orders_idOrder=" + Orders_idOrder + ", Materials_MaterialsID=" + Materials_MaterialsID + ", Amount=" + Amount + ", Price=" + Price + ", Name=" + Name + ", Description=" + Description + ", Length=" + Length + '}';
     }
-
-
-
-
-
+    
+    @Override
+    public int compareTo(LineItems compareLineItems) {
+	
+		int compareQuantity = ((LineItems) compareLineItems).getMaterials_MaterialsID(); 
+		
+		return this.Materials_MaterialsID - compareQuantity;
+		
+	}
 }
