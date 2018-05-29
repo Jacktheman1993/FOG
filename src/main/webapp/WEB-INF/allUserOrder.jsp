@@ -10,16 +10,17 @@ td, th {
 }    
 
 </style>
-<h1><%=request.getAttribute("email")%> Mine Ordre </h1>
+<h1>My Ordres</h1>
 <% ArrayList<Order>listen = (ArrayList<Order>) request.getAttribute("allUserOrder");%>
 <table>
                 <% for(int i = 0; i < listen.size(); i++){
                     out.println("<tr>");
                     out.println("<th>");
-                    out.println("Order Nummer: " + "<td>" + listen.get(i) + " <a href=´FrontController?command=stykListe´><button>Se Stykliste</button></a></td>");
+                    out.println("Ordre Numbers: " + "<td>" + listen.get(i) + " <a href=´FrontController?command=stykListe´><button>Se Stykliste</button></a></td>");
                     out.println("</th>");
                     out.println("<tr>");
                 }
                 %>
 </table>
+<%@include file="//includes/logout.jsp" %> 
                 <%@include file="//includes/footer.jsp" %> 

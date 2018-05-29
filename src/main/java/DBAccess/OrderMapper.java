@@ -111,32 +111,27 @@ public class OrderMapper
     }
 
     //Nicolai
-    public static Order getUserOrder(int idOrder) throws LoginSampleException
+    public static ArrayList<Order> getUserOrders() throws LoginSampleException
     {
         try
         {
             Connection con = Connector.connection();
-//            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-            String SQL = "select * from `Orders` natraul join Users where Users_id = id";
+            String SQL = "select * from `Orders` inner join Users on Orders.Users_id = Users.id where id = 1";
+//            String SQL = "select Orders.idOrder, Orders.Width, Orders.Length, Orders.Height, Orders.Shed, Orders.Status, Users.id, Users.Email from Orders, Users where Orders.Users_id = Users.id";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, idOrder);
             ResultSet rs = ps.executeQuery();
-            if (rs.next())
+            ArrayList<Order> list = new ArrayList<>();
+//            ArrayList<LineItems> lineItems = new ArrayList<>();
+            while (rs.next())
             {
-
-                Order getorder = new Order(idOrder);
-                getorder.setIDorder(idOrder);
-                getorder.setWidth(rs.getInt("Width"));
-//                getorder.setOrderDate(date);
-                getorder.setLength(rs.getInt("Length"));
-                getorder.setHeight(rs.getInt("Height"));
-                return getorder;
-//                String orderID = rs.getString( "orderID" );
-//                getorder.setOrderID(orderID);
-//                return rs;
+                list.add(new Order(rs.getInt("id"), rs.getInt("idOrder"), rs.getInt("Width"), rs.getInt("Length"), rs.getInt("Height"), rs.getBoolean("Shed"), rs.getBoolean("Status")));
+            }
+            if (list.size() > 0)
+            {
+                return list;
             } else
             {
-                throw new LoginSampleException("Something went wrong: OrderID is not used yet");
+                throw new LoginSampleException("Something went wrong: list size is less than 1 (no orders yet)");
             }
         } catch (ClassNotFoundException | SQLException ex)
         {

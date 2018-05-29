@@ -2,13 +2,12 @@
         
         <h1>Hello <%=request.getParameter( "email")%> </h1>
         You are now logged in as a EMPLOYEE of our wonderful site.
-        <a href="FrontController?command=order"><button>G? til ordre</button></a>
-        <a href="FrontController?command=allOrders"><button>Vis alle ordrer</button></a>
-        <a href="FrontController?command=allUsers"><button>Se alle Users</button></a>
-        <a href="FrontController?command=insertdata"><button>G? til insert data</button></a>
-        <a href="FrontController?command=stykListe"><button>Gå til stykliste data</button></a>
-        <a href="FrontController?command=stock"><button>Gå til lager status</button></a>
+        <a href="FrontController?command=allOrders"><button>View all Orders</button></a>
+        <a href="FrontController?command=allUsers"><button>View all Users</button></a>
+        <a href="FrontController?command=stykListe"><button>Go to Billing</button></a>
+        <a href="FrontController?command=stock"><button>Go to stock status</button></a>
         <a href="FrontController?command=updateMaterial"><button>Edit a Material</button></a>
+                <%@include file="//includes/logout.jsp" %> 
         
         <h2>SEARCH ORDER</h2>
         

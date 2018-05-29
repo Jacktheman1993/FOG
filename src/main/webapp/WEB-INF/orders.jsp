@@ -1,19 +1,7 @@
-<%-- 
-    Document   : orders
-    Created on : 23-05-2018, 12:02:07
-    Author     : Martin
---%>
-
+<%@include file="//includes/header.jsp" %> 
 <%@page import="FunctionLayer.Order"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Searched Orders</title>
-    </head>
-    <body>
         <h1>Showing searched orders</h1>
         
         <%
@@ -47,7 +35,5 @@
                         No<input type="radio" name="status"  value="status_no" checked="checked" />
                         <input type="submit" value="Update Status">
                     </form>
-        
-        <a href="index.jsp">BACK TO LOGIN PAGE</a>
-    </body>
-</html>
+        <%@include file="//includes/logout.jsp" %> 
+        <%@include file="//includes/footer.jsp" %> 
