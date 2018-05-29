@@ -1,5 +1,5 @@
 <%@include file="//includes/header.jsp" %> 
-        <h1>Status on order Updated to:</h1>
+        <h1>Status on chosen order updated to:</h1>
         
         <% Boolean stat = ((Boolean)request.getAttribute("statusBool"));
         

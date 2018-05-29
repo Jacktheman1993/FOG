@@ -6,7 +6,7 @@
     
         <% ArrayList<Materials>listen = (ArrayList<Materials>) request.getAttribute("Stock");%>
 
-        <h1>Hello here is all Materials</h1>
+        <h1>Current overview of all materials</h1>
 <table>
     
         <% for(int i = 0; i < listen.size(); i++){
