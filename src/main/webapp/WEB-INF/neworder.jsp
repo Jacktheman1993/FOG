@@ -31,9 +31,9 @@
         // <Simon>
         
         Calc calc = new Calc(); 
-        ArrayList<LineItems> liP = new ArrayList<LineItems>();
-        double price = 0;
-        LineItems mat = new LineItems(0);
+        
+        LineItems matIdPrice = new LineItems(0, 0);
+        
         
     int width = itemList[0];
     int length = itemList[1];
@@ -41,49 +41,79 @@
    
     if(shed)
     {
-        ArrayList<LineItems> li1 = calc.calcAllShed(width, length, height);
+        ArrayList<LineItems> liIdAndAmount = calc.calcAllShed(width, length, height);
+        ArrayList<LineItems> liPrices = new ArrayList();
+        double price = 0;
         
-        
-        
-        
-        for(int i = 0; i < li1.size(); i++){
-        out.print("MatId = " + li1.get(i).getMaterials_MaterialsID());
-        out.print(",  "+"Amount = " + li1.get(i).getAmount());
-        out.print("<br>");
+        for(int i = 0; i < liIdAndAmount.size(); i++){
+            int matID = liIdAndAmount.get(i).getMaterials_MaterialsID();
+            int matAmount = liIdAndAmount.get(i).getAmount();
+            double getPrice = MaterialMapper.getPrice(matID);
+            out.print("MatId = " + matID);
+            out.print(",  " + "Amount = " + matAmount);
+            out.print(",  " + "Price = " + getPrice);
+            out.print("<br>");
         }
-        for(int i = 0; i < li1.size(); i++){
-            mat.setPrice(MaterialMapper.getPrice(li1.get(i).getMaterials_MaterialsID()));
-            liP.add(mat);
+        
+        for(int i = 0; i < liIdAndAmount.size(); i++){
+            int matID = liIdAndAmount.get(i).getMaterials_MaterialsID();
+            int matAmount = liIdAndAmount.get(i).getAmount();
+            double getPrice = MaterialMapper.getPrice(matID);
+            
+            while(matAmount > 0){
+            
+            LineItems lineItem = new LineItems(matID, getPrice);
+            liPrices.add(lineItem);
+            matAmount--;
+            }
         }
         
-        for(int i = 0; i < liP.size(); i++){
-            price += liP.get(i).getPrice() * li1.get(i).getAmount();
+        for(int i = 0; i < liPrices.size(); i++){
+            price += liPrices.get(i).getPrice();
         }
         out.print("<br>");
         out.print("<h1> TOTAL PRICE: " + price + " DKK </h1>");
-    }    
+    }   
+    
     else
     {
-        ArrayList<LineItems> li2 = calc.calcAllNoShed(width, length, height);
-
-        for(int i = 0; i < li2.size(); i++){
-        out.print("MatId = " + li2.get(i).getMaterials_MaterialsID());
-        out.print(",  "+"Amount = " + li2.get(i).getAmount());
-        out.print("<br>");
-    }
-                for(int i = 0; i < li2.size(); i++){
-            mat.setPrice(MaterialMapper.getPrice(li2.get(i).getMaterials_MaterialsID()));
-            liP.add(mat);
+        ArrayList<LineItems> liIdAndAmount2 = calc.calcAllNoShed(width, length, height);
+        ArrayList<LineItems> liPrices2 = new ArrayList();
+        double price = 0;
+        
+        for(int i = 0; i < liIdAndAmount2.size(); i++){
+            int matID = liIdAndAmount2.get(i).getMaterials_MaterialsID();
+            int matAmount = liIdAndAmount2.get(i).getAmount();
+            double getPrice = MaterialMapper.getPrice(matID);
+            out.print("MatId = " + matID);
+            out.print(",  " + "Amount = " + matAmount);
+            out.print(",  " + "Price = " + getPrice);
+            out.print("<br>");
         }
         
-        for(int i = 0; i < liP.size(); i++){
-            price += liP.get(i).getPrice() * li2.get(i).getAmount();
+        for(int i = 0; i < liIdAndAmount2.size(); i++){
+            int matID = liIdAndAmount2.get(i).getMaterials_MaterialsID();
+            int matAmount = liIdAndAmount2.get(i).getAmount();
+            double getPrice = MaterialMapper.getPrice(matID);
+            
+            while(matAmount > 0){
+            
+            LineItems lineItem = new LineItems(matID, getPrice);
+            liPrices2.add(lineItem);
+            matAmount--;
+            }
         }
+        
+        for(int i = 0; i < liPrices2.size(); i++){
+            price += liPrices2.get(i).getPrice();
+        }
+        
         out.print("<br>");
         out.print("<h1> TOTAL PRICE: " + price + " DKK </h1>");
     }
     // </Simon>
     %>
+
 
 <%// Martin %>    
 </div>
