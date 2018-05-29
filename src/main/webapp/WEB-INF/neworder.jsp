@@ -31,7 +31,7 @@
         // <Simon>
         
         Calc calc = new Calc(); 
-        ArrayList<LineItems> liP = new ArrayList<>();
+        ArrayList<LineItems> liP = new ArrayList<LineItems>();
         double price = 0;
         LineItems mat = new LineItems(0);
         
