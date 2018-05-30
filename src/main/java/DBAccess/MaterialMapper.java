@@ -52,19 +52,8 @@ public class MaterialMapper {
 
             if (rs.next())
             {
-                
-                
-                            Materials mats = new Materials(MaterialsID);
-                mats.setMaterialsID(MaterialsID);
-                mats.setPrice(rs.getInt("Price"));              
-                
                 double mat = rs.getDouble("Price");
-                
-/*                mats.setDesp(rs.getString("Description"));
-                mats.setName(rs.getString("Name"));
-                mats.setStock(rs.getInt("Stock"));
-                mats.setLength(rs.getInt("Length"));
-*/
+
             return mat;
                 
             } else
