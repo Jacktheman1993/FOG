@@ -5,7 +5,6 @@
  */
 package DBAccess;
 
-import FunctionLayer.LineItems;
 import FunctionLayer.LoginSampleException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

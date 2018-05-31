@@ -16,7 +16,7 @@ td, th {
                 <% for(int i = 0; i < listen.size(); i++){
                     out.println("<tr>");
                     out.println("<th>");
-                    out.println("Order Numbers: " + "<td>" + listen.get(i) + " <a href=FrontController?command=stykListe><button>Se Stykliste</button></a></td>");
+                    out.println("Order Numbers: " + "<td>" + listen.get(i) + "</td>");
                     out.println("</th>");
                     out.println("<tr>");
                 }
