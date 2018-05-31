@@ -120,5 +120,33 @@ public class MaterialMapper {
         }
     }
             
+    public static String getDesc(int MaterialsID) throws LoginSampleException, SQLException
+    {
+        try{
+            Connection con = Connector.connection();
+            String SQL = "select Materials.Description from Materials where Materials.MaterialsID = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, MaterialsID);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next())
+            {
+                String mat = rs.getString("Description");
+
+            return mat;
+                
+            } else
+            {
+             throw new LoginSampleException("Can't find Description");
+            }
+            
+        }    catch (ClassNotFoundException | SQLException ex) {
+            throw new LoginSampleException( ex.getMessage() );
+        }
+    }
+    
+    
+    
+            
     
     }

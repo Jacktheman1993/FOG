@@ -49,9 +49,12 @@
             int matID = liIdAndAmount.get(i).getMaterials_MaterialsID();
             int matAmount = liIdAndAmount.get(i).getAmount();
             double getPrice = MaterialMapper.getPrice(matID);
+            String getDesc = MaterialMapper.getDesc(matID);
+            
             out.print("MatId = " + matID);
-            out.print(",  " + "Amount = " + matAmount);
-            out.print(",  " + "Price = " + getPrice);
+            out.print(",    " + "  Amount = " + matAmount);
+            out.print(",    " + "  Price = " + getPrice);
+            out.print(",    " + "  Description = " + getDesc);
             out.print("<br>");
         }
         
@@ -85,9 +88,12 @@
             int matID = liIdAndAmount2.get(i).getMaterials_MaterialsID();
             int matAmount = liIdAndAmount2.get(i).getAmount();
             double getPrice = MaterialMapper.getPrice(matID);
+            String getDesc = MaterialMapper.getDesc(matID);
+            
             out.print("MatId = " + matID);
-            out.print(",  " + "Amount = " + matAmount);
-            out.print(",  " + "Price = " + getPrice);
+            out.print(",    " + "  Amount = " + matAmount);
+            out.print(",    " + "  Price = " + getPrice);
+            out.print(",    " + "  Description = " + getDesc);
             out.print("<br>");
         }
         

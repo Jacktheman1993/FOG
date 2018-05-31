@@ -10,11 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Orderinput extends Command {
 
-    public Orderinput() {
-    }
+    
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {    
         
         return "orderinput";
     }

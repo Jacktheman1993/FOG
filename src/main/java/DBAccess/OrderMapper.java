@@ -54,7 +54,6 @@ public class OrderMapper
         try
         {
             Connection con = Connector.connection();
-//            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
             String SQL = "select * from `Orders` where idOrder = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, idOrder);
@@ -65,13 +64,10 @@ public class OrderMapper
                 Order getorder = new Order(idOrder);
                 getorder.setIDorder(idOrder);
                 getorder.setWidth(rs.getInt("Width"));
-//                getorder.setOrderDate(date);
                 getorder.setLength(rs.getInt("Length"));
                 getorder.setHeight(rs.getInt("Height"));
                 return getorder;
-//                String orderID = rs.getString( "orderID" );
-//                getorder.setOrderID(orderID);
-//                return rs;
+
             } else
             {
                 throw new LoginSampleException("Could not find an order: OrderID is not used yet");
@@ -117,11 +113,9 @@ public class OrderMapper
         {
             Connection con = Connector.connection();
             String SQL = "select * from `Orders` inner join Users on Orders.Users_id = Users.id where id = 1";
-//            String SQL = "select Orders.idOrder, Orders.Width, Orders.Length, Orders.Height, Orders.Shed, Orders.Status, Users.id, Users.Email from Orders, Users where Orders.Users_id = Users.id";
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             ArrayList<Order> list = new ArrayList<>();
-//            ArrayList<LineItems> lineItems = new ArrayList<>();
             while (rs.next())
             {
                 list.add(new Order(rs.getInt("id"), rs.getInt("idOrder"), rs.getInt("Width"), rs.getInt("Length"), rs.getInt("Height"), rs.getBoolean("Shed"), rs.getBoolean("Status")));
@@ -131,7 +125,7 @@ public class OrderMapper
                 return list;
             } else
             {
-                throw new LoginSampleException("Something went wrong: list size is less than 1 (no orders yet)");
+                throw new LoginSampleException("Something went wrong");
             }
         } catch (ClassNotFoundException | SQLException ex)
         {
