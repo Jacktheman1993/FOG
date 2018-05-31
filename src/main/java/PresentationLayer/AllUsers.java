@@ -18,9 +18,9 @@ public class AllUsers  extends Command{
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-        ArrayList<User> us = UserMapper.getUsers();
+        ArrayList<User> usList = UserMapper.getUsers();
         
-        request.setAttribute("allUsers", us);
+        request.setAttribute("allUsers", usList);
         
         return "allUsers";
 

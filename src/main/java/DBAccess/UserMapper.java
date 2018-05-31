@@ -72,14 +72,14 @@ public class UserMapper {
             ArrayList<User> usList = new ArrayList<>();
                         while (rs.next())
             {
-                usList.add(new User(rs.getString("Email"), rs.getString("Password"), rs.getString("Role")));
+                usList.add(new User(rs.getInt("id"), rs.getString("Email"), rs.getString("Password"), rs.getString("Role")));
             }
             if (usList.size() > 0)
             {
                 return usList;
             } else
             {
-                throw new LoginSampleException("Something went wrong: list size is less than 1 (no orders yet)");
+                throw new LoginSampleException("Something went wrong: could not get Users");
             }
         } catch (ClassNotFoundException | SQLException ex)
         {

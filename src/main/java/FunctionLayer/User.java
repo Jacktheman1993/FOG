@@ -14,6 +14,13 @@ public class User {
     private String Password; // Should be hashed and all
     private String Role;
 
+    public User(int id, String Email, String Password, String Role) {
+        this.id = id;
+        this.Email = Email;
+        this.Password = Password;
+        this.Role = Role;
+    }
+
     public String getEmail() {
         return Email;
     }
