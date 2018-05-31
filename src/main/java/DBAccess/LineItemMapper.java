@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DBAccess;
 
 import FunctionLayer.LineItems;
@@ -18,10 +13,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-
+/**
+ *
+ * @author Unknown
+ */
 public class LineItemMapper {
 
-public static int createLineItems(Order order, Materials materials, int Amount, double Price) throws LoginSampleException {
+    /**
+     *
+     * @param order
+     * @param materials
+     * @param Amount
+     * @param Price
+     * @throws LoginSampleException
+     */
+    public static int createLineItems(Order order, Materials materials, int Amount, double Price) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO `LineItems` (Users_id, width, length, height ) VALUES (?,?,?,?)";
@@ -38,12 +44,18 @@ public static int createLineItems(Order order, Materials materials, int Amount, 
             throw new LoginSampleException( ex.getMessage() );
         }
     }
+
+    /**
+     *
+     * @param MaterialsID
+     * @return LineItem
+     * @throws LoginSampleException
+     */
     public static LineItems getLineItems(int MaterialsID) throws LoginSampleException
     {
         try
         {
             Connection con = Connector.connection();
-//            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
             String SQL = "select * from `LineItems` where idOrder = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(2, MaterialsID);
@@ -57,9 +69,6 @@ public static int createLineItems(Order order, Materials materials, int Amount, 
                 getLineItems.setAmount(rs.getInt("Amount"));
                 getLineItems.setPrice(rs.getInt("Price"));
                 return getLineItems;
-//                String orderID = rs.getString( "orderID" );
-//                getorder.setOrderID(orderID);
-//                return rs;
             } else
             {
                 throw new LoginSampleException("Something went wrong: idOrder or MaterialsID is not used yet");
@@ -70,12 +79,17 @@ public static int createLineItems(Order order, Materials materials, int Amount, 
         }
     }
 // Simon & Sandro
+
+    /**
+     *
+     * @return All LineItems
+     * @throws LoginSampleException
+     */
     public static ArrayList<LineItems> getLineItems() throws LoginSampleException
     {
         try
         {
             Connection con = Connector.connection();
-            //select Materials.MaterialsID, Materials.Name, Materials.Length, Materials.Stock, Materials.Price, Materials.Description,Type.Name_T from Materials,Type where Materials.Type_idType=Type.idType;
             String SQL = "select LineItems.Orders_idOrder,LineItems.Materials_MaterialsID , LineItems.Amount, LineItems.Price, Materials.Name, Materials.Description, Materials.Length from LineItems,Materials where LineItems.Materials_MaterialsID=Materials.MaterialsID Order by Materials_MaterialsID;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
@@ -96,12 +110,18 @@ public static int createLineItems(Order order, Materials materials, int Amount, 
             throw new LoginSampleException(ex.getMessage());
         }
     }
+
+    /**
+     *
+     * @param idOrder
+     * @return Order
+     * @throws LoginSampleException
+     */
     public static Order getUserOrder(int idOrder) throws LoginSampleException
     {
         try
         {
             Connection con = Connector.connection();
-//            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
             String SQL = "select * from `Orders` natraul join Users where Users_id = id";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, idOrder);
@@ -112,13 +132,10 @@ public static int createLineItems(Order order, Materials materials, int Amount, 
                 Order getorder = new Order(idOrder);
                 getorder.setIDorder(idOrder);
                 getorder.setWidth(rs.getInt("Width"));
-//                getorder.setOrderDate(date);
                 getorder.setLength(rs.getInt("Length"));
                 getorder.setHeight(rs.getInt("Height"));
                 return getorder;
-//                String orderID = rs.getString( "orderID" );
-//                getorder.setOrderID(orderID);
-//                return rs;
+
             } else
             {
                 throw new LoginSampleException("Something went wrong: OrderID is not used yet");
@@ -129,14 +146,17 @@ public static int createLineItems(Order order, Materials materials, int Amount, 
         }
     }
     
-    
-    
-     public static LineItems getLineitem(int materialID) throws LoginSampleException
+    /**
+     *
+     * @param materialID
+     * @return LineItem
+     * @throws LoginSampleException
+     */
+    public static LineItems getLineitem(int materialID) throws LoginSampleException
     {
         try
         {
             Connection con = Connector.connection();
-//            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
             String SQL = "select * from `LineItems` where Materials_MaterialsID = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, materialID);
@@ -153,9 +173,6 @@ public static int createLineItems(Order order, Materials materials, int Amount, 
                 getLi.setDescription(rs.getString("Description"));
                 getLi.setLength(rs.getInt("Length"));
                 return getLi;
-//                String orderID = rs.getString( "orderID" );
-//                getorder.setOrderID(orderID);
-//                return rs;
             } else
             {
                 throw new LoginSampleException("Something went wrong: LineItem doesn't exist");

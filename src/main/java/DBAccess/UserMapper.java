@@ -14,12 +14,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- The purpose of UserMapper is to...
-
- @author kasper
- */
+*@author Javadoc by Simon
+*/
 public class UserMapper {
 
+    /**
+     *
+     * @param user
+     * @throws LoginSampleException
+     */
     public static void createUser( User user ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -38,6 +41,13 @@ public class UserMapper {
         }
     }
 
+    /**
+     *
+     * @param Email
+     * @param Password
+     * @return User found in DB
+     * @throws LoginSampleException
+     */
     public static User login( String Email, String Password ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -60,7 +70,11 @@ public class UserMapper {
             throw new LoginSampleException(ex.getMessage());
         }
     }
-    //Copied from GetOrders()
+
+    /**
+     *
+     * @throws LoginSampleException
+     */
         public static ArrayList<User> getUsers() throws LoginSampleException
     {
         try

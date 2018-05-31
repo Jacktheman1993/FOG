@@ -16,10 +16,21 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Alek
+ * @author Javadoc by Simon
  */
 public class MaterialMapper {
     
+    /**
+     *
+     * @param MaterialsID
+     * @param Name
+     * @param Length
+     * @param Stock
+     * @param Price
+     * @param Description
+     * @param Name_T
+     * @throws LoginSampleException
+     */
     public static int createMaterial(int MaterialsID, String Name, int Length, int Stock, double Price, String Description, String Name_T) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -40,6 +51,14 @@ public class MaterialMapper {
             throw new LoginSampleException( ex.getMessage() );
         }
     }
+
+    /**
+     *
+     * @param MaterialsID
+     * @return Price for a material found by id
+     * @throws LoginSampleException
+     * @throws SQLException
+     */
     public static double getPrice(int MaterialsID) throws LoginSampleException, SQLException
     {
         try{
@@ -65,6 +84,16 @@ public class MaterialMapper {
         }
     }
     
+    /**
+     *
+     * @param Name
+     * @param Length
+     * @param Stock
+     * @param Price
+     * @param Description
+     * @param MaterialsID
+     * @throws LoginSampleException
+     */
     public static void updateMaterial( String Name, int Length, int Stock, double Price, String Description, int MaterialsID) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -92,6 +121,12 @@ public class MaterialMapper {
     }
     
     // Alessandro & Simon
+
+    /**
+     *
+     * @return All Materials in an ArrayList
+     * @throws LoginSampleException
+     */
             public static ArrayList<Materials> getMaterials() throws LoginSampleException
     {
         try
@@ -120,6 +155,13 @@ public class MaterialMapper {
         }
     }
             
+    /**
+     *
+     * @param MaterialsID
+     * @return The description of a material, found by the id.
+     * @throws LoginSampleException
+     * @throws SQLException
+     */
     public static String getDesc(int MaterialsID) throws LoginSampleException, SQLException
     {
         try{

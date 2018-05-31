@@ -19,12 +19,27 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ *
+ * @author Simon
+ */
 public class OrderMapper
 {
 
     java.sql.Date date1 = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 // Martin
 
+    /**
+     *
+     * @param user
+     * @param width
+     * @param length
+     * @param height
+     * @param shed
+     * @param status
+     * @return int resultset ids = ps.getGeneratedKeys()
+     * @throws LoginSampleException
+     */
     public static int createOrder(User user, int width, int length, int height, boolean shed, boolean status) throws LoginSampleException
     {
         try
@@ -49,6 +64,13 @@ public class OrderMapper
     }
 
 //Martin
+
+    /**
+     *
+     * @param idOrder
+     * @return Order, found by id
+     * @throws LoginSampleException
+     */
     public static Order getOrder(int idOrder) throws LoginSampleException
     {
         try
@@ -79,6 +101,11 @@ public class OrderMapper
     }
 // Simon
 
+    /**
+     *
+     * @return ArrayList with all orders
+     * @throws LoginSampleException
+     */
     public static ArrayList<Order> getOrders() throws LoginSampleException
     {
         try
@@ -88,7 +115,6 @@ public class OrderMapper
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             ArrayList<Order> list = new ArrayList<>();
-            ArrayList<LineItems> lineItems = new ArrayList<>();
             while (rs.next())
             {
                 list.add(new Order(rs.getInt("id"), rs.getInt("idOrder"), rs.getInt("Width"), rs.getInt("Length"), rs.getInt("Height"), rs.getBoolean("Shed"), rs.getBoolean("Status")));
@@ -107,6 +133,11 @@ public class OrderMapper
     }
 
     //Nicolai
+
+    /**
+     *
+     * @throws LoginSampleException
+     */
     public static ArrayList<Order> getUserOrders() throws LoginSampleException
     {
         try
@@ -133,6 +164,12 @@ public class OrderMapper
         }
     }
 
+    /**
+     *
+     * @param idOrder
+     * @param status
+     * @throws LoginSampleException
+     */
     public static void updateOrderStatus(int idOrder, boolean status) throws LoginSampleException
     {
         try
