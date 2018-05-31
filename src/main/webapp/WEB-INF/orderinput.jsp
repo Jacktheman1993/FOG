@@ -16,7 +16,7 @@
     Yes<input type="radio" name="shed" value="shed_yes" />
     No<input type="radio" name="shed"  value="shed_no" checked="checked" />
     <br>
-    <a href="FrontController?command=neworder"><button>Bestil ordre</button></a>
+    <a href="FrontController?command=neworder"><button>Confirm Order</button></a>
 </form>
 <br>
 <form method="post" action="mailto:cph-aa264@cphbusiness.dk" >
