@@ -16,9 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
+/** Methoden logger en ud og sender en tilbage til index.
  *
- * @author The Overlord
+ * @author Nicolai
  */
 @WebServlet("/logout")
 public class Logout extends HttpServlet
@@ -28,13 +28,6 @@ public class Logout extends HttpServlet
     {
         request.getSession().invalidate();
         response.sendRedirect(request.getContextPath() + "/index.jsp");
-        
-//        HttpSession newsession = request.getSession(false);
-//        if(newsession != null)
-//        {
-//            newsession.invalidate();
-//        }
-//        response.sendRedirect("../index.jsp");
     }
 
     
