@@ -5,21 +5,27 @@
  */
 package PresentationLayer;
 
+import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.Materials;
+import java.sql.SQLException;
+import java.util.logging.Level;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import loggingdemo.Conf;
 
 /**
  *
- * @author Martin
+ * @author Alek
  */
-public class GetData extends Command
-{
+public class UpdateMaterial extends Command {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException
-    {
-        return "getdata";
+    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+        
+        return "updateMaterial";
     }
-    
 }
+    
+    
+

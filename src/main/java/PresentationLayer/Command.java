@@ -15,11 +15,16 @@ abstract class Command {
         commands.put( "login", new Login() );
         commands.put( "register", new Register() );
         commands.put( "allOrders", new AllOrders() );
-        commands.put( "carportdrawing", new Carportdrawing());
-        commands.put( "getdata", new GetData());
+        commands.put( "allUsers", new AllUsers() );
         commands.put( "orderinput", new Orderinput());
         commands.put( "neworder", new NewOrder());
-
+        commands.put( "stock", new Stock());
+        commands.put( "allUserOrder", new AllUserOrder());
+        commands.put( "stykListe", new StykListe());
+        commands.put( "orders", new SearchOrder());
+        commands.put( "updateMaterial", new UpdateMaterial());
+        commands.put( "matUpdated", new MatUpdated());
+        commands.put( "UpdateStatus", new UpdateStatus());
     }
 
     static Command from( HttpServletRequest request ) {

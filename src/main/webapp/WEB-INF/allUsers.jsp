@@ -1,6 +1,6 @@
 <%@include file="//includes/header.jsp" %> 
 <%@page import="java.util.ArrayList"%>
-<%@page import="FunctionLayer.Order"%>
+<%@page import="FunctionLayer.User"%>
 
 <style>
 td, th {
@@ -11,14 +11,14 @@ td, th {
     
 </style>
 
-<% ArrayList<Order>listen = (ArrayList<Order>) request.getAttribute("allOrders");%>
+<% ArrayList<User>listen = (ArrayList<User>) request.getAttribute("allUsers");%>
 
 <table>
-                <h1>Orders</h1>
+                <h1>All Customers & Admins</h1>
                 <% for(int i = 0; i < listen.size(); i++){
                     out.println("<tr>");
                     out.println("<th>");
-                    out.println("Order: " + "<td>" + listen.get(i)+ "</td>");
+                    out.println("User info: "+ "<td>" + listen.get(i)+"</td>");
                     out.println("</th>");
                     out.println("<tr>");
                 }

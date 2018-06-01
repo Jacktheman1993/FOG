@@ -1,34 +1,49 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package FunctionLayer;
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.sql.Date;
-//import java.util.Calendar;
-/**
- *
- * @author Martin
- */
+import java.util.ArrayList;
+import java.util.Calendar;
+
+
 public class Order
 {
-//    private java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+       private java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+       private int id;
     private int IDorder;
-    private int width;
-    private int length;
-    private int height;
+    private int Width;
+    private int Length;
+    private int Height;
+    private boolean Shed;
+    private boolean Status;
+    // int carportType;
+    
 
-    public Order(int IDorder, int width, int length, int height) {
+    public Order( int id, int IDorder, int Width, int Length, int Height, boolean Shed, boolean Status) {
+        this.id =id;
         this.IDorder = IDorder;
-        this.width = width;
-        this.length = length;
-        this.height = height;
+        this.Width = Width;
+        this.Length = Length;
+        this.Height = Height;
+        this.Shed = Shed;
+        this.Status = Status;
     }
 
-    public Order(int orderID) {
+    public boolean isStatus()
+    {
+        return Status;
+    }
+
+    public void setStatus(boolean Status)
+    {
+        this.Status = Status;
+    }
+
+    
+    public Order(int IDorder) {
         this.IDorder = IDorder;
     }
+    
 
     public int getIDorder() {
         return IDorder;
@@ -39,34 +54,63 @@ public class Order
     }
 
     public int getWidth() {
-        return width;
+        return Width;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
+    public void setWidth(int Width) {
+        this.Width = Width;
     }
 
     public int getLength() {
-        return length;
+        return Length;
     }
 
-    public void setLength(int length) {
-        this.length = length;
+    public void setLength(int Length) {
+        this.Length = Length;
     }
 
     public int getHeight() {
-        return height;
+        return Height;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public void setHeight(int Height) {
+        this.Height = Height;
     }
+
+    public boolean isShed() {
+        return Shed;
+    }
+
+    public void setShed(boolean Shed) {
+        this.Shed = Shed;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
+    
+//    @Override
+//    public String toString()
+//    {
+//        return "Order{" + "date=" + date + ", IDorder=" + IDorder + ", Width=" + Width + ", Length=" + Length + ", Height=" + Height + ", Shed=" + Shed + ", Status=" + Status + '}';
+//    }
 
     @Override
-    public String toString() {
-        return "Order{" + "IDorder=" + IDorder + ", width=" + width + ", length=" + length + ", height=" + height + '}';
+    public String toString()
+    {
+        return "Order{" + "date=" + date + ", User id=" + id + ", IDorder=" + IDorder + ", Width=" + Width + ", Length=" + Length + ", Height=" + Height + ", Shed=" + Shed + ", Status=" + Status + '}';
     }
 
-
-}
     
+    
+    
+    
+        
+}

@@ -1,19 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package PresentationLayer;
 
-import DBAccess.OrderMapper;
+
+import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.User;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import loggingdemo.Conf;
 
-/**
- *
- * @author simon
- */
+
+// Simon
+
 public class NewOrder extends Command {
 
     public NewOrder() {
@@ -25,6 +25,11 @@ public class NewOrder extends Command {
         int getwidth = Integer.parseInt(request.getParameter( "width" ));
         int getlength = Integer.parseInt(request.getParameter("length"));
         int getheight = Integer.parseInt(request.getParameter("height"));
+        String getshed = request.getParameter("shed");
+        boolean status = false;
+        boolean shed = false;
+        
+        shed = "shed_yes".equals(getshed);
         
         if(getwidth > 1000 || getwidth < 400){
             return "orderinput";
@@ -43,10 +48,18 @@ public class NewOrder extends Command {
         result[0] = getwidth;
         result[1] = getlength;
         result[2] = getheight;
+
         
+        request.setAttribute("shedBool", shed);
         request.setAttribute("itemlist", result);
-        
-        OrderMapper.createOrder(getwidth, getlength, getheight);
+        User user = (User)request.getSession().getAttribute("user");
+            try
+            {
+                LogicFacade.createOrder(user, getwidth, getlength, getheight, shed, status);
+            } catch (SQLException ex)
+            {
+                Conf.MYLOGGER.log(Level.SEVERE, null, ex);
+            }
         
         return "neworder";
         }

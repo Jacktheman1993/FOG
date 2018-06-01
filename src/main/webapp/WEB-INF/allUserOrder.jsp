@@ -1,24 +1,22 @@
+<%@page import="PresentationLayer.FrontController"%>
 <%@include file="//includes/header.jsp" %> 
 <%@page import="java.util.ArrayList"%>
 <%@page import="FunctionLayer.Order"%>
-
 <style>
 td, th {
     border: 2px solid #dddddd;
     text-align: left;
     padding: 8px;
 }    
-    
+
 </style>
-
-<% ArrayList<Order>listen = (ArrayList<Order>) request.getAttribute("allOrders");%>
-
+<h1>My Orders</h1>
+<% ArrayList<Order>listen = (ArrayList<Order>) request.getAttribute("allUserOrder");%>
 <table>
-                <h1>Orders</h1>
                 <% for(int i = 0; i < listen.size(); i++){
                     out.println("<tr>");
                     out.println("<th>");
-                    out.println("Order: " + "<td>" + listen.get(i)+ "</td>");
+                    out.println("Order Numbers: " + "<td>" + listen.get(i) + "</td>");
                     out.println("</th>");
                     out.println("<tr>");
                 }

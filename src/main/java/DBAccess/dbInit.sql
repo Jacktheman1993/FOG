@@ -1,5 +1,5 @@
 -- MySQL Workbench Forward Engineering
-
+#Alessandro
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
@@ -27,11 +27,9 @@ DROP TABLE IF EXISTS `Carports`;
 -- Table `useradmin`.`Materials`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `useradmin`.`Materials` (
-  `MaterialsID` INT(11) NOT NULL,
+  `MaterialsID` INT(15) NOT NULL AUTO_INCREMENT,
   `MaterialsName` VARCHAR(45) NOT NULL,
-  `QuantityInOrder` INT(11) NOT NULL,
   `MaterialsInStock` INT(11) NOT NULL,
-  `MaterialsInOrders` INT(11) NOT NULL,
   `Pris` INT(11) NOT NULL,
   PRIMARY KEY (`MaterialsID`))
 ENGINE = InnoDB
