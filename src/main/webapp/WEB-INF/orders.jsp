@@ -28,7 +28,7 @@
 <form name="status" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="UpdateStatus">
                         Order ID:<br>
-                        <input type="number" name="idOrder" value="">
+                        <input required="" type="number" name="idOrder" value="">
                         <br>
                         <h3>Change order from "Processing" to "Ready to deliver"?</h3>
                         Yes<input type="radio" name="status" value="status_yes" />

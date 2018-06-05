@@ -15,22 +15,22 @@
 <form name="update" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="matUpdated">
                         ID:<br>
-                        <input type="number" name="ID" value="">
+                        <input required="" type="number" name="ID" value="">
                         <br>
                         Name:<br>
-                        <input type="text" name="Name" value="">
+                        <input required="" type="text" name="Name" value="">
                         <br>
                         Length:<br>
-                        <input type="number" name="Length" value="">
+                        <input required="" type="number" name="Length" value="">
                         <br>
                         Stock:<br>
-                        <input type="number" name="Stock" value="">
+                        <input required="" type="number" name="Stock" value="">
                         <br>
                         Price:<br>
-                        <input type="number" name="Price" value="">
+                        <input required="" type="number" name="Price" value="">
                         <br>
                         Description:<br>
-                        <input type="text" name="Description" value="">
+                        <input required="" type="text" name="Description" value="">
                         <br>
                         <input type="submit" value="Update Material">
                     </form>
