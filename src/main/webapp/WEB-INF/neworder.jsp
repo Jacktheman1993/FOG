@@ -10,8 +10,7 @@
 <%@page import="FunctionLayer.User"%> 
 
 <% Boolean shed = (Boolean)request.getAttribute("shedBool");%>
-
-<div class="orderStyle">
+<div id="newO_left">
     <h1>Order details</h1>
     <% int[] itemList = (int[]) request.getAttribute("itemlist");%>
 
@@ -24,9 +23,8 @@
     = <%=itemList[2]%> 
     <br>
     <br>
-    
-    
-    
+<%@include file="//includes/logout.jsp" %>  
+        <h2>Stykliste</h2>
     <%
         // <Simon>
         
@@ -123,7 +121,8 @@
 
 <%// Martin %>    
 </div>
-<div class="orderStyle">
+<div id="newO_rigth">
+    <div class="svg_drawing">
     <SVG width="760" height="600" viewBox="0 0 <%=itemList[1]%> <%=itemList[0]%> ">
     <defs>
         <marker id="beginArrow"
@@ -189,6 +188,8 @@
         <%}%>
     </svg>
 </SVG>
+    </div>
+    <div class="svg_drawing">
 <svg width="760" height="400" viewbox="0 0 <%=itemList[1]%> <%=itemList[0]%>"
   preserveAspectRatio="none">
 <rect x="0%" y="0" height="10" width="<%=itemList[1]%>" id="Rooflayertop"
@@ -236,6 +237,6 @@
     </text>
   
 </SVG>
+    </div>
 </div>
-    <%@include file="//includes/logout.jsp" %>  
-<%@include file="//includes/footer.jsp" %>  
+<%@include file="//includes/footer.jsp" %>

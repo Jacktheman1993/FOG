@@ -35,5 +35,6 @@
                         No<input type="radio" name="status"  value="status_no" checked="checked" />
                         <input type="submit" value="Update Status">
                     </form>
-        <%@include file="//includes/logout.jsp" %> 
-        <%@include file="//includes/footer.jsp" %> 
+<%@include file="//includes/back.jsp" %>
+<%@include file="//includes/logout.jsp" %> 
+<%@include file="//includes/footer.jsp" %> 

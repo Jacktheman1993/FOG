@@ -34,5 +34,6 @@
                         <br>
                         <input type="submit" value="Update Material">
                     </form>
+<%@include file="//includes/back.jsp" %>
 <%@include file="//includes/logout.jsp" %> 
 <%@include file="//includes/footer.jsp" %> 

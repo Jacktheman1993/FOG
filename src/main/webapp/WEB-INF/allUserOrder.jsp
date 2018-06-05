@@ -22,5 +22,6 @@ td, th {
                 }
                 %>
 </table>
+<%@include file="//includes/back.jsp" %>
 <%@include file="//includes/logout.jsp" %> 
                 <%@include file="//includes/footer.jsp" %> 

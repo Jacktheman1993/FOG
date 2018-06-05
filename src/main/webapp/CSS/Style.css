@@ -1,7 +1,14 @@
-.orderStyle
-{    
+#newO_left
+{
+    margin: 2px;
+    padding: 2px;
     float: left;
-    margin-left: 5px;
+}
+#newO_rigth
+{
+    margin: 2px;
+    padding: 2px;
+    float: left;
 }
 td, th {
     border: 2px solid #dddddd;
