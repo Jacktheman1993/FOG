@@ -13,7 +13,7 @@
         <form id="formSearch" action="FrontController" method="post">
             <label id="labelUsername" for="idOrder">idOrder</label>
             <input type="hidden" name="command" value="orders" />
-            <input type="number" name="idOrder" />
+            <input required="" type="number" name="idOrder" />
             <input type="submit" value="SEARCH ORDER" />
         </form>
         
