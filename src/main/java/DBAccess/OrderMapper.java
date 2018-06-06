@@ -138,13 +138,15 @@ public class OrderMapper
      *
      * @throws LoginSampleException
      */
-    public static ArrayList<Order> getUserOrders() throws LoginSampleException
+    public static ArrayList<Order> getUserOrders(int userID) throws LoginSampleException
     {
         try
         {
             Connection con = Connector.connection();
-            String SQL = "select * from `Orders` inner join Users on Orders.Users_id = Users.id where id = 1";
+            String SQL = "select * from `Orders` inner join Users on Orders.Users_id = Users.id where id = ?";
+//            String SQL = "select idOrder, Width, Length, Height, Shed, Status from `Orders` inner join Users on Orders.Users_id = Users.id where id = ? order by idOrder;";
             PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, userID);
             ResultSet rs = ps.executeQuery();
             ArrayList<Order> list = new ArrayList<>();
             while (rs.next())

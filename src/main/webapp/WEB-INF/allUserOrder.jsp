@@ -10,6 +10,7 @@ td, th {
 }    
 
 </style>
+<h1>Hello <%=request.getParameter( "email" )%> </h1>
 <h1>My Orders</h1>
 <% ArrayList<Order>listen = (ArrayList<Order>) request.getAttribute("allUserOrder");%>
 <table>
@@ -25,3 +26,4 @@ td, th {
 <%@include file="//includes/back.jsp" %>
 <%@include file="//includes/logout.jsp" %> 
                 <%@include file="//includes/footer.jsp" %> 
+                

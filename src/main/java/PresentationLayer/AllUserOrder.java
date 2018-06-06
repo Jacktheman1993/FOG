@@ -26,9 +26,12 @@ public class AllUserOrder extends Command
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         
         HttpSession session = request.getSession();
-        User users = (User)session.getAttribute("user");
         
-        ArrayList<Order> ord = OrderMapper.getUserOrders();
+        
+        User userID = (User) session.getAttribute("user");
+        
+       
+        ArrayList<Order> ord = OrderMapper.getUserOrders(userID.getId());
         
         request.setAttribute("allUserOrder", ord);
         
